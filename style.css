@@ -58,6 +58,73 @@ path {
     text-shadow: 1px 1px 4px darkGray;
 }
 
+.boggle-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.board-section h2 {
+    color: darkRed;
+    background-color: navajoWhite;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem;
+}
+.boggleLetters {
+    background-color: navajoWhite;
+    border: 2px solid orange;
+}
+.boggleCell {
+    border: 10px solid black;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+h3 {
+    background-color: navajoWhite;
+    margin: 0;
+    padding: 5px;
+}
+
+td, th {
+    border: 2px solid orange;
+    color: darkRed;
+    text-align: center;
+}
+
+.words-found {
+    background-color: navajoWhite;
+    height: 250px;
+    padding: 1rem;
+    width: 300px;
+}
+.word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+}
+.word-item {
+    text-align: center;
+    color: black;
+}
+.score {
+    margin-top: 1rem;
+    text-align: center;
+    background-color: darkRed;
+    color: white;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
 @keyframes rotateJefe {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }

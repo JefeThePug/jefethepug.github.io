@@ -3,4 +3,3 @@ description = "A clone of the popular game, Boggle."
 packages = ["rich", "numpy", "lxml", "requests"]
 [files]
 "./main.py" = "main"
-"https://raw.githubusercontent.com/JefeThePug/Boggle/refs/heads/main/helper.py" = "helper"
