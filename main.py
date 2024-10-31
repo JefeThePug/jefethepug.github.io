@@ -31,22 +31,26 @@ board_url = (
 helper = load_module("helper", helper_url)
 board = load_module("board", board_url)
 
+
 #################
 #  Actual Code  #
 #################
 import numpy as np
 
 from pyscript import when
+from pyodide.http import pyfetch
 from js import document
 from datetime import datetime, timedelta
+from lxml import html
 
 
 class Timer:
-    def __init__(self):
+    def __init__(self, time_up):
         self.running = False
         self.end_time = None
         self.display = document.getElementById("timer")
         self.task = None
+        self.time_up = time_up
 
     async def start(self, minutes: int = 1):
         if not self.running:
@@ -60,26 +64,43 @@ class Timer:
             minutes, seconds = divmod(remaining.seconds, 60)
             self.display.innerHTML = f"{minutes:02d}:{seconds:02d}"
             await asyncio.sleep(1)
-
         if self.running:
             self.display.innerHTML = "Time's up!"
             self.running = False
-
-    def stop(self):
-        self.running = False
-        if self.task:
             self.task.cancel()
+            await self.time_up()
 
 
-TIMER = Timer()
+async def time_up():
+    print_to_html(
+        f'<span style="{WHITE}">Your final score was </span>'
+        f'<span style="{WHITE2}{BOLD}background-{RED}"> {BOARD.score} </span>'
+    )
+    GAME_STATE[0] = "quit"
+    game_over()
+
+
+TIMER = Timer(time_up)
 USER_INPUT = document.querySelector("#userInput")
 GAME_STATE = ["start"]
 MSG = [""]
+BOARD = board.Board()
+
+BOLD = "font-weight:900;"
+WHITE = "color:navajoWhite;"
+WHITE2 = "color:white;"
+RED = "color:darkRed;"
+PINK = "color:magenta;"
 
 
 def clear() -> None:
     output_element = document.getElementById("output")
     output_element.innerHTML = ""
+
+
+def game_over() -> None:
+    USER_INPUT.parentElement.style.display = "none"
+    USER_INPUT.style.display = "none"
 
 
 def print_to_html(message: str) -> None:
@@ -89,7 +110,7 @@ def print_to_html(message: str) -> None:
     new_message = []
     for i, c in enumerate(message):
         if c == " ":
-            if "".join(message[i - 1 : i + 2]) in ("e c", "d c", "n s", "v c"):
+            if "".join(message[i - 1 : i + 2]) in ("e c", "d c", "n s", "v c", "v s"):
                 new_message.append(c)
             else:
                 new_message.append("&nbsp;")
@@ -99,59 +120,42 @@ def print_to_html(message: str) -> None:
     output_element.innerHTML += f'<p>{"".join(new_message)}</p>'
 
 
-@when("click", "#start-button")
-async def start_timer():
-    await TIMER.start(1)
-
-
-@when("click", "#stop-button")
-def stop_timer():
-    TIMER.stop()
-
-
 @when("change", USER_INPUT)
 async def input_refresh():
+    user_input, USER_INPUT.value = USER_INPUT.value.lower().strip(), ""
     if GAME_STATE[0] == "start":
-        if USER_INPUT.value.lower().strip() == "start":
+        if user_input == "start":
+            BOARD = board.Board()
             GAME_STATE[0] = "play"
+            TIMER.display.style.display = "inline"
+            await TIMER.start(1)
             await timed_round()
-        elif USER_INPUT.value.lower().strip() == "quit":
-            print_to_html(
-                '<span style="color:magenta;font-weight:900;">Goodbye!</span>'
-            )
-            USER_INPUT.parentElement.style.display = "none"
-            USER_INPUT.style.display = "none"
+        elif user_input == "quit":
+            print_to_html(f'<span style="{PINK}{BOLD}">Goodbye!</span>')
+            game_over()
         else:
             print_to_html(
-                '<span style="color:magenta;font-weight:900;">Select only start or quit.</span>'
+                f'<span style="{PINK}{BOLD}">Select only start or quit.</span>'
             )
     elif GAME_STATE[0] == "play":
-        await timed_round()
-
-    USER_INPUT.value = ""
+        await timed_round(user_input)
 
 
-def display_board(game_board):
-    letters = np.where(game_board.letters == "Q", "Qu", game_board.letters)
-
+def display_board():
     board_html = '<table class="boggleLetters">'
-    for row in letters:
-        board_html += "<tr>"
-        for letter in row:
-            board_html += f'<td class="boggleCell">{letter}</td>'
-        board_html += "</tr>"
+    for row in np.where(BOARD.letters == "Q", "Qu", BOARD.letters):
+        board_html += (
+            "<tr>"
+            + "".join(f'<td class="boggleCell">{letter}</td>' for letter in row)
+            + "</tr>"
+        )
     board_html += "</table>"
 
-    # Create the words list
-    words_html = '<div class="words-found">'
-    words_html += '<div class="word-grid">'
-    for word in game_board.word_list:
+    words_html = '<div class="words-found"><div class="word-grid">'
+    for word in BOARD.word_list:
         words_html += f'<div class="word-item">{word}</div>'
-    words_html += "</div>"
-    words_html += f'<div class="score">Score: {game_board.score}</div>'
-    words_html += "</div>"
+    words_html += f'</div><div class="score">Score: {BOARD.score}</div></div>'
 
-    # Combine both sections
     html = (
         '<table class="gamePlay"><tr><th><h3>BOGGLE</h3></th><th><h3>Words Found:</h3>'
         f"</th></tr><tr><td>{board_html}</td><td>{words_html}</td></tr></table>"
@@ -159,41 +163,25 @@ def display_board(game_board):
     print_to_html(html)
 
 
-async def timed_round():
-    game_board = board.Board()
-
-    if GAME_STATE[0] == "play":
-        clear()
-        display_board(game_board)
-
-        if MSG[0]:
-            print_to_html(
-                f'<div style="color:white;font-weight:900;background-color:darkRed;">{MSG[0]}</div>'
-            )
-        print_to_html(
-            '<span style="color:orange;font-weight:900;">Guess a word: </span>'
-        )
-        # guess = input().upper().strip().replace("QU", "Q")
-        # return board.guess(guess)
-    else:
-        print_to_html(
-            (
-                '<div style="color:white;font-weight:900;background-color:darkRed;">Times Up!</div>'
-                '<div><span style="color:antiqueWhite;font-weight:900;">Your final score was)'
-                f'<span style="color:white;font-weight:900;background-color:darkRed;">{board.score}</span></div>'
-            )
-        )
+async def timed_round(guess: str = ""):
+    if guess:
+        MSG[0] = BOARD.guess(guess.upper())
+    clear()
+    display_board()
+    if MSG[0]:
+        print_to_html(f'<div style="{WHITE2}{BOLD}background-{RED}">{MSG[0]}</div>')
+    print_to_html(f'<span style="color:orange;{BOLD}">Guess a word: </span>')
 
 
 async def main():
     text = "".join(
-        f'<span style="color:{c};font-weight:900;">{helper.__dict__[x]}</span>\n'
+        f'<span style="color:{c};{BOLD}">{helper.__dict__[x]}</span>\n'
         for c, x in zip(("navajoWhite", "orange", "red"), "ABC")
     )
     print_to_html(text)
     text = (
-        '\n<span style="color:navajoWhite;font-weight:900;">What do you want to do?'
-        ' </span><span style="color:magenta;font-weight:900;">(start/quit)</span>\n'
+        f'\n<span style="{WHITE}{BOLD}">What do you want to do?'
+        f' </span><span style="{PINK}{BOLD}">(start/quit)</span>\n'
     )
     print_to_html(text)
 

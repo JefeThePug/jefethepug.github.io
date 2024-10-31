@@ -58,35 +58,16 @@ path {
     text-shadow: 1px 1px 4px darkGray;
 }
 
-.boggle-container {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    font-family: sans-serif;
-}
-.board-section h2 {
-    color: darkRed;
-    background-color: navajoWhite;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    padding: 0.5rem;
-}
-.boggleLetters {
-    background-color: navajoWhite;
-    border: 2px solid orange;
-}
-.boggleCell {
-    border: 10px solid black;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-}
+
 
 table {
     border-collapse: collapse;
+}
+
+td, th {
+    border: 2px solid orange;
+    color: darkRed;
+    text-align: center;
 }
 
 h3 {
@@ -95,10 +76,18 @@ h3 {
     padding: 5px;
 }
 
-td, th {
+.boggleLetters {
+    background-color: navajoWhite;
     border: 2px solid orange;
-    color: darkRed;
+}
+
+.boggleCell {
+    border: 10px solid black;
+    width: 3rem;
+    height: 3rem;
     text-align: center;
+    font-weight: bold;
+    color: black;
 }
 
 .words-found {
