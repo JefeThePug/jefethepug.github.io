@@ -1,11 +1,12 @@
 ###################
 #  Initial Setup  #
 ###################
-import pyodide_js
-import types
-import requests
-import sys
 import asyncio
+import sys
+import types
+
+import pyodide_js
+import requests
 
 await pyodide_js.loadPackage("requests")
 await pyodide_js.loadPackage("lxml")
@@ -38,10 +39,8 @@ board = load_module("board", board_url)
 import numpy as np
 
 from pyscript import when
-from pyodide.http import pyfetch
 from js import document
 from datetime import datetime, timedelta
-from lxml import html
 
 
 class Timer:
