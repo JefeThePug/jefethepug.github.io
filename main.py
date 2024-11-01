@@ -31,6 +31,8 @@ class Timer:
         if self.running:
             self.running = False
             self.task.cancel()
+            clear()
+            display_board()
             print_to_html(
                 f'<div style="{WHITE2}{BOLD}background-{RED}">Time\'s Up!</div>'
                 f'<span style="{WHITE}">Your final score was </span>'
@@ -41,7 +43,7 @@ class Timer:
 
 
 TIMER = Timer()
-LIMIT = 1
+LIMIT = 3
 GAME_STATE = ["start"]
 BOARD = Board()
 USER_INPUT = document.querySelector("#userInput")
