@@ -92,14 +92,14 @@ h3 {
 
 .words-found {
     background-color: navajoWhite;
-    height: 250px;
+    min-height: 250px;
     padding: 1rem;
     width: 300px;
 }
 .word-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(70px, max-content));
+    gap: 0.1rem;
 }
 .word-item {
     text-align: center;
