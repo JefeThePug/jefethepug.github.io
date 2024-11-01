@@ -9,12 +9,11 @@ from helper import A, B, C
 
 
 class Timer:
-    def __init__(self, time_up_action:callable = None):
+    def __init__(self):
         self.running = False
         self.end_time = None
         self.display = document.getElementById("timer")
         self.task = None
-        self.time_up = time_up_action
 
     async def start(self, minutes: int = 1) -> None:
         if not self.running:
@@ -38,7 +37,6 @@ class Timer:
                 f'<span style="{WHITE}">Your final score was </span>'
                 f'<span style="{WHITE2}{BOLD}background-{RED}"> {BOARD.score} </span>'
             )
-            GAME_STATE[0] = "quit"
             game_over()
 
 
