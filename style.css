@@ -4,12 +4,25 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: top left;
+    margin: 0;
+    padding: 190px 10px 10px;
 }
 
 header {
     border-bottom: 5px solid black;
     height: 165px;
-    margin-bottom: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+    /*margin-bottom: 40px;*/
+    overflow: hidden;
 }
 
 #boggleContainer {
@@ -124,6 +137,80 @@ h3 {
     color: white;
     padding: 0.5rem;
     font-weight: bold;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.tabs {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(0,0,0,0.5);
+    min-width: 620px;
+}
+
+.tabs:hover:not(:has(input:checked)) {
+    border: #CCA266 solid 2px;
+}
+
+.tab {
+    width: 100%;
+    color: #E0C7A3;
+    overflow: hidden;
+}
+
+.tab-label {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 4px -2px #1a1410;
+    padding: 1em;
+    background: #342821;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab-label::after {
+    content: "\276F";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+}
+
+.tab-content {
+    max-height: 0;
+    padding: 0 10px;
+    background: #E0C7A3;
+    transition: all 0.35s;
+    display: flex;
+    justify-content: center;
+}
+
+input:checked + .tab-label {
+    content: "";
+}
+
+input:checked + .tab-label::after {
+    transform: rotate(90deg);
+}
+
+input:checked ~ .tab-content {
+    max-height: 100vh;
+    padding: 1em;
+}
+
+footer {
+    color: #34282199;
+    font-size: x-small;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity:0.35;
+    padding: 10px;
+    z-index: 1000;
 }
 
 @keyframes rotateJefe {

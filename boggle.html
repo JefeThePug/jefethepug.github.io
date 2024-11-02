@@ -199,14 +199,25 @@
     </svg>
     <h1 id="load">Loading<span id="dots">...</span></h1>
 </dialog>
-<div id="boggleContainer">
-    <div id="output" style="background-color:black; font-family:'Courier New',Courier,monospace; width:600px">
-    </div>
 
-    <div id="inputArea">
-        <label for="userInput">&gt;</label>
-        <input type="text" id="userInput" placeholder="..." autocomplete="off" autofocus>
-        <span id="timer" style="display:none;">01:00</span>
+<div class="tabs">
+    <div class="tab">
+        <input type="checkbox" id="interactive">
+        <label class="tab-label" for="interactive">
+            <span>Play it <i class="fa-solid fa-play"></i></span>
+        </label>
+        <div class="tab-content">
+            <div id="boggleContainer">
+                <div id="output" style="background-color:black; font-family:'Courier New',Courier,monospace; width:600px">
+                </div>
+
+                <div id="inputArea">
+                    <label for="userInput">&gt;</label>
+                    <input type="text" id="userInput" placeholder="..." autocomplete="off" autofocus>
+                    <span id="timer" style="display:none;">03:00</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -214,5 +225,20 @@
 
 <script type="py" src="boggle_main.py" config="./pyscript.toml"></script>
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<footer>
+    &copy; JefeThePug 2024
+    <svg viewBox="0 0 224 210" style="height:70px;width:70px;transform:rotate(36deg);"
+         xmlns="http://www.w3.org/2000/svg">
+        <path id="color" style="fill:#342821"
+              d="m 205,65 c 18,8 27,55 -4,75 -10,7 -36,6 -36,-28 0,-12 17,-52 40,-47
+                z M 52,93 C 68,125 41,156 15,135 -10,107 5,74 11,68 30,51 44,78 52,93
+                Z M 173,26 c 13,23 9,49 -12,62 -27,14 -53,-23 -38,-72 11,-29 36,-14 50,10
+                z M 81,89 C 49,95 28,54 56,17 c 16,-19 40,-30 46,4 1,1 12,58 -21,68 z m
+                68,27 c 17,27 38,29 40,54 2,31 -22,40 -50,38 -19,-1 -31,-7 -50,-1 -22,6
+                -50,-2 -55,-23 -7,-28 17,-39 32,-58 35,-47 71,-30 83,-9 z"/>
+    </svg>
+</footer>
 </body>
 </html>
