@@ -68,7 +68,7 @@ def print_to_html(message: str) -> None:
     new_message = []
     for i, c in enumerate(message):
         if c == " ":
-            if "".join(message[i - 1 : i + 2]) in ("e c", "d c", "n s", "v c", "v s"):
+            if "".join(message[i - 1: i + 2]) in ("e c", "d c", "n s", "v c", "v s"):
                 new_message.append(c)
             else:
                 new_message.append("&nbsp;")
@@ -84,9 +84,9 @@ def display_board() -> None:
     )
     for row in np.where(BOARD.letters == "Q", "Qu", BOARD.letters):
         html += (
-            "<tr>"
-            + "".join(f'<td class="boggleCell">{letter}</td>' for letter in row)
-            + "</tr>"
+                "<tr>"
+                + "".join(f'<td class="boggleCell">{letter}</td>' for letter in row)
+                + "</tr>"
         )
     html += '</table></td><td><div class="words-found"><div class="word-grid">'
     for word in BOARD.word_list:
