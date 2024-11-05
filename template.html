@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Jefe the Pug</title>
+    <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
+    <link href="static/css/style.css" rel="stylesheet"/>
+    <link href="static/css/nav_style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+</head>
+
+<script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+</script>
+
+<body>
+<header>
+    <svg style="height:200px;width:200px" id="pug">
+        <use href="static/img/logo.svg#jefe"></use>
+    </svg>
+    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name2.png"/>
+    <div id="nav-box">
+        <nav class="nav">
+            <input id="menu" type="checkbox">
+            <label for="menu">Menu</label>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <span>Home</span>
+                        <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="skills.html">
+                        <span>Skills</span>
+                        <i class="fas fa-list-check fa-beat" style="--fa-animation-duration: 2s;"
+                           aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="games.html">
+                        <span>Games</span>
+                        <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="coding.html">
+                        <span>Projects</span>
+                        <i class="fas fa-code fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span>Contact</span>
+                        <i class="fas fa-envelope fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<dialog id="loading">
+    <div id="spinCircle">
+        <svg id="jefeSpin" style="height:100px;width:100px;" viewBox="0 0 300 250">
+            <use href="static/img/logo.svg#jefe"></use>
+        </svg>
+        <h1 id="load">Loading<span id="dots">...</span></h1>
+    </div>
+</dialog>
+
+<div class="tabs">
+    <div class="tab">
+        <input type="checkbox" id="interactive">
+        <label class="tab-label" for="interactive">
+            <span>Play it <i class="fa-solid fa-play"></i></span>
+        </label>
+        <div class="tab-content">
+            <div>
+                game here
+            </div>
+        </div>
+    </div>
+</div>
+<div class="glass">
+    <div class="title"><h1>title</h1></div>
+</div>
+<div class="glass">
+    <div class="description">
+        <p>
+            content
+        </p>
+    </div>
+</div>
+
+<script type="py" src="boggle_main.py" config="./pyscript.toml"></script>
+
+<footer>
+    &copy; JefeThePug 2024
+    <svg id="pawprint" style="height:70px;width:70px;transform:rotate(36deg);">
+        <use href="static/img/logo.svg#paw"></use>
+    </svg>
+</footer>
+</body>
+</html>
