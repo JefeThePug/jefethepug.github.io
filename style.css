@@ -15,14 +15,36 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 998;
     background-image: url('bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: top left;
-    /*margin-bottom: 40px;*/
+    /*margin-right: 125px;*/
+}
+
+#nav-box {
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+img#jefe-pug {
+    position: absolute;
+    top: 15px;
+    height: 150px;
+    right: 10px;
+}
+
+#pug {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+ul ul {
+    margin-left: -20px;
 }
 
 #boggleContainer {
@@ -30,6 +52,7 @@ header {
     display: inline-block;
     padding: 5px;
     width: fit-content;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.5);
 }
 
 #inputArea {
@@ -62,12 +85,22 @@ path {
 
 #jefeSpin {
     animation: rotateJefe 5s linear infinite;
+    transform: translateX(20px);
+}
+
+#spinCircle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(235, 222, 208, 0.85);
+    border-radius: 100%;
+    padding: 30px;
 }
 
 #load {
     margin-top: -20px;
     text-shadow: 0 0 2px white;
-    transform: translateX(-10%);
     z-index: 1;
 }
 
@@ -146,14 +179,18 @@ input[type="checkbox"] {
 }
 
 .tabs {
+    /*border: 5px solid #342821;*/
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 4px 4px -2px rgba(0,0,0,0.5);
+    box-shadow: 0 7px 5px rgba(0,0,0,0.5);
+
     min-width: 620px;
 }
 
 .tabs:hover:not(:has(input:checked)) {
-    border: #CCA266 solid 2px;
+    box-shadow:
+            0 0 0 5px #CCA266,
+            0 12px 5px rgba(0,0,0,0.5);
 }
 
 .tab {
@@ -165,8 +202,7 @@ input[type="checkbox"] {
 .tab-label {
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 4px 4px -2px #1a1410;
-    padding: 1em;
+    padding: 10px;
     background: #342821;
     font-weight: bold;
     cursor: pointer;
@@ -200,6 +236,39 @@ input:checked + .tab-label::after {
 input:checked ~ .tab-content {
     max-height: 100vh;
     padding: 1em;
+}
+
+
+.title {
+    background: rgba(235, 222, 208, 0.2);
+    /*border: 2px solid black;*/
+    border-radius: 30px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    margin: 10px auto;
+    /*width: fit-content;*/
+}
+h1 {
+    text-align: center;
+    padding: 10px;
+    color: #342821;
+    margin: 0;
+}
+.description {
+    color: #342821;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    margin: 5px auto;
+    z-index: 1;
+}
+.glass {
+    background: rgba(255, 255, 255, 0.192);
+    backdrop-filter: blur(4px);
+    width: fit-content;
+    max-width: 90%;
+    border-radius: 15px;
+    /* border: 1px solid rgba(43, 43, 43, 0.568); */
+    margin: 5px auto;
 }
 
 footer {
