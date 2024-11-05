@@ -217,6 +217,7 @@ input[type="checkbox"] {
 }
 
 .tab-content {
+    color: #342821;
     max-height: 0;
     padding: 0 10px;
     background: #E0C7A3;
