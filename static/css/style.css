@@ -1,5 +1,5 @@
 body {
-    background-image: url('bg.jpg');
+    background-image: url('../img/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -16,7 +16,7 @@ header {
     left: 0;
     right: 0;
     z-index: 998;
-    background-image: url('bg.jpg');
+    background-image: url('../img/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
