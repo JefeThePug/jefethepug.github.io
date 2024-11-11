@@ -1,0 +1,544 @@
+:root {
+    --grey: #2c2c2c;
+    --translucent: rgba(255, 255, 255, 0.9);
+}
+
+.list {
+    background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 5px;
+    padding-bottom: 5px;
+}
+.list::before {
+    background-color: var(--translucent);
+    border-radius: 15px 15px 0 0;
+    color: var(--grey);
+    content: '';
+    margin: -35px auto 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
+.tool {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    height: 55px;
+    margin: 5px;
+    width: 55px;
+}
+.field {
+    color: var(--grey);
+    display: flex;
+    justify-content: center;
+    margin: 1.5em auto -0.5em;
+    position: relative;
+    width: 100%;
+}
+
+.field::before {
+    color: inherit;
+    content: "";
+    font-weight: bold;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: -1.5em;
+    width: 100%;
+}
+
+.anaconda {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg);
+}
+.anaconda:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original-wordmark.svg);
+}
+.anaconda:hover ~ .field::before {
+    content: 'Anaconda';
+}
+
+.aws {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg);
+}
+.aws:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg);
+}
+.aws:hover ~ .field::before {
+    content: 'AWS : EC2, EFS, ELB';
+}
+
+.beautifulsoup {
+    background-image: url(https://www.crummy.com/software/BeautifulSoup/10.1.jpg);
+}
+.beautifulsoup:hover {
+    filter: sepia(100%) saturate(300%) hue-rotate(180deg);
+}
+.beautifulsoup:hover ~ .field::before {
+    content: 'Beautiful Soup';
+}
+
+
+.c {
+    background-image: url(https://www.svgrepo.com/show/353528/c.svg);
+}
+.c:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg);
+}
+.c:hover ~ .field::before {
+    content: 'C';
+}
+
+.css {
+    background-image: url(https://www.svgrepo.com/show/349330/css3.svg);
+}
+.css:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg);
+}
+.css:hover ~ .field::before {
+    content: 'CSS3';
+}
+
+.docker {
+    background-image: url(https://www.svgrepo.com/show/353659/docker-icon.svg);
+}
+.docker:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg);
+}
+.docker:hover ~ .field::before {
+    content: 'Docker, Docker Compose';
+}
+
+.discordpy {
+    background-image: url(https://fallendeity.github.io/discord.py-masterclass/assets/logo.png);
+    filter: saturate(60%);
+}
+.discordpy:hover {
+    filter: saturate(300%);
+}
+.discordpy:hover ~ .field::before {
+    content: 'Discord.py';
+}
+
+.flask {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg);
+}
+.flask:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg);
+}
+.flask:hover ~ .field::before {
+    content: 'Flask';
+}
+
+.gimp {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gimp/gimp-original.svg);
+}
+.gimp:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gimp/gimp-original-wordmark.svg);
+}
+.gimp:hover ~ .field::before {
+    content: 'Gimp';
+}
+
+.git {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg);
+}
+.git:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg);
+}
+.git:hover ~ .field::before {
+    content: 'Git';
+}
+
+.github {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg);
+}
+.github:hover {
+    background-image: url(https://www.svgrepo.com/show/475654/github-color.svg);
+}
+.github:hover ~ .field::before {
+    content: 'GitHub';
+}
+
+.graphql {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg);
+}
+.graphql:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain-wordmark.svg);
+}
+.graphql:hover ~ .field::before {
+    content: 'GraphQL API';
+}
+
+.html {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg);
+}
+.html:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg);
+}
+.html:hover ~ .field::before {
+    content: 'HTML5';
+}
+
+.inkscape {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/inkscape/inkscape-original.svg);
+}
+.inkscape:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/inkscape/inkscape-original-wordmark.svg);
+}
+.inkscape:hover ~ .field::before {
+    content: 'Inkscape';
+}
+
+.intellij {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg);
+}
+.intellij:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-plain-wordmark.svg);
+}
+.intellij:hover ~ .field::before {
+    content: 'IntelliJ';
+}
+
+.javascript {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg);
+}
+.javascript:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg);
+}
+.javascript:hover ~ .field::before {
+    content: 'JavaScript';
+}
+
+.jetbrains {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg);
+}
+.jetbrains:hover {
+    background-image: url(https://www.svgrepo.com/show/353932/jetbrains.svg);
+}
+.jetbrains:hover ~ .field::before {
+    content: 'JetBrains';
+}
+
+.jupyter {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg);
+}
+.jupyter:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg);
+}
+.jupyter:hover ~ .field::before {
+    content: 'Jupyter Notebook, Jupyter Lab';
+}
+
+.keynote {
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/5/57/KeynoteIcon.png);
+    filter: saturate(0%);
+}
+.keynote:hover {
+    filter: saturate(100%);
+}
+.keynote:hover ~ .field::before {
+    content: 'Keynote';
+}
+
+.kotlin {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg);
+}
+.kotlin:hover {
+    background-image: url(https://www.svgrepo.com/show/452238/jb-kotlin.svg);
+}
+.kotlin:hover ~ .field::before {
+    content: 'Kotlin';
+}
+
+.mongodb {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg);
+}
+.mongodb:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg);
+}
+.mongodb:hover ~ .field::before {
+    content: 'MongoDB';
+}
+
+.nltk {
+    background-image: url(/static/img/nltk.png);
+    filter: saturate(10%);
+}
+.nltk:hover {
+    filter: saturate(300%);
+}
+.nltk:hover ~ .field::before {
+    content: 'NLTK';
+}
+
+.nosql {
+    background-image: url(/static/img/nosql.png);
+}
+.nosql:hover {
+    filter: saturate(400%);
+    background-size: 80% 80%;
+}
+.nosql:hover::after {
+    color: #194994;
+    content: "NoSQL";
+    font-weight: 600;
+    margin-top: 38px;
+}
+.nosql:hover ~ .field::before {
+    content: 'NoSQL';
+}
+
+.numpy {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg);
+}
+.numpy:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original-wordmark.svg);
+}
+.numpy:hover ~ .field::before {
+    content: 'NumPy';
+}
+
+.openpy {
+    background-image: url(/static/img/opyxl.png);
+    filter: saturate(0%);
+}
+.openpy:hover {
+    filter: saturate(300%);
+}
+.openpy:hover ~ .field::before {
+    content: 'OpenPyXL';
+}
+
+
+.p5js {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/p5js/p5js-original.svg);
+    filter: saturate(60%);
+}
+.p5js:hover {
+    filter: saturate(100%);
+}
+.p5js:hover ~ .field::before {
+    content: 'p5.js';
+}
+
+.pandas {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg);
+}
+.pandas:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg);
+}
+.pandas:hover ~ .field::before {
+    content: 'pandas';
+}
+
+.photoshop {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-plain.svg);
+}
+.photoshop:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg);
+}
+.photoshop:hover ~ .field::before {
+    content: 'Adobe Photoshop';
+}
+
+.postgresql {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg);
+}
+.postgresql:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg);
+}
+.postgresql:hover ~ .field::before {
+    content: 'PostgreSQL';
+}
+
+.postman {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg);
+}
+.postman:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg);
+}
+.postman:hover ~ .field::before {
+    content: 'Postman';
+}
+
+.powerpoint {
+    background-image: url(https://www.svgrepo.com/show/373989/powerpoint.svg);
+    filter: saturate(50%);
+}
+.powerpoint:hover {
+    filter: saturate(100%);
+}
+.powerpoint:hover ~ .field::before {
+    content: 'Microsoft Office PowerPoint';
+}
+
+.pycharm {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg);
+}
+.pycharm:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original-wordmark.svg);
+}
+.pycharm:hover ~ .field::before {
+    content: 'PyCharm';
+}
+
+.pygame {
+    background-image: url(https://styles.redditmedia.com/t5_2rkfn/styles/communityIcon_cmjo55tgjjp81.png);
+    filter: saturate(50%);
+}
+.pygame:hover {
+    filter: saturate(200%);
+}
+.pygame:hover ~ .field::before {
+    content: 'Pygame';
+}
+
+.pygbag {
+    background-image: url(/static/img/pygbag.png);
+    filter: saturate(50%);
+}
+.pygbag:hover {
+    filter: saturate(200%);
+}
+.pygbag:hover ~ .field::before {
+    content: 'Pygbag';
+}
+
+.pyscript {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pyscript/pyscript-plain-wordmark.svg);
+}
+.pyscript:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pyscript/pyscript-original-wordmark.svg);
+}
+.pyscript:hover ~ .field::before {
+    content: 'Pyscript';
+}
+
+.python {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg);
+}
+.python:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg);
+}
+.python:hover ~ .field::before {
+    content: 'Python';
+}
+
+.pyqt {
+    background-image: url(/static/img/pyqt.svg);
+    filter: saturate(50%);
+}
+.pyqt:hover {
+    filter: saturate(300%);
+}
+.pyqt:hover ~ .field::before {
+    content: 'PyQT';
+}
+
+.restapi {
+    background-image: url(/static/img/restapi.png);
+    filter: saturate(20%);
+}
+.restapi:hover {
+    filter: saturate(100%);
+}
+.restapi:hover ~ .field::before {
+    content: 'REST API';
+}
+
+.requests {
+    background-image: url(https://requests.readthedocs.io/en/latest/_static/requests-sidebar.png);
+}
+.requests:hover {
+    filter: sepia(100%) saturate(300%) hue-rotate(50deg);
+}
+.requests:hover ~ .field::before {
+    content: 'Requests';
+}
+
+.sql {
+    background-image: url(https://www.svgrepo.com/show/331760/sql-database-generic.svg);
+
+}
+.sql:hover {
+    background-image: url(/static/img/sql.svg);
+}
+.sql:hover ~ .field::before {
+    content: 'SQL';
+}
+
+.sqlalchemy {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original.svg);
+}
+.sqlalchemy:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original-wordmark.svg);
+}
+.sqlalchemy:hover ~ .field::before {
+    content: 'SQLAlchemy';
+}
+
+.sqlite {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg);
+}
+.sqlite:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original-wordmark.svg);
+}
+.sqlite:hover ~ .field::before {
+    content: 'SQLite';
+}
+
+.sublime {
+    background-image: url(https://www.svgrepo.com/show/452109/sublime-text.svg);
+}
+.sublime:hover {
+    background-image: url(https://www.svgrepo.com/show/354408/sublimetext-icon.svg);
+}
+.sublime:hover ~ .field::before {
+    content: 'Sublime Text';
+}
+
+
+.tkinter {
+    background-image: url(https://cdn.sanity.io/images/mhuj7snm/production/64fa9998b50db243e186ae259471b1bc95b356f9-1869x2048.png);
+    filter: saturate(20%);
+}
+.tkinter:hover {
+    filter: saturate(300%);
+}
+.tkinter:hover ~ .field::before {
+    content: 'Tkinter';
+}
+
+.visualbasic {
+    background-image: url(https://www.svgrepo.com/show/374157/vb.svg);
+}
+.visualbasic:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualbasic/visualbasic-original.svg);
+}
+.visualbasic:hover ~ .field::before {
+    content: 'Visual Basic, VBA';
+}
+
+.vscode {
+    background-image: url(https://www.svgrepo.com/show/374169/vscode2.svg);
+}
+.vscode:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg);
+}
+.vscode:hover ~ .field::before {
+    content: 'Visual Studio Code';
+}
+
+.webstorm {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webstorm/webstorm-original.svg);
+}
+.webstorm:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webstorm/webstorm-original-wordmark.svg);
+}
+.webstorm:hover ~ .field::before {
+    content: 'WebStorm';
+}

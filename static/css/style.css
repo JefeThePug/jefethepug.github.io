@@ -1,4 +1,12 @@
+:root {
+    --pink: #fde2ed;
+    --dark: #ebb6fc;
+    --purple: #C8B6E8;
+    --grey: #2c2c2c;
+}
+
 body {
+    background-color: #d7d7d7;
     background-image: url('../img/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,30 +55,6 @@ ul ul {
     margin-left: -20px;
 }
 
-#boggleContainer {
-    background-color: black;
-    display: inline-block;
-    padding: 5px;
-    width: fit-content;
-    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.5);
-}
-
-#inputArea {
-    color: navajoWhite;
-}
-
-#userInput {
-    color: navajoWhite;
-    background-color: black;
-    border: 2px solid navajoWhite;
-    font-size: 1.3em;
-    width: 485px;
-}
-
-#userInput:focus {
-    outline: none;
-}
-
 path {
     display: inline;
     fill: #000000;
@@ -99,6 +83,7 @@ path {
 }
 
 #load {
+    background: none;
     margin-top: -20px;
     text-shadow: 0 0 2px white;
     z-index: 1;
@@ -108,69 +93,7 @@ path {
     animation: blink 2s linear infinite;
 }
 
-#timer {
-    color: red;
-    font-weight: bold;
-    padding-left: 50px;
-    text-shadow: 1px 1px 4px darkGray;
-}
 
-table {
-    border-collapse: collapse;
-}
-
-td, th {
-    border: 2px solid orange;
-    color: darkRed;
-    text-align: center;
-}
-
-h3 {
-    background-color: navajoWhite;
-    margin: 0;
-    padding: 5px;
-}
-
-.boggleLetters {
-    background-color: navajoWhite;
-    border: 2px solid orange;
-}
-
-.boggleCell {
-    border: 10px solid black;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-}
-
-.words-found {
-    background-color: navajoWhite;
-    min-height: 250px;
-    padding: 1rem;
-    width: 300px;
-}
-
-.word-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, max-content));
-    gap: 0.1rem;
-}
-
-.word-item {
-    text-align: center;
-    color: black;
-}
-
-.score {
-    margin-top: 1rem;
-    text-align: center;
-    background-color: darkRed;
-    color: white;
-    padding: 0.5rem;
-    font-weight: bold;
-}
 
 input[type="checkbox"] {
     position: absolute;
@@ -240,22 +163,17 @@ input:checked ~ .tab-content {
 }
 
 
-.title {
-    background: rgba(235, 222, 208, 0.2);
-    /*border: 2px solid black;*/
-    border-radius: 30px;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
-    margin: 10px auto;
-    /*width: fit-content;*/
-}
-h1 {
-    text-align: center;
-    padding: 10px;
-    color: #342821;
+h2 {
+    color: var(--grey);
     margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+h2 {
+    font-size: 1em;
 }
 .description {
-    color: #342821;
+    color: var(--grey);
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
@@ -263,32 +181,101 @@ h1 {
     z-index: 1;
 }
 .glass {
-    background: rgba(255, 255, 255, 0.192);
-    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.592);
+    backdrop-filter: blur(1px);
     width: fit-content;
     max-width: 90%;
     border-radius: 15px;
-    /* border: 1px solid rgba(43, 43, 43, 0.568); */
+    border: 1px solid rgba(43, 43, 43, 0.568);
     margin: 5px auto;
 }
 
+h1 {
+    background: linear-gradient(to right, var(--purple), rgba(0, 0, 0, 0));
+    border-radius: 14px 14px 0 0;
+    margin: 0;
+    padding: 10px 30px;
+}
+
+.buffer {
+    margin: 0;
+}
+.expand {
+    border-bottom: 1px solid rgba(43, 43, 43, 0.568);;
+}
+
+.skills {
+    position: relative;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    height: 170px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.buffer::after, .skills::after {
+    font-size: small;
+    padding: 5px;
+    position: absolute;
+    right: 2%;
+    text-shadow: 0 0 1px var(--grey);
+}
+.buffer::after {
+    content: "...see more";
+    top: 25px;
+}
+.skills::after {
+    bottom: 0;
+    content: " ";
+}
+
+input:checked + .buffer .skills {
+    height: max-content;
+}
+input:checked + .buffer::after {
+    content: "...see less";
+}
+input:checked + .buffer .skills::after{
+    content: "...see less";
+}
+
+
 footer {
-    color: #34282199;
+    color: black;
     font-size: x-small;
     position: fixed;
     bottom: 0;
     right: 0;
-    opacity:0.35;
+    opacity:0.25;
     padding: 10px;
     z-index: 1000;
 }
 
-@keyframes rotateJefe {
+i {
+    font-size: xx-large;
+}
+
+
+
+
+
+
+
+
+
+
+
+    @keyframes rotateJefe {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-@keyframes blink {
-    50% { opacity: 0; }
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
 }
 
 

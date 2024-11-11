@@ -1,0 +1,94 @@
+:root {
+}
+
+ul ul {
+    margin-left: -20px;
+}
+
+#boggleContainer {
+    background-color: black;
+    display: inline-block;
+    padding: 5px;
+    width: fit-content;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.5);
+}
+
+#inputArea {
+    color: navajoWhite;
+}
+
+#userInput {
+    color: navajoWhite;
+    background-color: black;
+    border: 2px solid navajoWhite;
+    font-size: 1.3em;
+    width: 485px;
+}
+
+#userInput:focus {
+    outline: none;
+}
+
+#timer {
+    color: red;
+    font-weight: bold;
+    padding-left: 50px;
+    text-shadow: 1px 1px 4px darkGray;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 2px solid orange;
+    color: darkRed;
+    text-align: center;
+}
+
+h3 {
+    background-color: navajoWhite;
+    margin: 0;
+    padding: 5px;
+}
+
+.boggleLetters {
+    background-color: navajoWhite;
+    border: 2px solid orange;
+}
+
+.boggleCell {
+    border: 10px solid black;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.words-found {
+    background-color: navajoWhite;
+    min-height: 250px;
+    padding: 1rem;
+    width: 300px;
+}
+
+.word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, max-content));
+    gap: 0.1rem;
+}
+
+.word-item {
+    text-align: center;
+    color: black;
+}
+
+.score {
+    margin-top: 1rem;
+    text-align: center;
+    background-color: darkRed;
+    color: white;
+    padding: 0.5rem;
+    font-weight: bold;
+}
