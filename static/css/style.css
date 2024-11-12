@@ -1,12 +1,16 @@
 :root {
     --pink: #fde2ed;
-    --dark: #ebb6fc;
+    --drpink: #ebb6fc;
     --purple: #C8B6E8;
     --grey: #2c2c2c;
+    --midgrey: #a0a0a0;
+    --ltgrey: #d7d7d7;
+    --ltblue: #dffcfb;
+    --translucent: rgba(255, 255, 255, 0.9);
 }
 
 body {
-    background-color: #d7d7d7;
+    background-color: var(--ltgrey);
     background-image: url('../img/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,7 +33,23 @@ header {
     background-size: cover;
     background-attachment: fixed;
     background-position: top left;
-    /*margin-right: 125px;*/
+}
+
+a.ref {
+    font-weight: 600;
+    text-shadow: 0 0 3px var(--purple);
+}
+
+.subtext {
+    color: var(--midgrey);
+    font-size: smaller;
+}
+
+.colorCode {
+    background-color: black;
+    display: inline-block;
+    text-align: center;
+    width: 50px;
 }
 
 #nav-box {
@@ -93,93 +113,42 @@ path {
     animation: blink 2s linear infinite;
 }
 
-
-
 input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     z-index: -1;
 }
 
-.tabs {
-    /*border: 5px solid #342821;*/
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 7px 5px rgba(0,0,0,0.5);
-
-    min-width: 620px;
+.link {
+    color: var(--ltblue);
+    border-radius: 50%;
+    border: 2px solid var(--grey);
+    font-size: 20px;
+    margin-left: 20px;
+    justify-items: center;
 }
 
-.tabs:hover:not(:has(input:checked)) {
-    box-shadow:
-            0 0 0 5px #CCA266,
-            0 12px 5px rgba(0,0,0,0.5);
+h1 {
+    background: linear-gradient(to right, var(--purple), rgba(0, 0, 0, 0));
+    border-radius: 14px 14px 0 0;
+    margin: 0;
+    padding: 10px 30px;
 }
-
-.tab {
-    width: 100%;
-    color: #E0C7A3;
-    overflow: hidden;
-}
-
-.tab-label {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background: #342821;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.tab-label::after {
-    content: "\276F";
-    width: 1em;
-    height: 1em;
-    text-align: center;
-    transition: all 0.35s;
-}
-
-.tab-content {
-    color: #342821;
-    max-height: 0;
-    padding: 0 10px;
-    background: #E0C7A3;
-    transition: all 0.35s;
-    display: flex;
-    justify-content: center;
-}
-
-input:checked + .tab-label {
-    content: "";
-}
-
-input:checked + .tab-label::after {
-    transform: rotate(90deg);
-}
-
-input:checked ~ .tab-content {
-    max-height: 100vh;
-    padding: 1em;
-}
-
 
 h2 {
     color: var(--grey);
+    font-size: 1em;
     margin: 0;
     padding: 10px;
     text-align: center;
 }
-h2 {
-    font-size: 1em;
+
+h3 {
+    background: linear-gradient(to right, var(--purple), rgba(0, 0, 0, 0));
+    margin: 0;
+    padding: 5px;
 }
-.description {
-    color: var(--grey);
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
-    margin: 5px auto;
-    z-index: 1;
-}
+
 .glass {
     background: rgba(255, 255, 255, 0.592);
     backdrop-filter: blur(1px);
@@ -190,13 +159,6 @@ h2 {
     margin: 5px auto;
 }
 
-h1 {
-    background: linear-gradient(to right, var(--purple), rgba(0, 0, 0, 0));
-    border-radius: 14px 14px 0 0;
-    margin: 0;
-    padding: 10px 30px;
-}
-
 .buffer {
     margin: 0;
 }
@@ -204,20 +166,39 @@ h1 {
     border-bottom: 1px solid rgba(43, 43, 43, 0.568);;
 }
 
-.skills {
+.skills, .game {
     position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.skills {
     display: grid;
     grid-gap: 0;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-flow: dense;
     grid-auto-rows: auto;
     height: 170px;
-    margin: 0 auto;
-    overflow: hidden;
-    width: 100%;
 }
 
-.buffer::after, .skills::after {
+.game {
+    height: 10px;
+}
+
+.terminalHolder {
+    color: var(--grey);
+    background: var(--ltblue);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 5px;
+    padding: 1em;
+}
+
+.buffer::after, .skills::after, .game::after {
+    bottom: 0;
+    content: " ";
     font-size: small;
     padding: 5px;
     position: absolute;
@@ -228,20 +209,55 @@ h1 {
     content: "...see more";
     top: 25px;
 }
-.skills::after {
-    bottom: 0;
-    content: " ";
-}
 
-input:checked + .buffer .skills {
+input:checked + .buffer .skills, input:checked + .buffer .game {
     height: max-content;
 }
 input:checked + .buffer::after {
     content: "...see less";
 }
-input:checked + .buffer .skills::after{
+input:checked + .buffer .skills::after, input:checked + .buffer .game::after{
     content: "...see less";
 }
+
+.list {
+    background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 5px;
+    padding-bottom: 5px;
+}
+.list::before {
+    background-color: var(--translucent);
+    border-radius: 15px 15px 0 0;
+    color: var(--grey);
+    content: '';
+    margin: -35px auto 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
+
+.description {
+    background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
+    color: var(--grey);
+    padding: 10px 1rem;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 footer {
@@ -269,13 +285,12 @@ i {
 
 
 
-    @keyframes rotateJefe {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes rotateJefe {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
 }
-    @keyframes blink {
-        50% { opacity: 0; }
-    }
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 

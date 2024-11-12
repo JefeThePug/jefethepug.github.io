@@ -1,23 +1,30 @@
 :root {
+    --grey: #2c2c2c;
 }
 
 ul ul {
     margin-left: -20px;
 }
 
-#boggleContainer {
+.boggleContainer {
     background-color: black;
-    display: inline-block;
+    display: flex;
     padding: 5px;
     width: fit-content;
     box-shadow: 0 5px 3px rgba(0, 0, 0, 0.5);
 }
 
-#inputArea {
-    color: navajoWhite;
+#boggleOutput {
+    background-color:black;
+    font-family:'Courier New',Courier,monospace;
+    width:592px
 }
 
-#userInput {
+#inputArea {
+    color: var(--grey);
+}
+
+#boggleInput {
     color: navajoWhite;
     background-color: black;
     border: 2px solid navajoWhite;
@@ -25,14 +32,14 @@ ul ul {
     width: 485px;
 }
 
-#userInput:focus {
+#boggleInput:focus {
     outline: none;
 }
 
 #timer {
     color: red;
     font-weight: bold;
-    padding-left: 50px;
+    padding-left: 30px;
     text-shadow: 1px 1px 4px darkGray;
 }
 
@@ -44,12 +51,6 @@ td, th {
     border: 2px solid orange;
     color: darkRed;
     text-align: center;
-}
-
-h3 {
-    background-color: navajoWhite;
-    margin: 0;
-    padding: 5px;
 }
 
 .boggleLetters {

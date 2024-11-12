@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Jefe the Pug</title>
     <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
-    <link href="static/css/style.css" rel="stylesheet"/>
-    <link href="static/css/nav_style.css" rel="stylesheet"/>
-    <link href="static/css/boggle.css" rel="stylesheet"/>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link href="../static/css/nav_style.css" rel="stylesheet"/>
+    <link href="../static/css/games.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
 </head>
@@ -25,14 +25,14 @@
     <svg style="height:200px;width:200px" id="pug">
         <use href="static/img/logo.svg#jefe"></use>
     </svg>
-    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name2.png"/>
+    <img alt="Jefe the Pug" id="jefe-pug" src="../static/img/jefe_name2.png"/>
     <div id="nav-box">
         <nav class="nav">
             <input id="menu" type="checkbox">
             <label for="menu">Menu</label>
             <ul class="menu">
                 <li>
-                    <a href="index.html">
+                    <a href="../index.html">
                         <span>Home</span>
                         <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
                     </a>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="games.html">
+                    <a href="../games.html">
                         <span>Games</span>
                         <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
                     </a>
@@ -83,14 +83,14 @@
             <span>Play it <i class="fa-solid fa-play"></i></span>
         </label>
         <div class="tab-content">
-            <div id="boggleContainer">
-                <div id="output"
+            <div class="boggleContainer">
+                <div id="boggleOutput"
                      style="background-color:black; font-family:'Courier New',Courier,monospace; width:600px">
                 </div>
 
                 <div id="inputArea">
-                    <label for="userInput">&gt;</label>
-                    <input type="text" id="userInput" placeholder="..." autocomplete="off">
+                    <label for="boggleInput">&gt;</label>
+                    <input type="text" id="boggleInput" placeholder="..." autocomplete="off">
                     <span id="timer" style="display:none;">03:00</span>
                 </div>
             </div>
@@ -122,7 +122,7 @@
             <li>Interactive Console:</li>
             <ul>
                 Enhanced with Rich for intuitive prompts and board displays.<br>
-                ※ Interactive game uses CSS instead of Rich
+                ※ Interactive game in this browser uses CSS instead of Rich
             </ul>
             <li>Custom Boggle Dice:</li>
             <ul>
@@ -137,7 +137,7 @@
     </div>
 </div>
 
-<script type="py" src="scripts/boggle_main.py" config="scripts/bogglescript.toml"></script>
+<script type="py" src="../scripts/boggle_main.py" config="scripts/bogglescript.toml"></script>
 
 <footer>
     &copy; JefeThePug 2024

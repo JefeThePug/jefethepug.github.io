@@ -39,13 +39,12 @@ class Timer:
             )
             game_over()
 
-
 TIMER = Timer()
 LIMIT = 3
 GAME_STATE = ["start"]
 BOARD = Board()
-USER_INPUT = document.querySelector("#userInput")
-OUTPUT = document.getElementById("output")
+USER_INPUT = document.getElementById("boggleInput")
+OUTPUT = document.getElementById("boggleOutput")
 
 BOLD = "font-weight:900;"
 WHITE = "color:navajoWhite;"
@@ -136,6 +135,5 @@ async def main() -> None:
         f'\n<span style="{WHITE}{BOLD}">What do you want to do?'
         f' </span><span style="{PINK}{BOLD}">(start/quit)</span>\n'
     )
-
 
 asyncio.ensure_future(main())

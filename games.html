@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Jefe the Pug</title>
+    <!--    PyScript Stylesheet-->
+    <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
+    <!--    Custom Stylesheets-->
+    <link href="static/css/style.css" rel="stylesheet"/>
+    <link href="static/css/nav_style.css" rel="stylesheet"/>
+    <link href="static/css/games.css" rel="stylesheet"/>
+    <!-- GitHub Icon -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <!-- Nav Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+</head>
+
+<script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+</script>
+
+<body>
+<header>
+    <svg style="height:200px;width:200px" id="pug">
+        <use href="static/img/logo.svg#jefe"></use>
+    </svg>
+    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name2.png"/>
+    <div id="nav-box">
+        <nav class="nav">
+            <input id="menu" type="checkbox">
+            <label for="menu" onclick="colors()">Menu</label>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <span>Home</span>
+                        <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="games.html">
+                        <span>Games</span>
+                        <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="coding.html">
+                        <span>Projects</span>
+                        <i class="fas fa-code fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="certs.html">
+                        <span>Certificates</span>
+                        <i class="fas fa-list-check fa-beat" style="--fa-animation-duration: 2s;"
+                           aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span>Contact</span>
+                        <i class="fas fa-envelope fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<dialog id="loading">
+    <div id="spinCircle">
+        <svg id="jefeSpin" style="height:100px;width:100px;" viewBox="0 0 300 250">
+            <use href="static/img/logo.svg#jefe"></use>
+        </svg>
+        <h1 id="load">Loading<span id="dots">...</span></h1>
+    </div>
+</dialog>
+
+<div class="glass">
+    <input type="checkbox" id="boggle"/>
+    <label class="buffer" for="boggle">
+        <h1 class="expand">
+            Boggle
+            <a href="https://github.com/JefeThePug/Boggle" title="Visit Boggle GitHub Repo">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+
+        <div class="game">
+            <div class="terminalHolder">
+                <div id="boggleContainer">
+                    <div id="boggleOutput">
+                    </div>
+
+                    <div id="inputArea">
+                        <label for="boggleInput">&gt;</label>
+                        <input type="text" id="boggleInput" placeholder="..." autocomplete="off">
+                        <span id="timer" style="display:none;">03:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description">
+                <p>
+                    This terminal-based Boggle game challenges players to find words with connecting letters on a
+                    randomly generated 4x4 board under a timed limit. Using Python and the rich library, the game
+                    features a colorful console interface, real-time scoring, and automatic word validation via
+                    an online dictionary API. Each round encourages users to discover as many words as possible,
+                    following traditional Boggle rules that require connecting adjacent letters.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Timer & Scoring:
+                        <ul>
+                            A countdown timer adds pressure to the game. The score, calculated based
+                            on word length per the official rules of Boggle, updated dynamically with
+                            each valid word.
+                        </ul>
+                    </li>
+                    <li>Interactive Console:ß
+                        <ul>
+                            Enhanced with Rich for intuitive prompts and board displays.<br/>
+                            <span class="subtext">
+                                ※ Interactive game in this browser uses CSS instead of Rich
+                            </span>
+                        </ul>
+                    </li>
+                    <li>Custom Boggle Dice:
+                        <ul>
+                            The game board uses realistic letter distribution based on traditional
+                            English Boggle dice.
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    The project highlights interactive CLI design, game logic development using Object Oriented
+                    Programming, and integration of real-time web API calls for word validation.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="wordle"/>
+    <label class="buffer" for="wordle">
+        <h1 class="expand">
+            Wordle
+            <a href="https://github.com/JefeThePug/Wordle" title="Visit Wordle GitHub Repo">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+        <div class="game">
+            <div class="terminalHolder">
+                Coming Soon
+            </div>
+
+            <div class="description">
+                <p>
+                    This is a command-line Wordle-style game based on the popular game created by Josh Wardle
+                    and made popular by The New York Times. It is implemented in Python and the rules for the
+                    game are the same as the original. Players guess a hidden word within a set number of
+                    attempts. Each guess is evaluated, and feedback is provided through color-coded hints
+                    about the accuracy of each letter's position, using ANSI escape codes for colors.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Hidden Word Generation:
+                        <ul>
+                            The game randomly selects a word from the NLTK corpus, based on a specified
+                            word length.
+                        </ul>
+                    </li>
+                    <li>Color-Coded Feedback:
+                        <ul>
+                            After each guess, letters are highlighted to indicate their status:
+                            <li>
+                                <span style="color:limegreen" class="colorCode">Green</span>:
+                                Correct letter in the correct position
+                            </li>
+                            <li>
+                                <span style="color:gold" class="colorCode">Yellow</span>:
+                                Correct letter, in the wrong position
+                            </li>
+                            <li>
+                                <span style="color:silver" class="colorCode">Gray</span>:
+                                Incorrect letter
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Win/Loss Detection:</li>
+                    <ul>
+                        The game checks for victory upon guessing the word correctly, or ends with a loss
+                        if the maximum attempts are exceeded.
+                    </ul>
+                    </li>
+                </ul>
+                <p>
+                    This project demonstrates skills in console-based game design, ANSI color customization,
+                    word list filtering, and interaction with NLTK and its corpora. It combines interactive
+                    logic with concise feedback for the player.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="jefesAdventure"/>
+    <label class="buffer" for="jefesAdventure">
+        <h1 class="expand">
+            Jefe's Adventure
+            <a href="https://github.com/JefeThePug/Jefes_Adventure" title="Visit Jefe's Adventure GitHub Repo">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+        <div class="game">
+            <div class="terminalHolder">
+                Coming Soon
+            </div>
+
+            <div class="description">
+                <p>
+                    Jefe’s Adventure is a Pygame platformer designed with object-oriented principles, featuring
+                    custom sprites and engaging gameplay. Players control a character navigating levels filled
+                    with obstacles and interactive elements, utilizing smooth movement and responsive collision
+                    mechanics. Enhanced the efficiency and modularity of the game is executed via Game State
+                    Managers and Asset Managers, making it easy to manage and update game assets and scenes.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Character Movement and Collision Detection:
+                        <ul>
+                            The player character can move, jump, and interact with the environment, making for
+                            fluid and engaging gameplay. The game uses custom collision mechanics to handle
+                            character interactions with platforms, enemies, and other objects.
+                        </ul>
+                    </li>
+                    <li>Game State Management and Event Handling:
+                        <ul>
+                            The Game class manages scenes by setting up initial game states and dynamically changing
+                            scenes based on player progress. It uses a dictionary to assign specific assets to each
+                            game state, simplifying the flow between levels, menus, and gameplay scenes.
+                            Centralized event handling captures user inputs. The loop runs at a controlled frame
+                            rate to ensure consistent gameplay and smooth visual updates.
+                        </ul>
+                    </li>
+                    <li>Custom Sprites and Levels:
+                        <ul>
+                            Original sprite artwork was created in GIMP, based off the royalty-free sprites from
+                            <a href="https://kenney.nl/assets" class="ref">Kenney</a>, to align with the game's
+                            visual style and aesthetic. Levels designed in
+                            <a href="https://www.mapeditor.org/" class="ref">Tiled</a> Game Map making software.
+                        </ul>
+                    </li>
+                    <li>OOP Structure with Inheritance:
+                        <ul>
+                            Built with object-oriented programming, inheriting from both custom classes and built-in
+                            Pygame classes, the game’s structure supports extendable features
+                            and organized code for maintainability.
+                        </ul>
+                    </li>
+                    <li>Asset Loading for Scalability:
+                        <ul>
+                            Each manager class is designed to load assets dynamically from directories, which
+                            supports scalability by making it easy to add new levels, backgrounds, and sounds without
+                            changing the core code.
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    This design highlights skills in game development using structured asset management, modular
+                    scene handling, and responsive Pygame mechanics. The code architecture allows for flexible
+                    control over visuals, audio, and gameplay flow, creating a seamless experience.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+
+<footer>
+    &copy; JefeThePug 2024
+    <svg id="pawprint" style="height:70px;width:70px;transform:rotate(36deg);">
+        <use href="static/img/logo.svg#paw"></use>
+    </svg>
+</footer>
+
+<script type="py" src="scripts/boggle_main.py" config="scripts/bogglescript.toml"></script>
+
+<script>
+    function colors() {
+        const colors = [
+            '#FFC15A', '#FFD9E7', '#FFDD02',
+            '#C8B6E8', '#F5B3FF', '#D8FDFB',
+            '#FAF9A4', '#EAC6C4', '#FFA7E4',
+            '#BDE0FE', '#C3FDB8', '#FFDFBA'
+        ];
+
+        document.querySelectorAll('.menu li a').forEach(item => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const selectedColor = colors[randomIndex];
+
+            item.style.backgroundColor = selectedColor;
+            colors.splice(randomIndex, 1);
+
+            item.addEventListener('mouseover', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = selectedColor;
+                    console.log(icon.parentElement)
+                    item.classList.add('hover');
+                }
+            });
+
+            item.addEventListener('mouseout', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = '';
+                    item.classList.remove('hover');
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

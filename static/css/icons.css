@@ -1,27 +1,7 @@
 :root {
     --grey: #2c2c2c;
-    --translucent: rgba(255, 255, 255, 0.9);
 }
 
-.list {
-    background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 5px;
-    padding-bottom: 5px;
-}
-.list::before {
-    background-color: var(--translucent);
-    border-radius: 15px 15px 0 0;
-    color: var(--grey);
-    content: '';
-    margin: -35px auto 0;
-    padding: 0;
-    position: relative;
-    width: 100%;
-    z-index: -1;
-}
 .tool {
     background-repeat: no-repeat;
     background-size: contain;
