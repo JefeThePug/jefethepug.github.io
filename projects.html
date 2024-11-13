@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Jefe the Pug</title>
+    <!--    PyScript Stylesheet-->
+    <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
+    <!--    Custom Stylesheets-->
+    <link href="static/css/style.css" rel="stylesheet"/>
+    <link href="static/css/nav_style.css" rel="stylesheet"/>
+    <link href="static/css/projects.css" rel="stylesheet"/>
+    <!-- GitHub Icon -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <!-- Nav Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+</head>
+
+<script type="module">
+    const loading = document.getElementById('loading');
+    addEventListener('py:ready', () => loading.close());
+    loading.showModal();
+</script>
+
+<body>
+<header>
+    <svg style="height:200px;width:200px" id="pug">
+        <use href="static/img/logo.svg#jefe"></use>
+    </svg>
+    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name2.png"/>
+    <div id="nav-box">
+        <nav class="nav">
+            <input id="menu" type="checkbox">
+            <label for="menu" onclick="colors()">Menu</label>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <span>Home</span>
+                        <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="games.html">
+                        <span>Games</span>
+                        <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html">
+                        <span>Projects</span>
+                        <i class="fas fa-code fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="certs.html">
+                        <span>Certificates</span>
+                        <i class="fas fa-list-check fa-beat" style="--fa-animation-duration: 2s;"
+                           aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span>Contact</span>
+                        <i class="fas fa-envelope fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<dialog id="loading">
+    <div id="spinCircle">
+        <svg id="jefeSpin" style="height:100px;width:100px;" viewBox="0 0 300 250">
+            <use href="static/img/logo.svg#jefe"></use>
+        </svg>
+        <h1 id="load">Loading<span id="dots">...</span></h1>
+    </div>
+</dialog>
+
+<div class="glass">
+    <input type="checkbox" id="calculator"/>
+    <label class="buffer" for="calculator">
+        <h1 class="expand">
+            PyQT5 Calculator
+            <a href="https://github.com/JefeThePug/calculator" title="Visit Calculator GitHub Repo">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+
+        <div class="game">
+            <div class="terminalHolder">
+                <div id="boggleContainer">
+                    <div id="calculator-box">
+                        <div class="input-container">
+                            <input type="text" id="expression" placeholder="0" readonly>
+                            <div class="memory">M</div>
+                        </div>
+                        <div class="button-container">
+                            <button class="red" sent="AC" py-click="CALCULATOR.clicked_button">AC</button>
+                            <button class="red" sent="MR" py-click="CALCULATOR.clicked_button">MR</button>
+                            <button class="red" sent="MC" py-click="CALCULATOR.clicked_button">MC</button>
+                            <button class="red" sent="M+" py-click="CALCULATOR.clicked_button">M+</button>
+                            <button class="red" sent="CE" py-click="CALCULATOR.clicked_button">CE</button>
+                            <button class="pink" sent="7" py-click="CALCULATOR.clicked_button">7</button>
+                            <button class="pink" sent="8" py-click="CALCULATOR.clicked_button">8</button>
+                            <button class="pink" sent="9" py-click="CALCULATOR.clicked_button">9</button>
+                            <button class="green" sent="±" py-click="CALCULATOR.clicked_button">±</button>
+                            <button class="green" sent="√" py-click="CALCULATOR.clicked_button">√</button>
+                            <button class="pink" sent="4" py-click="CALCULATOR.clicked_button">4</button>
+                            <button class="pink" sent="5" py-click="CALCULATOR.clicked_button">5</button>
+                            <button class="pink" sent="6" py-click="CALCULATOR.clicked_button">6</button>
+                            <button class="green" sent="%" py-click="CALCULATOR.clicked_button">%</button>
+                            <button class="green" sent="/" py-click="CALCULATOR.clicked_button">÷</button>
+                            <button class="pink" sent="1" py-click="CALCULATOR.clicked_button">1</button>
+                            <button class="pink" sent="2" py-click="CALCULATOR.clicked_button">2</button>
+                            <button class="pink" sent="3" py-click="CALCULATOR.clicked_button">3</button>
+                            <button class="green" sent="*" py-click="CALCULATOR.clicked_button">×</button>
+                            <button class="green" sent="-" py-click="CALCULATOR.clicked_button">-</button>
+                            <button class="pink" sent="0" py-click="CALCULATOR.clicked_button">0</button>
+                            <button class="pink" sent="00" py-click="CALCULATOR.clicked_button">00</button>
+                            <button class="red" sent="." py-click="CALCULATOR.clicked_button">.</button>
+                            <button class="green" sent="+" py-click="CALCULATOR.clicked_button">+</button>
+                            <button class="green" sent="=" py-click="CALCULATOR.clicked_button">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description">
+                <p>
+                    abc
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Timer & Scoring:
+                        <ul>
+                            A countdown timer adds pressure to the game. The score, calculated based
+                            on word length per the official rules of Boggle, updated dynamically with
+                            each valid word.
+                        </ul>
+                    </li>
+                    <li>Interactive Console:ß
+                        <ul>
+                            Enhanced with Rich for intuitive prompts and board displays.<br/>
+                            <span class="subtext">
+                                ※ Interactive game in this browser uses CSS instead of Rich
+                            </span>
+                        </ul>
+                    </li>
+
+                </ul>
+                <p>
+                    xyz
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+
+<footer>
+    &copy; JefeThePug 2024
+    <svg id="pawprint" style="height:70px;width:70px;transform:rotate(36deg);">
+        <use href="static/img/logo.svg#paw"></use>
+    </svg>
+</footer>
+
+<script type="py" src="scripts/calculator.py"></script>
+
+<script>
+    function colors() {
+        const colors = [
+            '#FFC15A', '#FFD9E7', '#FFDD02',
+            '#C8B6E8', '#F5B3FF', '#D8FDFB',
+            '#FAF9A4', '#EAC6C4', '#FFA7E4',
+            '#BDE0FE', '#C3FDB8', '#FFDFBA'
+        ];
+
+        document.querySelectorAll('.menu li a').forEach(item => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const selectedColor = colors[randomIndex];
+
+            item.style.backgroundColor = selectedColor;
+            colors.splice(randomIndex, 1);
+
+            item.addEventListener('mouseover', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = selectedColor;
+                    console.log(icon.parentElement)
+                    item.classList.add('hover');
+                }
+            });
+
+            item.addEventListener('mouseout', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = '';
+                    item.classList.remove('hover');
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>
