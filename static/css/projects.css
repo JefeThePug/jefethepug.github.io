@@ -1,8 +1,20 @@
+:root {
+    --ltgrey: #d7d7d7;
+}
+
 #calculator-box {
-    width: 330px;
     margin: 10px auto;
     background-color: black;
     display: grid;
+}
+
+input:checked + .small-glass .buffer .game .terminalHolder #calc-container {
+    width: 330px;
+}
+
+.title {
+    margin-top: 40px;
+    border-radius: 14px;
 }
 
 button {
@@ -67,4 +79,41 @@ button {
     align-content: space-evenly;
     margin: 5px;
     gap: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.small-glass {
+    background: rgba(255, 255, 255, 0.592);
+    backdrop-filter: blur(1px);
+    border-radius: 15px;
+    border: 1px solid rgba(43, 43, 43, 0.568);
+    margin: 5px auto;
+}
+
+.small-glass .buffer h1 {
+    background: linear-gradient(to right, var(--ltgrey), rgba(0, 0, 0, 0));
+    border-radius: 14px 14px 0 0;
+    font-size: 21px;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+input:checked + .small-glass {
+    grid-column: span 2;
+}
+
+input:checked + .small-glass .buffer .game {
+    height: max-content;
+}
+
+input:checked + .small-glass .buffer::after {
+    content: "...see less";
+}
+input:checked + .small-glass .buffer .game::after{
+    content: "...see less";
 }

@@ -82,85 +82,441 @@
     </div>
 </dialog>
 
-<div class="glass">
+<h1 class="title">Projects</h1>
+<div class="projects container">
     <input type="checkbox" id="calculator"/>
-    <label class="buffer" for="calculator">
-        <h1 class="expand">
-            PyQT5 Calculator
-            <a href="https://github.com/JefeThePug/calculator" title="Visit Calculator GitHub Repo">
-                <i class="devicon-github-original link"></i>
-            </a>
-        </h1>
+    <div class="small-glass">
+        <label class="buffer" for="calculator">
+            <h1 class="expand">
+                PyQT Calculator
+                <a href="https://github.com/JefeThePug/calculator" title="Visit Calculator GitHub Repo">
+                    <i class="devicon-github-original link"></i>
+                </a>
+            </h1>
 
-        <div class="game">
-            <div class="terminalHolder">
-                <div id="boggleContainer">
-                    <div id="calculator-box">
-                        <div class="input-container">
-                            <input type="text" id="expression" placeholder="0" readonly>
-                            <div class="memory">M</div>
-                        </div>
-                        <div class="button-container">
-                            <button class="red" sent="AC" py-click="CALCULATOR.clicked_button">AC</button>
-                            <button class="red" sent="MR" py-click="CALCULATOR.clicked_button">MR</button>
-                            <button class="red" sent="MC" py-click="CALCULATOR.clicked_button">MC</button>
-                            <button class="red" sent="M+" py-click="CALCULATOR.clicked_button">M+</button>
-                            <button class="red" sent="CE" py-click="CALCULATOR.clicked_button">CE</button>
-                            <button class="pink" sent="7" py-click="CALCULATOR.clicked_button">7</button>
-                            <button class="pink" sent="8" py-click="CALCULATOR.clicked_button">8</button>
-                            <button class="pink" sent="9" py-click="CALCULATOR.clicked_button">9</button>
-                            <button class="green" sent="±" py-click="CALCULATOR.clicked_button">±</button>
-                            <button class="green" sent="√" py-click="CALCULATOR.clicked_button">√</button>
-                            <button class="pink" sent="4" py-click="CALCULATOR.clicked_button">4</button>
-                            <button class="pink" sent="5" py-click="CALCULATOR.clicked_button">5</button>
-                            <button class="pink" sent="6" py-click="CALCULATOR.clicked_button">6</button>
-                            <button class="green" sent="%" py-click="CALCULATOR.clicked_button">%</button>
-                            <button class="green" sent="/" py-click="CALCULATOR.clicked_button">÷</button>
-                            <button class="pink" sent="1" py-click="CALCULATOR.clicked_button">1</button>
-                            <button class="pink" sent="2" py-click="CALCULATOR.clicked_button">2</button>
-                            <button class="pink" sent="3" py-click="CALCULATOR.clicked_button">3</button>
-                            <button class="green" sent="*" py-click="CALCULATOR.clicked_button">×</button>
-                            <button class="green" sent="-" py-click="CALCULATOR.clicked_button">-</button>
-                            <button class="pink" sent="0" py-click="CALCULATOR.clicked_button">0</button>
-                            <button class="pink" sent="00" py-click="CALCULATOR.clicked_button">00</button>
-                            <button class="red" sent="." py-click="CALCULATOR.clicked_button">.</button>
-                            <button class="green" sent="+" py-click="CALCULATOR.clicked_button">+</button>
-                            <button class="green" sent="=" py-click="CALCULATOR.clicked_button">=</button>
+            <div class="game">
+                <div class="terminalHolder">
+                    <div id="calc-container">
+                        <div id="calculator-box">
+                            <div class="input-container">
+                                <input type="text" id="expression" placeholder="0" readonly>
+                                <div class="memory">M</div>
+                            </div>
+                            <div class="button-container">
+                                <button class="red" sent="AC" py-click="CALCULATOR.clicked_button">AC</button>
+                                <button class="red" sent="MR" py-click="CALCULATOR.clicked_button">MR</button>
+                                <button class="red" sent="MC" py-click="CALCULATOR.clicked_button">MC</button>
+                                <button class="red" sent="M+" py-click="CALCULATOR.clicked_button">M+</button>
+                                <button class="red" sent="CE" py-click="CALCULATOR.clicked_button">CE</button>
+                                <button class="pink" sent="7" py-click="CALCULATOR.clicked_button">7</button>
+                                <button class="pink" sent="8" py-click="CALCULATOR.clicked_button">8</button>
+                                <button class="pink" sent="9" py-click="CALCULATOR.clicked_button">9</button>
+                                <button class="green" sent="±" py-click="CALCULATOR.clicked_button">±</button>
+                                <button class="green" sent="√" py-click="CALCULATOR.clicked_button">√</button>
+                                <button class="pink" sent="4" py-click="CALCULATOR.clicked_button">4</button>
+                                <button class="pink" sent="5" py-click="CALCULATOR.clicked_button">5</button>
+                                <button class="pink" sent="6" py-click="CALCULATOR.clicked_button">6</button>
+                                <button class="green" sent="%" py-click="CALCULATOR.clicked_button">%</button>
+                                <button class="green" sent="/" py-click="CALCULATOR.clicked_button">÷</button>
+                                <button class="pink" sent="1" py-click="CALCULATOR.clicked_button">1</button>
+                                <button class="pink" sent="2" py-click="CALCULATOR.clicked_button">2</button>
+                                <button class="pink" sent="3" py-click="CALCULATOR.clicked_button">3</button>
+                                <button class="green" sent="*" py-click="CALCULATOR.clicked_button">×</button>
+                                <button class="green" sent="-" py-click="CALCULATOR.clicked_button">-</button>
+                                <button class="pink" sent="0" py-click="CALCULATOR.clicked_button">0</button>
+                                <button class="pink" sent="00" py-click="CALCULATOR.clicked_button">00</button>
+                                <button class="red" sent="." py-click="CALCULATOR.clicked_button">.</button>
+                                <button class="green" sent="+" py-click="CALCULATOR.clicked_button">+</button>
+                                <button class="green" sent="=" py-click="CALCULATOR.clicked_button">=</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="description">
+                    <p>
+                        This PyQt-based calculator project showcases the use of Python in GUI design, event
+                        handling, and logic-based programming within a structured, object-oriented framework.
+                        All while creating a functional calculator.
+                    </p>
+
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>User Interface Design with PyQt:
+                            <ul>
+                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
+                                QPushButton components, styled with color themes through PyQT's setStyleSheet
+                                method, creating a clear visual distinction between different calculator functions.
+                                <p class="subtext">
+                                    The in-browser demonstration recreates the interface using PyScript along with
+                                    HTML and CSS, without relying on PyQt functionality.
+                                </p>
+                            </ul>
+                        </li>
+                        <li>Event Handling & Functional Programming:
+                            <ul>
+                                Designed responsive button interactions with PyQT event handling, using partial
+                                functions to associate specific operations with individual buttons, implementing
+                                functionality for a wide range of calculator operations, including basic arithmetic,
+                                memory functions, and error handling.
+                            </ul>
+                        </li>
+                        <li>Code Structure & Object-Oriented Design:
+                            <ul>
+                                Class-based structure, encapsulating the calculator's components in a class for the main
+                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
+                                add_operator), making the code modular, easier to expand, and straightforward to
+                                maintain or modify.
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <p>
+                        This project demonstrates the ability to create visually intuitive applications, managing
+                        stateful interactions, and applying clean, organized code with GUI frameworks like PyQt.
+                    </p>
+                </div>
             </div>
+        </label>
+    </div>
 
-            <div class="description">
-                <p>
-                    abc
-                </p>
+    <input type="checkbox" id="credit"/>
+    <div class="small-glass">
+        <label class="buffer" for="credit">
+            <h1 class="expand">
+                Credit Card Management Tool
+                <a href="https://github.com/JefeThePug/Credit_Card_Summary"
+                   title="Visit Credit Card Management Tool GitHub Repo">
+                    <i class="devicon-github-original link"></i>
+                </a>
+            </h1>
 
-                <h3>Key Features:</h3>
-                <ul>
-                    <li>Timer & Scoring:
-                        <ul>
-                            A countdown timer adds pressure to the game. The score, calculated based
-                            on word length per the official rules of Boggle, updated dynamically with
-                            each valid word.
-                        </ul>
-                    </li>
-                    <li>Interactive Console:ß
-                        <ul>
-                            Enhanced with Rich for intuitive prompts and board displays.<br/>
-                            <span class="subtext">
-                                ※ Interactive game in this browser uses CSS instead of Rich
-                            </span>
-                        </ul>
-                    </li>
+            <div class="game">
+                <div class="terminalHolder">
+                    <div>
 
-                </ul>
-                <p>
-                    xyz
-                </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <p>
+                        xyz
+                    </p>
+
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>User Interface Design with PyQt:
+                            <ul>
+                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
+                                QPushButton components, styled with color themes through PyQT's setStyleSheet
+                                method, creating a clear visual distinction between different calculator functions.
+                                <p class="subtext">
+                                    The in-browser demonstration recreates the interface using PyScript along with
+                                    HTML and CSS, without relying on PyQt functionality.
+                                </p>
+                            </ul>
+                        </li>
+                        <li>Event Handling & Functional Programming:
+                            <ul>
+                                Designed responsive button interactions with PyQT event handling, using partial
+                                functions to associate specific operations with individual buttons, implementing
+                                functionality for a wide range of calculator operations, including basic arithmetic,
+                                memory functions, and error handling.
+                            </ul>
+                        </li>
+                        <li>Code Structure & Object-Oriented Design:
+                            <ul>
+                                Class-based structure, encapsulating the calculator's components in a class for the main
+                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
+                                add_operator), making the code modular, easier to expand, and straightforward to
+                                maintain or modify.
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <p>
+                        abc
+                    </p>
+                </div>
             </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="vet"/>
+    <div class="small-glass">
+        <label class="buffer" for="vet">
+            <h1 class="expand">
+                Vet Appointment Web App
+                <a href="https://github.com/JefeThePug/Vet-Appointment-Webapp"
+                   title="Visit Vet Appointment Web App GitHub Repo">
+                    <i class="devicon-github-original link"></i>
+                </a>
+            </h1>
+
+            <div class="game">
+                <div class="terminalHolder">
+                    <div>
+
+                    </div>
+                </div>
+
+                <div class="description">
+                    <p>
+                        xyz
+                    </p>
+
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>User Interface Design with PyQt:
+                            <ul>
+                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
+                                QPushButton components, styled with color themes through PyQT's setStyleSheet
+                                method, creating a clear visual distinction between different calculator functions.
+                                <p class="subtext">
+                                    The in-browser demonstration recreates the interface using PyScript along with
+                                    HTML and CSS, without relying on PyQt functionality.
+                                </p>
+                            </ul>
+                        </li>
+                        <li>Event Handling & Functional Programming:
+                            <ul>
+                                Designed responsive button interactions with PyQT event handling, using partial
+                                functions to associate specific operations with individual buttons, implementing
+                                functionality for a wide range of calculator operations, including basic arithmetic,
+                                memory functions, and error handling.
+                            </ul>
+                        </li>
+                        <li>Code Structure & Object-Oriented Design:
+                            <ul>
+                                Class-based structure, encapsulating the calculator's components in a class for the main
+                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
+                                add_operator), making the code modular, easier to expand, and straightforward to
+                                maintain or modify.
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <p>
+                        abc
+                    </p>
+                </div>
+            </div>
+        </label>
+    </div>
+</div>
+
+
+<h1 class="title">Open Source Contributions</h1>
+<div class="OSS container">
+    <input type="checkbox" id="bot"/>
+    <div class="small-glass">
+        <label class="buffer" for="bot">
+            <h1 class="expand">
+                Practical Python Server Bot
+                <a href="https://github.com/practical-python-org/ZorakBot"
+                   title="Visit Practical Python Bot GitHub Repo">
+                    <i class="devicon-github-original link"></i>
+                </a>
+            </h1>
+
+            <div class="game">
+                <div class="description">
+                    <p>
+                        abc
+                    </p>
+
+                    <h3>Key Contributions:</h3>
+                    <ul>
+                        <li>User Interface Design with PyQt:
+                            <ul>
+                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
+                                QPushButton components, styled with color themes through PyQT's setStyleSheet
+                                method, creating a clear visual distinction between different calculator functions.
+                                <p class="subtext">
+                                    The in-browser demonstration recreates the interface using PyScript along with
+                                    HTML and CSS, without relying on PyQt functionality.
+                                </p>
+                            </ul>
+                        </li>
+                        <li>Event Handling & Functional Programming:
+                            <ul>
+                                Designed responsive button interactions with PyQT event handling, using partial
+                                functions to associate specific operations with individual buttons, implementing
+                                functionality for a wide range of calculator operations, including basic arithmetic,
+                                memory functions, and error handling.
+                            </ul>
+                        </li>
+                        <li>Code Structure & Object-Oriented Design:
+                            <ul>
+                                Class-based structure, encapsulating the calculator's components in a class for the main
+                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
+                                add_operator), making the code modular, easier to expand, and straightforward to
+                                maintain or modify.
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <p>
+                        xyz
+                    </p>
+                </div>
+            </div>
+        </label>
+    </div>
+</div>
+
+<div class="challenges">
+    <input type="checkbox" id="challenges">
+    <label class="buffer" for="challenges">
+        <h1 class="title">Coding Challenges</h1>
+        <div class="game">
+            <ul>
+                <li class="">
+                    Advent of Code Submissions
+                    <ul>
+                        <li>2022</li>
+                        <li>2023</li>
+                    </ul>
+                </li>
+                <li class="">
+                    Project Euler Progress
+                </li>
+                <li class="">
+                    pythonchallenge.com Solutions
+                </li>
+                <li class="">
+                    Practical Python 50 Days of Code
+                </li>
+            </ul>
         </div>
     </label>
+</div>
+
+<h1 class="title">In-Progress Work</h1>
+<div class="coming container">
+    <input type="checkbox" id="text"/>
+    <div class="small-glass">
+        <label class="buffer" for="text">
+            <h1 class="expand">
+                "Zorak's Fortress" I.F. Game
+                <a href="https://github.com/JefeThePug/Zoraks_Fortress"
+                   title="Visit Zorak's Fortress GitHub Repo">
+                    <i class="devicon-github-original link"></i>
+                </a>
+            </h1>
+
+            <div class="game">
+                <div class="terminalHolder">
+                    <div>
+
+                    </div>
+                </div>
+
+                <div class="description">
+                    <p>
+                        xyz
+                    </p>
+
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>User Interface Design with PyQt:
+                            <ul>
+                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
+                                QPushButton components, styled with color themes through PyQT's setStyleSheet
+                                method, creating a clear visual distinction between different calculator functions.
+                                <p class="subtext">
+                                    The in-browser demonstration recreates the interface using PyScript along with
+                                    HTML and CSS, without relying on PyQt functionality.
+                                </p>
+                            </ul>
+                        </li>
+                        <li>Event Handling & Functional Programming:
+                            <ul>
+                                Designed responsive button interactions with PyQT event handling, using partial
+                                functions to associate specific operations with individual buttons, implementing
+                                functionality for a wide range of calculator operations, including basic arithmetic,
+                                memory functions, and error handling.
+                            </ul>
+                        </li>
+                        <li>Code Structure & Object-Oriented Design:
+                            <ul>
+                                Class-based structure, encapsulating the calculator's components in a class for the main
+                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
+                                add_operator), making the code modular, easier to expand, and straightforward to
+                                maintain or modify.
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <p>
+                        abc
+                    </p>
+                </div>
+            </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="coding-challenge"/>
+    <div class="small-glass">
+        <label class="buffer" for="coding-challenge">
+            <h1 class="expand">
+                Zorak's Coding Challenges
+                <a href="https://github.com/JefeThePug/Zorak-Coding-Challenges"
+                   title="Visit Zorak's Coding Challenges GitHub Repo">
+                    <i class="devicon-github-original link"></i>
+                </a>
+            </h1>
+
+            <div class="game">
+                <div class="terminalHolder">
+                    <div>
+
+                    </div>
+                </div>
+
+                <div class="description">
+                    <p>
+                        xyz
+                    </p>
+
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>User Interface Design with PyQt:
+                            <ul>
+                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
+                                QPushButton components, styled with color themes through PyQT's setStyleSheet
+                                method, creating a clear visual distinction between different calculator functions.
+                                <p class="subtext">
+                                    The in-browser demonstration recreates the interface using PyScript along with
+                                    HTML and CSS, without relying on PyQt functionality.
+                                </p>
+                            </ul>
+                        </li>
+                        <li>Event Handling & Functional Programming:
+                            <ul>
+                                Designed responsive button interactions with PyQT event handling, using partial
+                                functions to associate specific operations with individual buttons, implementing
+                                functionality for a wide range of calculator operations, including basic arithmetic,
+                                memory functions, and error handling.
+                            </ul>
+                        </li>
+                        <li>Code Structure & Object-Oriented Design:
+                            <ul>
+                                Class-based structure, encapsulating the calculator's components in a class for the main
+                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
+                                add_operator), making the code modular, easier to expand, and straightforward to
+                                maintain or modify.
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <p>
+                        abc
+                    </p>
+                </div>
+            </div>
+        </label>
+    </div>
 </div>
 
 
