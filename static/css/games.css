@@ -6,14 +6,6 @@ ul ul {
     margin-left: -20px;
 }
 
-.boggleContainer {
-    background-color: black;
-    display: flex;
-    padding: 5px;
-    width: fit-content;
-    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.5);
-}
-
 #boggleOutput {
     background-color:black;
     font-family:'Courier New',Courier,monospace;
