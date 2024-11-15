@@ -245,7 +245,7 @@
 }
 
 .nltk {
-    background-image: url(/static/img/nltk.png);
+    background-image: url(/static/img/icons/nltk.png);
     filter: saturate(10%);
 }
 .nltk:hover {
@@ -256,7 +256,7 @@
 }
 
 .nosql {
-    background-image: url(/static/img/nosql.png);
+    background-image: url(/static/img/icons/nosql.png);
 }
 .nosql:hover {
     filter: saturate(400%);
@@ -283,7 +283,7 @@
 }
 
 .openpy {
-    background-image: url(/static/img/opyxl.png);
+    background-image: url(/static/img/icons/opyxl.png);
     filter: saturate(0%);
 }
 .openpy:hover {
@@ -378,7 +378,7 @@
 }
 
 .pygbag {
-    background-image: url(/static/img/pygbag.png);
+    background-image: url(/static/img/icons/pygbag.png);
     filter: saturate(50%);
 }
 .pygbag:hover {
@@ -409,7 +409,7 @@
 }
 
 .pyqt {
-    background-image: url(/static/img/pyqt.svg);
+    background-image: url(/static/img/icons/pyqt.svg);
     filter: saturate(50%);
 }
 .pyqt:hover {
@@ -420,7 +420,7 @@
 }
 
 .restapi {
-    background-image: url(/static/img/restapi.png);
+    background-image: url(/static/img/icons/restapi.png);
     filter: saturate(20%);
 }
 .restapi:hover {
@@ -445,7 +445,7 @@
 
 }
 .sql:hover {
-    background-image: url(/static/img/sql.svg);
+    background-image: url(/static/img/icons/sql.svg);
 }
 .sql:hover ~ .field::before {
     content: 'SQL';
