@@ -1,5 +1,8 @@
 :root {
     --ltgrey: #d7d7d7;
+    --ltblue: #dffcfb;
+    --purple: #C8B6E8;
+    --grey: #2c2c2c;
 }
 
 #calculator-box {
@@ -15,6 +18,7 @@ input:checked + .small-glass .buffer .game .terminalHolder #calc-container {
 .title {
     margin-top: 40px;
     border-radius: 14px;
+    border: none;
 }
 
 button {
@@ -81,7 +85,7 @@ button {
     gap: 5px;
 }
 
-.container {
+.container, .challenges {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -93,6 +97,7 @@ button {
     border-radius: 15px;
     border: 1px solid rgba(43, 43, 43, 0.568);
     margin: 5px auto;
+    width: 100%;
 }
 
 .small-glass .buffer h1 {
@@ -114,6 +119,35 @@ input:checked + .small-glass .buffer .game {
 input:checked + .small-glass .buffer::after {
     content: "...see less";
 }
-input:checked + .small-glass .buffer .game::after{
+
+input:checked + .small-glass .buffer .game::after,
+input:checked + .challenges .buffer .game::after {
     content: "...see less";
+}
+
+ul.glass {
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+.sm-link {
+    color: var(--ltblue);
+    border-radius: 50%;
+    border: 2px solid var(--grey);
+    font-size: 20px;
+    margin-left: 20px;
+    justify-items: center;
+}
+
+ul ul {
+    margin-left: 20px;
+}
+
+.ghost {
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    max-width: 100%;
 }
