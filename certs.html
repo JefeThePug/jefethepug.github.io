@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Jefe the Pug</title>
+    <!--    PyScript Stylesheet-->
+    <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
+    <!--    Custom Stylesheets-->
+    <link href="static/css/style.css" rel="stylesheet"/>
+    <link href="static/css/nav_style.css" rel="stylesheet"/>
+    <link href="static/css/projects.css" rel="stylesheet"/>
+    <link href="static/css/cert.css" rel="stylesheet"/>
+    <!-- GitHub Icon -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <!-- Nav Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+</head>
+
+<body>
+<header>
+    <svg style="height:200px;width:200px" id="pug">
+        <use href="static/img/logo.svg#jefe"></use>
+    </svg>
+    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name.png"/>
+    <div id="nav-box">
+        <nav class="nav">
+            <input id="menu" type="checkbox">
+            <label for="menu" onclick="colors()">Menu</label>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <span>Home</span>
+                        <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="games.html">
+                        <span>Games</span>
+                        <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html">
+                        <span>Projects</span>
+                        <i class="fas fa-code fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="certs.html">
+                        <span>Certificates</span>
+                        <i class="fas fa-list-check fa-beat" style="--fa-animation-duration: 2s;"
+                           aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span>Contact</span>
+                        <i class="fas fa-envelope fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<dialog id="loading">
+    <div id="spinCircle">
+        <svg id="jefeSpin" style="height:100px;width:100px;" viewBox="0 0 300 250">
+            <use href="static/img/logo.svg#jefe"></use>
+        </svg>
+        <h1 id="load">Loading<span id="dots">...</span></h1>
+    </div>
+</dialog>
+
+<h1 class="title">Courses</h1>
+<div class="courses container">
+
+    <input type="checkbox" id="python_ud"/>
+    <div class="small-glass">
+        <label class="buffer" for="python_ud">
+            <h1 class="expand">
+                Python Course (Udemy)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/python_ud.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="sql_ud"/>
+    <div class="small-glass">
+        <label class="buffer" for="sql_ud">
+            <h1 class="expand">
+                Python Course (Udemy)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/sql_ud.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="docker_ud"/>
+    <div class="small-glass">
+        <label class="buffer" for="docker_ud">
+            <h1 class="expand">
+                Docker Course (Udemy)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/docker_ud.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="cs50"/>
+    <div class="small-glass">
+        <label class="buffer" for="cs50">
+            <h1 class="expand">
+                Harvard's CS50
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/cs50.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+</div>
+
+<h1 class="title">Skill Completion</h1>
+<div class="courses container">
+
+    <input type="checkbox" id="python_hr"/>
+    <div class="small-glass">
+        <label class="buffer" for="python_hr">
+            <h1 class="expand">
+                Python Skill Test (HackerRank)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/python_hr.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="sql1_hr"/>
+    <div class="small-glass">
+        <label class="buffer" for="sql1_hr">
+            <h1 class="expand">
+                SQL Skill Test Beginner (HackerRank)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/sql1_hr.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="sql2_hr"/>
+    <div class="small-glass">
+        <label class="buffer" for="sql2_hr">
+            <h1 class="expand">
+                SQL Skill Test Intermediate (HackerRank)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/sql2_hr.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+</div>
+
+<h1 class="title">Examinations</h1>
+<div class="courses container">
+
+    <input type="checkbox" id="sql3_hr"/>
+    <div class="small-glass">
+        <label class="buffer" for="sql3_hr">
+            <h1 class="expand">
+                SQL Skill Test Advanced (HackerRank)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/sql3_hr.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+    <input type="checkbox" id="sei_hr"/>
+    <div class="small-glass">
+        <label class="buffer" for="sei_hr">
+            <h1 class="expand">
+                Software Engineer Intern (HackerRank)
+            </h1>
+            <div class="cert">
+                <img class="certificate" src="/static/img/certs/sei_hr.png"/>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                    <li>d</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+
+</div>
+
+
+
+<footer>
+    &copy; JefeThePug 2024
+    <svg id="pawprint" style="height:70px;width:70px;transform:rotate(36deg);">
+        <use href="static/img/logo.svg#paw"></use>
+    </svg>
+</footer>
+
+<script>
+    function colors() {
+        const colors = [
+            '#FFC15A', '#FFD9E7', '#FFDD02',
+            '#C8B6E8', '#F5B3FF', '#D8FDFB',
+            '#FAF9A4', '#EAC6C4', '#FFA7E4',
+            '#BDE0FE', '#C3FDB8', '#FFDFBA'
+        ];
+
+        document.querySelectorAll('.menu li a').forEach(item => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const selectedColor = colors[randomIndex];
+
+            item.style.backgroundColor = selectedColor;
+            colors.splice(randomIndex, 1);
+
+            item.addEventListener('mouseover', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = selectedColor;
+                    console.log(icon.parentElement)
+                    item.classList.add('hover');
+                }
+            });
+
+            item.addEventListener('mouseout', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = '';
+                    item.classList.remove('hover');
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+img.certificate {
+    height: 225px;
+}
+
+.small-glass .buffer h1 {
+    padding-bottom: 30px;
+}
+
+.expand::after {
+    top: 40px;
+}
+
+.container {
+    grid-template-columns: repeat(auto-fill, 300px);
+}
+
+input:checked + .small-glass {
+    grid-column: 1 / -1;
+}
+
+input:checked + .small-glass .buffer .cert  {
+    height: max-content;
+}
+input:checked + .small-glass .buffer .expand::after {
+    content: "...see less";
+}
+input:checked + .small-glass .buffer .cert::after {
+    content: "...see less";
+}
