@@ -27,3 +27,17 @@ input:checked + .small-glass .buffer .expand::after {
 input:checked + .small-glass .buffer .cert::after {
     content: "...see less";
 }
+
+ul.points li {
+    padding: 8px;
+}
+
+.b {
+    font-weight: bold;
+    text-shadow: 0 0 1px var(--midgrey);
+}
+
+p {
+    color: var(--grey);
+    text-align: center;
+}

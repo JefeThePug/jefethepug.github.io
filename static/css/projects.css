@@ -19,6 +19,7 @@ input:checked + .small-glass .buffer .game .terminalHolder #calc-container {
     margin-top: 40px;
     border-radius: 14px;
     border: none;
+    color: var(--grey);
 }
 
 button {
@@ -96,6 +97,7 @@ button {
     backdrop-filter: blur(1px);
     border-radius: 15px;
     border: 1px solid rgba(43, 43, 43, 0.568);
+    color: var(--grey);
     margin: 5px auto;
     width: 100%;
 }
