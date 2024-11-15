@@ -150,7 +150,7 @@ h3 {
 }
 
 h4 {
-    background-color: var(--ltgrey);
+    background: linear-gradient(to right, var(--ltgrey), rgba(0, 0, 0, 0));
     border-radius: 10px;
     color: var(--grey);
     font-size: 1em;
@@ -213,24 +213,25 @@ h4 {
     padding: 1em;
 }
 
-.buffer::after, .skills::after, .game::after {
+.expand::after, .skills::after, .game::after {
     bottom: 0;
     content: " ";
     font-size: small;
     padding: 5px;
     position: absolute;
     right: 2%;
-    text-shadow: 0 0 1px var(--grey);
+    text-shadow: 0 0 1px var(--midgrey);
 }
-.buffer::after {
+.expand::after {
     content: "...see more";
     top: 25px;
+    z-index: 10000;
 }
 
 input:checked + .buffer .skills, input:checked + .buffer .game {
     height: max-content;
 }
-input:checked + .buffer::after {
+input:checked + .buffer .expand::after {
     content: "...see less";
 }
 input:checked + .buffer .skills::after, input:checked + .buffer .game::after{

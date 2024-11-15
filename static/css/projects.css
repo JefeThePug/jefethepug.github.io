@@ -85,7 +85,7 @@ button {
     gap: 5px;
 }
 
-.container, .challenges {
+.container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -116,20 +116,17 @@ input:checked + .small-glass .buffer .game {
     height: max-content;
 }
 
-input:checked + .small-glass .buffer::after {
+input:checked + .small-glass .buffer .expand::after {
     content: "...see less";
 }
 
-input:checked + .small-glass .buffer .game::after,
-input:checked + .challenges .buffer .game::after {
+input:checked + .small-glass .buffer .game::after {
     content: "...see less";
 }
 
-ul.glass {
-    width: 100%;
-    padding: 20px;
+ul.description {
+    padding: 20px 40px;
     margin-top: 10px;
-    padding-bottom: 20px;
 }
 
 .sm-link {
@@ -147,7 +144,6 @@ ul ul {
 
 .ghost {
     background: none;
-    backdrop-filter: none;
     border: none;
     max-width: 100%;
 }
