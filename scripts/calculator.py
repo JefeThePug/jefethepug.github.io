@@ -135,7 +135,6 @@ class Calculator:
 
     def clicked_button(self, event):
         value = event.target.getAttribute('sent')
-        print(f"{value=}", file=sys.stderr)
         if "E" not in self.num_str or value == "AC":
             self.check_clicked(value)
             if "E" in self.num_str:
