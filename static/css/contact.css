@@ -1,0 +1,90 @@
+:root {
+    --purple: #C8B6E8;
+    --grey: #2c2c2c;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Create 3 equal columns */
+    gap: 10px;
+    padding: 20px;
+}
+
+form {
+    grid-column: span 3;
+}
+
+#mail-pic {
+    justify-self: center;
+    align-self: center;
+    grid-column: span 2;
+}
+
+.pic {
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.material-symbols-outlined {
+    top: 8px;
+    position: relative;
+    color: var(--grey);
+}
+
+.in-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+label.in-form {
+    margin: 10px 0;
+}
+
+.icon {
+    position: static;
+    margin-right: 5px;
+}
+
+.line {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.underline {
+    border-bottom: 1px solid rgba(43, 43, 43, 0.568);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+    padding: 10px;
+    width: calc(100% - 20px);;
+}
+
+.send {
+    display: flex;
+    justify-content: right;
+}
+
+button {
+    color: var(--grey);
+    background: linear-gradient(to right, var(--purple), var(--drpink));
+    padding: 10px;
+    width: 25%;
+    border: 1px solid var(--midgrey);
+    outline: none;
+}
+
+button:hover {
+    background: linear-gradient(to right, var(--drpink), var(--pink));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+}

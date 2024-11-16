@@ -11,7 +11,7 @@
     <!--    Custom Stylesheets-->
     <link href="static/css/style.css" rel="stylesheet"/>
     <link href="static/css/nav_style.css" rel="stylesheet"/>
-    <link href="static/css/icons.css" rel="stylesheet"/>
+    <link href="static/css/contact.css" rel="stylesheet"/>
     <!-- GitHub Icon -->
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
     <!-- Form Icons -->
@@ -80,35 +80,42 @@
 </dialog>
 
 <div class="glass">
-    <h1 class="">
-        <span class="material-symbols-outlined">contact_mail</span> Contact me
+    <h1 class="underline">
+            <span class="material-symbols-outlined icon">contact_mail</span>
+        <div class="">Contact me</div>
     </h1>
-    <div style="display:flex;">
-        <form>
-            <div class="">
-                <label for="formName" class="">
-                    <span class="material-symbols-outlined">person</span>
+    <div class="form-container">
+        <form action="https://formsubmit.co/your@email.com" method="POST">
+            <input type="text" name="_honey" style="display: none;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_subject" value="Contact via portfolio site:">
+
+            <div class="in-form">
+                <label for="formName">
+                    <span class="material-symbols-outlined icon">person</span>
                 </label>
-                <input type="text" id="formName" class="" placeholder="Name">
+                <input type="text" id="formName" name="name" class="line" placeholder="Name" required>
             </div>
 
-            <div class="">
-                <label for="formEmail" class="">
-                    <span class="material-symbols-outlined">mail</span>
+            <div class="in-form">
+                <label for="formEmail">
+                    <span class="material-symbols-outlined icon">mail</span>
                 </label>
-                <input type="email" id="formEmail" class="" placeholder="E-mail">
+                <input type="email" id="formEmail" name="email" class="line" placeholder="E-mail" required>
             </div>
 
             <div class="">
-                <textarea id="formMessage" class="" rows="20" placeholder="Message..."></textarea>
+                <textarea id="formMessage" name="message" rows="20" placeholder="Message..."></textarea>
             </div>
 
-            <div class="">
+            <div class="send">
                 <button type="submit" class="" tabIndex="-1">Send</button>
             </div>
         </form>
         <div id="mail-pic">
-            <img src="static/img/mail.png"/>
+            <img class="pic" src="static/img/mail.png"/>
         </div>
     </div>
 
