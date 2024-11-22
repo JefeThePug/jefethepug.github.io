@@ -227,6 +227,7 @@ h4 {
     text-shadow: 0 0 1px var(--midgrey);
 }
 .expand::after {
+    height: 20px;
     content: "...see more";
     top: 25px;
     z-index: 10000;

@@ -18,12 +18,42 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- PyScript -->
     <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+    <!-- P5.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.js"></script>
+    <script src="scripts/sketch.js" type="text/javascript"></script>
+    <script src="scripts/plinko-parts.js" type="text/javascript"></script>
+    <script src="scripts/letter-parts.js" type="text/javascript"></script>
+    <script src="scripts/phonics-parts.js" type="text/javascript"></script>
 </head>
 
 <script type="module">
     const loading = document.getElementById('loading');
     addEventListener('py:ready', () => loading.close());
     loading.showModal();
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const labels = document.querySelectorAll('label.buffer');
+
+        labels.forEach( label => {
+            const h1 = label.querySelector('h1.expand');
+            const gameDiv = label.querySelector('.game');
+
+            function getAfterPosition() {
+                const rect = gameDiv.getBoundingClientRect();
+                return {x: rect.right - 150, y: rect.bottom - 50};
+            }
+
+            label.addEventListener('click', function (event) {
+                if (event.target === h1) return;
+                const afterPosition = getAfterPosition();
+                const isAfterArea = event.clientY >= afterPosition.y && event.clientX >= afterPosition.x;
+                if (!isAfterArea) event.preventDefault();
+            });
+        });
+    });
 </script>
 
 <body>
@@ -218,7 +248,8 @@
     <label class="buffer" for="jefesAdventure">
         <h1 class="expand">
             Jefe's Adventure
-            <a href="https://github.com/JefeThePug/Jefes_Adventure" title="Visit Jefe's Adventure GitHub Repo" target="_blank">
+            <a href="https://github.com/JefeThePug/Jefes_Adventure" title="Visit Jefe's Adventure GitHub Repo"
+               target="_blank">
                 <i class="devicon-github-original link"></i>
             </a>
         </h1>
@@ -288,20 +319,19 @@
 </div>
 
 
-
-
 <div class="glass">
     <input type="checkbox" id="phonics-blast"/>
     <label class="buffer" for="phonics-blast">
         <h1 class="expand">
             Phonics Blast
-            <a href="https://github.com/JefeThePug/PhonicsBlast" title="Visit Phonics Blast GitHub Repo" target="_blank">
+            <a href="https://github.com/JefeThePug/PhonicsBlast" title="Visit Phonics Blast GitHub Repo"
+               target="_blank">
                 <i class="devicon-github-original link"></i>
             </a>
         </h1>
         <div class="game">
             <div class="terminalHolder">
-                Coming Soon
+                <div class="phonics-container"></div>
             </div>
 
             <div class="description">
@@ -363,13 +393,14 @@
     <label class="buffer" for="letter_constellation">
         <h1 class="expand">
             Letter Constellations
-            <a href="https://github.com/JefeThePug/LetterConstellations" title="Visit Letter Constellations GitHub Repo" target="_blank">
+            <a href="https://github.com/JefeThePug/LetterConstellations" title="Visit Letter Constellations GitHub Repo"
+               target="_blank">
                 <i class="devicon-github-original link"></i>
             </a>
         </h1>
         <div class="game">
             <div class="terminalHolder">
-                Coming Soon
+                <div class="letter-container"></div>
             </div>
 
             <div class="description">
@@ -430,14 +461,14 @@
     <input type="checkbox" id="plinko"/>
     <label class="buffer" for="plinko">
         <h1 class="expand">
-            Jefe's Adventure
-            <a href="https://github.com/JefeThePug/plinko" title="Visit PlinkoParts GitHub Repo" target="_blank">
+            Plinko
+            <a href="https://github.com/JefeThePug/plinko" title="Visit Plinko GitHub Repo" target="_blank">
                 <i class="devicon-github-original link"></i>
             </a>
         </h1>
         <div class="game">
             <div class="terminalHolder">
-                Coming Soon
+                <div class="plinko-container"></div>
             </div>
 
             <div class="description">
@@ -524,7 +555,6 @@
                 const icon = item.querySelector('i');
                 if (icon) {
                     icon.style.color = selectedColor;
-                    console.log(icon.parentElement)
                     item.classList.add('hover');
                 }
             });
