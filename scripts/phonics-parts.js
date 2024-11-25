@@ -208,8 +208,9 @@ function Character(img, hKey, canvas) {
     this.s = 150;
     this.xDirection = -1;
     this.yDirection = -1;
-    this.sfPointUp = canvas.loadSound('assets/sounds/PointUp.mp3');
-    this.sfPointDown = canvas.loadSound('assets/sounds/PointDown.wav');
+    const URL = "https://raw.githubusercontent.com/JefeThePug/PhonicsBlast/main/"
+    this.sfPointUp = canvas.loadSound(`${URL}assets/sounds/PointUp.mp3`);
+    this.sfPointDown = canvas.loadSound(`${URL}assets/sounds/PointDown.wav`);
     this.canvas = canvas;
 
     this.render = function () {
@@ -255,7 +256,8 @@ function Heart(sPos, angle, hKey, hColor, canvas) {
     this.vel.mult(8);
     this.keyDown = hKey;
     this.keyColor = hColor;
-    this.sfMiss = canvas.loadSound('assets/sounds/Miss.wav');
+    const URL = "https://raw.githubusercontent.com/JefeThePug/PhonicsBlast/main/"
+    this.sfMiss = canvas.loadSound(`${URL}assets/sounds/Miss.wav`);
     this.canvas = canvas;
 
     this.update = function () {
@@ -305,7 +307,7 @@ function Heart(sPos, angle, hKey, hColor, canvas) {
 
 }
 
-var Particle = function (position, canvas) {
+let Particle = function (position, canvas) {
     this.acceleration = canvas.createVector(0, 0.1);
     this.velocity = canvas.createVector(canvas.random(-5, 1), canvas.random(-5, 0));
     this.position = position.copy();

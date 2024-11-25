@@ -111,6 +111,15 @@ Ball.prototype.show = function(canvas) {
    canvas.fill(this.hue, 255, 255);
    canvas.stroke(this.hue, 60, 60);
    let pos = this.body.position;
+   if (pos.y < this.r) {
+      Body.setPosition(this.body, { x: pos.x, y: this.r });
+   }
+   if (pos.x < this.r) {
+      Body.setPosition(this.body, { x: this.r, y: pos.y });
+   }
+   if (pos.x > this.canvas.width - this.r) {
+      Body.setPosition(this.body, { x: this.canvas.width - this.r, y: pos.y });
+   }
    canvas.push();
    canvas.translate(pos.x, pos.y);
    canvas.image(ball, 0, 0, this.r * 2, this.r * 2)
