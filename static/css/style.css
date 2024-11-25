@@ -171,6 +171,7 @@ h4 {
 .buffer {
     margin: 0;
 }
+
 .expand {
     border-bottom: 1px solid rgba(43, 43, 43, 0.568);
 }
@@ -217,7 +218,7 @@ h4 {
     padding: 1em;
 }
 
-.expand::after, .skills::after, .game::after, .cert::after{
+.expand::after, .skills::after, .game::after, .cert::after {
     bottom: 0;
     content: " ";
     font-size: small;
@@ -226,6 +227,7 @@ h4 {
     right: 2%;
     text-shadow: 0 0 1px var(--midgrey);
 }
+
 .expand::after {
     height: 20px;
     content: "...see more";
@@ -236,10 +238,12 @@ h4 {
 input:checked + .buffer .skills, input:checked + .buffer .game {
     height: max-content;
 }
+
 input:checked + .buffer .expand::after {
     content: "...see less";
 }
-input:checked + .buffer .skills::after, input:checked + .buffer .game::after{
+
+input:checked + .buffer .skills::after, input:checked + .buffer .game::after {
     content: "...see less";
 }
 
@@ -251,6 +255,7 @@ input:checked + .buffer .skills::after, input:checked + .buffer .game::after{
     margin: 0 5px;
     padding-bottom: 5px;
 }
+
 .list::before {
     background-color: var(--translucent);
     border-radius: 15px 15px 0 0;
@@ -273,16 +278,6 @@ input:checked + .buffer .skills::after, input:checked + .buffer .game::after{
 }
 
 
-
-
-
-
-
-
-
-
-
-
 footer {
     color: black;
     font-size: x-small;
@@ -290,7 +285,7 @@ footer {
     bottom: 0;
     right: 0;
     margin-top: 100px;
-    opacity:0.25;
+    opacity: 0.25;
     padding: 10px;
     z-index: 1000;
 }
@@ -299,22 +294,97 @@ i {
     font-size: xx-large;
 }
 
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 10px;
+    width: auto;
+    height: 60px;
+
+}
+
+.navigational-button {
+    align-content: center;
+    flex: 1;
+    color: var(--grey);
+    text-shadow: 0 0 3px var(--ltgrey);
+    text-align: center;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: calc(1rem + 0.5vw);
+    border: 1px solid var(--grey);
+    background: radial-gradient(#ffddd1, #f0c9d7, #d4c2e1, #bdd7ea, #c0f0f4);
+    background-size: 400% 400%;
+    animation: gradientMove 30s ease-in-out infinite;
+}
 
 
 
 
+@media (max-width: 500px) {
+    .nav-container {
+        flex-direction: column;
+        height: fit-content;
+    }
+}
 
+@keyframes gradientMove {
+    0% {
+        background-position: top left;
+    }
+    12.5% {
+        background-position: center;
+    }
+    25% {
+        background-position: top right;
+    }
+    37.5% {
+        background-position: center;
+    }
+    50% {
+        background-position: bottom right;
+    }
+    62.5% {
+        background-position: center;
+    }
+    75% {
+        background-position: bottom left;
+    }
+    87.5% {
+        background-position: center;
+    }
+    100% {
+        background-position: top left;
+    }
+}
 
-
-
-
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 @keyframes rotateJefe {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
+
 @keyframes blink {
-    50% { opacity: 0; }
+    50% {
+        opacity: 0;
+    }
 }
 
 
