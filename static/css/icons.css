@@ -203,6 +203,17 @@
     content: 'JetBrains';
 }
 
+
+.jinja {
+    background-image: url(https://www.svgrepo.com/show/330741/jinja.svg);
+}
+.jinja:hover {
+    background-image: url(https://www.svgrepo.com/show/373702/jinja.svg);
+}
+.jinja:hover ~ .field::before {
+    content: 'Jinja';
+}
+
 .jupyter {
     background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg);
 }

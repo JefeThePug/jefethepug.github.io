@@ -97,9 +97,11 @@ path {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(235, 222, 208, 0.85);
+    background: var(--ltblue);
     border-radius: 100%;
     padding: 30px;
+    aspect-ratio: 1 / 1;
+    height: 70%;
 }
 
 #load {
@@ -328,8 +330,56 @@ i {
     box-shadow: inset 0 0 5px var(--midgrey);
 }
 
+.bold {
+    font-weight: bolder;
+}
 
+.socials {
+    display: flex;
+    gap: 10px;
+}
 
+.social {
+    margin-top: 10px;
+    position: relative;
+}
+
+.social img {
+    display: block;
+    width: 30px;
+}
+
+.social:nth-child(1):hover {
+    margin-right: 120px;
+}
+.social:nth-child(2):hover {
+    margin-right: 180px;
+}
+.social:nth-child(3):hover {
+    margin-right: 225px;
+}
+
+.social:hover::after {
+    content: "";
+    position: absolute;
+    transform: translateX(30px) translateY(-100%);
+    padding: 5px 10px;
+    width: max-content;
+}
+.social:nth-child(1):hover::after {
+    content: "Visit my GitHub";
+}
+.social:nth-child(2):hover::after {
+    content: "Message me on Discord";
+}
+
+.social:nth-child(3):hover::after {
+    content: "Python server where I hang out";
+}
+
+.social:nth-child(4):hover::after {
+    content: "Buy me a Coffee";
+}
 
 
 
@@ -367,18 +417,6 @@ i {
     }
     100% {
         background-position: top left;
-    }
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
     }
 }
 
