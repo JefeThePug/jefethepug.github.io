@@ -194,48 +194,62 @@
             <div class="game">
                 <div class="terminalHolder">
                     <div>
-
+                        <img class="project-img" src="static/img/ccpreview.png"/>
                     </div>
                 </div>
 
                 <div class="description">
                     <p>
-                        xyz
+                        This project is a tool designed for scraping credit card purchase data from a bank's website,
+                        categorizing transactions, and generating detailed financial summaries in Excel. Utilizing
+                        Python for backend processing and integrating with Excel for user-friendly data management,
+                        this tool streamlines the process of tracking and analyzing expenses.
                     </p>
 
                     <h3>Key Features:</h3>
                     <ul>
-                        <li>User Interface Design with PyQt:
+                        <li>Web Scraping & Data Parsing:
                             <ul>
-                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
-                                QPushButton components, styled with color themes through PyQT's setStyleSheet
-                                method, creating a clear visual distinction between different calculator functions.
-                                <p class="subtext">
-                                    The in-browser demonstration recreates the interface using PyScript along with
-                                    HTML and CSS, without relying on PyQt functionality.
-                                </p>
+                                Employs Python libraries such as BeautifulSoup and Pandas to scrape and parse HTML
+                                content from the bank's website. The tool extracts relevant purchase data, including
+                                transaction dates, descriptions, and amounts, and organizes it into a structured
+                                format suitable for analysis.
                             </ul>
                         </li>
-                        <li>Event Handling & Functional Programming:
+                        <li>Excel Integration & Automation:
                             <ul>
-                                Designed responsive button interactions with PyQT event handling, using partial
-                                functions to associate specific operations with individual buttons, implementing
-                                functionality for a wide range of calculator operations, including basic arithmetic,
-                                memory functions, and error handling.
+                                Generates a comprehensive Excel file that allows users to view, modify, and categorize
+                                their purchases. The project includes VBA scripts that automate data handling, enabling
+                                users to easily manipulate the data and generate summaries based on custom categories.
                             </ul>
                         </li>
-                        <li>Code Structure & Object-Oriented Design:
+                        <li>Email Notification System:
                             <ul>
-                                Class-based structure, encapsulating the calculator's components in a class for the main
-                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
-                                add_operator), making the code modular, easier to expand, and straightforward to
-                                maintain or modify.
+                                Implements an email notification system using Python's SMTP library. This feature
+                                allows users to send the generated PDF summary directly from Excel to designated
+                                recipient, ensuring that financial summaries are easily accessible.
                             </ul>
                         </li>
-
+                        <li>AppleScript Integration:
+                            <ul>
+                                Incorporates AppleScript to execute Python scripts directly from within Excel. This
+                                integration enhances the user experience by streamlining the process of generating PDF
+                                reports and sending emails, making the tool more intuitive and user-friendly.
+                            </ul>
+                        </li>
+                        <li>Customizable Categorization:
+                            <ul>
+                                Allows users to customize transaction categories through a user-friendly interface in
+                                Excel. Users can modify the categorization logic in the Python script, ensuring that
+                                the tool adapts to individual financial tracking needs.
+                            </ul>
+                        </li>
                     </ul>
                     <p>
-                        abc
+                        This project showcases the ability to integrate web scraping, data manipulation, and GUI
+                        automation, demonstrating proficiency in Python programming, Excel VBA, and AppleScript. It
+                        provides a practical solution for financial tracking and analysis, empowering users to easily
+                        take control of their expenses.
                     </p>
                 </div>
             </div>
@@ -262,42 +276,92 @@
 
                 <div class="description">
                     <p>
-                        xyz
+                        This project is a mock-up web application developed for the fictional "Dr. Pug Animal Clinic",
+                        aimed at facilitating the electronic management and scheduling of veterinary appointments.
+                        Leveraging Flask as the web framework and SQLite as the database, the app provides a
+                        user-friendly interface for clients to book appointments, eliminating the need for a
+                        receptionist and significantly streamlining the appointment process.
                     </p>
 
                     <h3>Key Features:</h3>
                     <ul>
-                        <li>User Interface Design with PyQt:
+                        <li>User Registration and Login:
                             <ul>
-                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
-                                QPushButton components, styled with color themes through PyQT's setStyleSheet
-                                method, creating a clear visual distinction between different calculator functions.
-                                <p class="subtext">
-                                    The in-browser demonstration recreates the interface using PyScript along with
-                                    HTML and CSS, without relying on PyQt functionality.
-                                </p>
+                                <li>
+                                    Secure account creation and authentication process, ensuring that only registered
+                                    users can access the appointment scheduling features.
+                                </li>
+                                <li>
+                                    Users can easily register with a username and password, with validation checks to
+                                    enhance security.
+                                </li>
                             </ul>
                         </li>
-                        <li>Event Handling & Functional Programming:
+                        <li>User Settings:
                             <ul>
-                                Designed responsive button interactions with PyQT event handling, using partial
-                                functions to associate specific operations with individual buttons, implementing
-                                functionality for a wide range of calculator operations, including basic arithmetic,
-                                memory functions, and error handling.
+                                <li>
+                                    Users can manage their personal information, including email addresses and
+                                    passwords, through a dedicated settings page.
+                                </li>
+                                <li>
+                                    Pet registration functionality allows users to add and manage their pets, ensuring
+                                    that appointments can only be made for registered pets.
+                                </li>
                             </ul>
                         </li>
-                        <li>Code Structure & Object-Oriented Design:
+                        <li>Informative Pages:
                             <ul>
-                                Class-based structure, encapsulating the calculator's components in a class for the main
-                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
-                                add_operator), making the code modular, easier to expand, and straightforward to
-                                maintain or modify.
+                                <li>
+                                    Doctors Page: Displays a list of available doctors at the clinic, complete with
+                                    photographs and short bios to help users make informed choices.
+                                </li>
+                                <li>
+                                    Access Page: Provides directions to the clinic, including a Google Maps embed for
+                                    easy navigation and public transportation information.
+                                </li>
+                                <li>
+                                    Hours Page: Clearly shows the clinic's hours of operation, which are dynamically
+                                    retrieved from the database.
+                                </li>
                             </ul>
                         </li>
-
+                        <li>Appointment Booking:
+                            <ul>
+                                <li>
+                                    Users can select their preferred doctor and pet from intuitive drop-down menus,
+                                    simplifying the booking process.
+                                </li>
+                                <li>
+                                    An availability chart displays the next five days segmented into thirty-minute
+                                    intervals, visually indicating availability with color-coded indicators:
+                                    <ul>
+                                        <li>Circle (◯): Lots of availability</li>
+                                        <li>Triangle (△): Limited availability</li>
+                                        <li>X (✕): No availability</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Appointment Management:
+                            <ul>
+                                <li>
+                                    Users can view their upcoming appointments, with options to cancel or delete them
+                                    as needed.
+                                </li>
+                                <li>
+                                    Past appointments are also displayed for reference, allowing users to keep track of
+                                    their veterinary history.
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                     <p>
-                        abc
+                        This project showcases an integration of web development technologies, demonstrating
+                        proficiency in Python programming, use of the Flask framework, database management, and
+                        front-end design. The application not only enhances the efficiency of veterinary practices but
+                        also significantly improves the client experience by providing a seamless and user-friendly
+                        platform for managing pet healthcare appointments. The focus on usability and accessibility
+                        makes it a valuable tool for both the clinic and its clients.
                     </p>
                 </div>
             </div>
@@ -321,43 +385,83 @@
 
             <div class="game">
                 <div class="description">
+                    <h2>ZorakBot - Open Source Contributions</h2>
                     <p>
-                        abc
+                        ZorakBot is the house bot for the Practical Python Discord server, designed to moderate, log,
+                        and provide both essential and fun features for the community. As an active contributor to this
+                        project, I have focused on enhancing the bot's functionality and improving user experience
+                        through various contributions.
                     </p>
 
-                    <h3>Key Contributions:</h3>
+                    <h3>My Contributions:</h3>
                     <ul>
-                        <li>User Interface Design with PyQt:
+                        <li>LaTeX Image Output:
                             <ul>
-                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
-                                QPushButton components, styled with color themes through PyQT's setStyleSheet
-                                method, creating a clear visual distinction between different calculator functions.
-                                <p class="subtext">
-                                    The in-browser demonstration recreates the interface using PyScript along with
-                                    HTML and CSS, without relying on PyQt functionality.
-                                </p>
+                                <li>
+                                    Implemented a command that integrates with a LaTeX API to output images, allowing
+                                    users to generate and display LaTeX-rendered content directly within the Discord
+                                    server.
+                                </li>
                             </ul>
                         </li>
-                        <li>Event Handling & Functional Programming:
+                        <li>User Onboarding Improvements:
                             <ul>
-                                Designed responsive button interactions with PyQT event handling, using partial
-                                functions to associate specific operations with individual buttons, implementing
-                                functionality for a wide range of calculator operations, including basic arithmetic,
-                                memory functions, and error handling.
+                                <li>
+                                    Enhanced the bot's handling of new users joining the server by streamlining the
+                                    onboarding process, ensuring a smoother introduction to the community's features
+                                    and functionalities and handling users who do not verify after one hour.
+                                </li>
                             </ul>
                         </li>
-                        <li>Code Structure & Object-Oriented Design:
+                        <li>Message Translation Feature:
                             <ul>
-                                Class-based structure, encapsulating the calculator's components in a class for the main
-                                window, and defining methods for specific functionalities (e.g., clear_mem, totaling,
-                                add_operator), making the code modular, easier to expand, and straightforward to
-                                maintain or modify.
+                                <li>
+                                    Part of the team developing a message translation feature using the Google
+                                    Translate API, enabling users to communicate seamlessly across language barriers
+                                    within the server by automatically translating messages recognized to be in a
+                                    language other than English.
+                                </li>
                             </ul>
                         </li>
-
                     </ul>
+
+                    <h3>General Responsibilities:</h3>
+                    <ul>
+                        <li>Code Review and PR Management:
+                            <ul>
+                                <li>
+                                    Assist in reviewing pull requests (PRs) to maintain high standards of code quality
+                                    and ensure proper feature integration.
+                                </li>
+                                <li>
+                                    Manage the backlog and task delegation using Kanban principles, facilitating an
+                                    efficient workflow among contributors.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Code Refactoring:
+                            <ul>
+                                <li>
+                                    Regularly refactor code to improve performance and maintainability, ensuring that
+                                    the codebase remains clean and efficient.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Project Overview:</h3>
                     <p>
-                        xyz
+                        ZorakBot utilizes Py-Cord with cogged slash commands and integrates with a MongoDB database to
+                        provide features such as reaction roles, a points system, music functions, admin commands,
+                        full server logging, spam prevention, and raid protection. The bot is deployed using Docker,
+                        ensuring easy setup and management.
+                    </p>
+
+                    <p>
+                        Contributing to ZorakBot not only demonstrates my technical skills in Python and API
+                        integration but also highlights my commitment to collaborative software development and
+                        community engagement. I encourage others to join in the development process, as the project is
+                        open for contributions from anyone in the Practical Python community.
                     </p>
                 </div>
             </div>
@@ -440,57 +544,99 @@
             <div class="game">
                 <div class="terminalHolder">
                     <div>
-
+                        <img class="project-img" src="static/img/fortress.png"/>
                     </div>
                 </div>
 
                 <div class="description">
                     <p>
-                        xyz
+                        Zorak's Fortress is an Interactive Fiction (I.R.) text-based adventure game built with Flask,
+                        allowing players to explore a mysterious world through interactive commands. The game features
+                        a completely custom-made parser that enhances the gameplay experience, alongside session
+                        management and custom maps to visualize the game world.
+                        <br/><span class="bold">This project is currently a work in progress</span>, with ongoing
+                        enhancements and features being implemented.
                     </p>
 
                     <h3>Key Features:</h3>
                     <ul>
-                        <li>User Interface Design with PyQt:
+                        <li>Interactive Gameplay:
                             <ul>
-                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
-                                QPushButton components, styled with color themes through PyQT's
-                                setStyleSheet
-                                method, creating a clear visual distinction between different calculator
-                                functions.
-                                <p class="subtext">
-                                    The in-browser demonstration recreates the interface using PyScript
-                                    along with
-                                    HTML and CSS, without relying on PyQt functionality.
-                                </p>
+                                <li>
+                                    Engage with the story through a variety of text-based commands, enhancing player
+                                    immersion.
+                                </li>
+                                <li>
+                                    The custom parser processes user input, extracting verbs, objects, and prepositions
+                                    for dynamic interaction.
+                                </li>
                             </ul>
                         </li>
-                        <li>Event Handling & Functional Programming:
+                        <li>Session Management:
                             <ul>
-                                Designed responsive button interactions with PyQT event handling, using
-                                partial
-                                functions to associate specific operations with individual buttons,
-                                implementing
-                                functionality for a wide range of calculator operations, including basic
-                                arithmetic,
-                                memory functions, and error handling.
+                                <li>
+                                    Utilizes session cookies to track player progress, enabling a personalized gaming
+                                    experience.
+                                </li>
+                                <li>
+                                    Ensures that players can resume their adventures seamlessly, maintaining state
+                                    across sessions.
+                                </li>
                             </ul>
                         </li>
-                        <li>Code Structure & Object-Oriented Design:
+                        <li>Custom Maps:
                             <ul>
-                                Class-based structure, encapsulating the calculator's components in a class
-                                for the main
-                                window, and defining methods for specific functionalities (e.g., clear_mem,
-                                totaling,
-                                add_operator), making the code modular, easier to expand, and
-                                straightforward to
-                                maintain or modify.
+                                <li>
+                                    Visual representations of the world enhance navigation and exploration.
+                                </li>
+                                <li>
+                                    Maps are designed to provide a clear understanding of the game environment,
+                                    improving user experience while adding to the game aesthetic.
+                                </li>
                             </ul>
                         </li>
-
+                        <li>Responsive Design:
+                            <ul>
+                                <li>
+                                    Developed with a mobile-first approach, ensuring compatibility across various
+                                    devices and screen sizes.
+                                </li>
+                                <li>
+                                    Players can enjoy the game directly in their browsers, making it easily accessible.
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
+
+                    <h3>Skills and Technologies Used:</h3>
+                    <ul>
+                        <li>
+                            <span class="bold">Flask:</span> Leveraged as the web framework for building the
+                            application, enabling efficient routing and session management.
+                        </li>
+                        <li>
+                            <span class="bold">Python:</span> Utilized for backend development, including game logic
+                            and command parsing.
+                        </li>
+                        <li>
+                            <span class="bold">HTML/CSS:</span> Implemented for creating a user-friendly interface and
+                            ensuring responsive design.
+                        </li>
+                        <li>
+                            <span class="bold">JavaScript:</span> Used for enhancing interactivity and improving user
+                            experience through dynamic content updates.
+                        </li>
+                        <li>
+                            <span class="bold">Custom Parser Development:</span> Designed and implemented a unique
+                            command parser to facilitate natural language processing for player commands.
+                        </li>
+                    </ul>
+
                     <p>
-                        abc
+                        This project showcases a strong integration of web development technologies, game development,
+                        and demonstrates proficiency in Python programming, database management, and front-end design.
+                        The focus on usability and accessibility makes it a valuable tool for providing an engaging
+                        narrative experience for players.
                     </p>
                 </div>
             </div>
@@ -517,51 +663,91 @@
 
                 <div class="description">
                     <p>
-                        xyz
+                        Zorak's Coding Challenge is a series of 10 interactive coding challenges, each with two parts,
+                        inspired by Advent of Code. Built with Flask, this application allows users to log in via
+                        Discord, track their progress, and gain access to exclusive discussion channels upon completing
+                        challenges.
+                        <br/><span class="bold">This project is currently a work in progress</span>, with ongoing
+                        development to enhance user experience and expand challenge offerings.
                     </p>
 
                     <h3>Key Features:</h3>
                     <ul>
-                        <li>User Interface Design with PyQt:
+                        <li>Interactive Challenges:
                             <ul>
-                                Customized, interactive interface using PyQT’s QMainWindow, QFrame, and
-                                QPushButton components, styled with color themes through PyQT's
-                                setStyleSheet
-                                method, creating a clear visual distinction between different calculator
-                                functions.
-                                <p class="subtext">
-                                    The in-browser demonstration recreates the interface using PyScript
-                                    along with
-                                    HTML and CSS, without relying on PyQt functionality.
-                                </p>
+                                <li>
+                                    Engage with coding problems that test your skills and creativity based on common
+                                    algorithms and data structures.
+                                </li>
+                                <li>
+                                    Each challenge consists of two parts, allowing for independent problem-solving.
+                                </li>
+                                <li>
+                                    The development of these challenges showcases my ability to create educational
+                                    content that is both engaging and instructive. Demonstrating not only my ability
+                                    to solve these types of challenges but also build them from scratch.
+                                </li>
                             </ul>
                         </li>
-                        <li>Event Handling & Functional Programming:
+                        <li>Discord Integration:
                             <ul>
-                                Designed responsive button interactions with PyQT event handling, using
-                                partial
-                                functions to associate specific operations with individual buttons,
-                                implementing
-                                functionality for a wide range of calculator operations, including basic
-                                arithmetic,
-                                memory functions, and error handling.
+                                <li>
+                                    Seamless login through Discord accounts for easy progress tracking.
+                                </li>
+                                <li>
+                                    Grants access to exclusive discussion channels upon completing challenges.
+                                </li>
                             </ul>
                         </li>
-                        <li>Code Structure & Object-Oriented Design:
+                        <li>Dynamic Content:
                             <ul>
-                                Class-based structure, encapsulating the calculator's components in a class
-                                for the main
-                                window, and defining methods for specific functionalities (e.g., clear_mem,
-                                totaling,
-                                add_operator), making the code modular, easier to expand, and
-                                straightforward to
-                                maintain or modify.
+                                <li>
+                                    Challenges and solutions are stored in a MongoDB database for easy updates.
+                                </li>
+                                <li>
+                                    Content can be modified without disrupting user experience.
+                                </li>
                             </ul>
                         </li>
-
+                        <li>Obfuscation:
+                            <ul>
+                                <li>
+                                    Unique challenge identifiers add an element of mystery and prevent cheating.
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
+
+                    <h3>Skills and Technologies Used:</h3>
+                    <ul>
+                        <li>
+                            <span class="bold">Flask:</span> Utilized as the web framework for building the application,
+                            enabling efficient routing and session management.
+                        </li>
+                        <li>
+                            <span class="bold">Python:</span> Employed for backend development, including challenge
+                            logic and user authentication.
+                        </li>
+                        <li>
+                            <span class="bold">MongoDB:</span> Used for storing challenge data, user progress, and
+                            solutions dynamically.
+                        </li>
+                        <li>
+                            <span class="bold">HTML/CSS:</span> Implemented for creating a user-friendly interface and
+                            ensuring responsive design.
+                        </li>
+                        <li>
+                            <span class="bold">JavaScript:</span> Used for enhancing interactivity and improving user
+                            experience through dynamic content updates.
+                        </li>
+                    </ul>
+
                     <p>
-                        abc
+                        This project not only showcases my coding proficiency but also highlights my ability to teach
+                        and create content independently. By developing challenges that are both challenging and
+                        educational, I demonstrate a commitment to enhancing the learning experience for users. The
+                        focus on usability and engagement makes it a valuable tool for users looking to sharpen their
+                        coding skills.
                     </p>
                 </div>
             </div>
