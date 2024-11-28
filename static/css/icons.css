@@ -442,7 +442,7 @@
 }
 
 .requests {
-    background-image: url(https://requests.readthedocs.io/en/latest/_../requests-sidebar.png);
+    background-image: url(https://requests.readthedocs.io/en/latest/_static/requests-sidebar.png);
 }
 .requests:hover {
     filter: sepia(100%) saturate(300%) hue-rotate(50deg);
