@@ -256,7 +256,7 @@
 }
 
 .nltk {
-    background-image: url(static/img/icons/nltk.png);
+    background-image: url(../img/icons/nltk.png);
     filter: saturate(10%);
 }
 .nltk:hover {
@@ -267,7 +267,7 @@
 }
 
 .nosql {
-    background-image: url(static/img/icons/nosql.png);
+    background-image: url(../img/icons/nosql.png);
 }
 .nosql:hover {
     filter: saturate(400%);
@@ -294,7 +294,7 @@
 }
 
 .openpy {
-    background-image: url(static/img/icons/opyxl.png);
+    background-image: url(../img/icons/opyxl.png);
     filter: saturate(0%);
 }
 .openpy:hover {
@@ -389,7 +389,7 @@
 }
 
 .pygbag {
-    background-image: url(static/img/icons/pygbag.png);
+    background-image: url(../img/icons/pygbag.png);
     filter: saturate(50%);
 }
 .pygbag:hover {
@@ -420,7 +420,7 @@
 }
 
 .pyqt {
-    background-image: url(static/img/icons/pyqt.svg);
+    background-image: url(../img/icons/pyqt.svg);
     filter: saturate(50%);
 }
 .pyqt:hover {
@@ -431,7 +431,7 @@
 }
 
 .restapi {
-    background-image: url(static/img/icons/restapi.png);
+    background-image: url(../img/icons/restapi.png);
     filter: saturate(20%);
 }
 .restapi:hover {
@@ -442,7 +442,7 @@
 }
 
 .requests {
-    background-image: url(https://requests.readthedocs.io/en/latest/_static/requests-sidebar.png);
+    background-image: url(https://requests.readthedocs.io/en/latest/_../requests-sidebar.png);
 }
 .requests:hover {
     filter: sepia(100%) saturate(300%) hue-rotate(50deg);
@@ -456,7 +456,7 @@
 
 }
 .sql:hover {
-    background-image: url(static/img/icons/sql.svg);
+    background-image: url(../img/icons/sql.svg);
 }
 .sql:hover ~ .field::before {
     content: 'SQL';
