@@ -602,8 +602,7 @@ class LetterGame extends Game {
 
 }
 
-class PlinkoGame
-    extends Game {
+class PlinkoGame extends Game {
     constructor(name) {
         super(name);
         this.URL = "https://raw.githubusercontent.com/JefeThePug/plinko/main/";
@@ -621,6 +620,7 @@ class PlinkoGame
         this.finished = false;
         this.tilted = false;
         this.tiltreset = 0;
+        this.muted = false;
     }
 
     preload(p) {
@@ -756,12 +756,14 @@ class PlinkoGame
     }
 
     pegHit(A, B) {
-        if (A.label === "peg") {
-            this.dings[A.sound].play(0, 1, 1, 0.5, 0.5);
-            A.c = 60;
-        } else {
-            this.dings[B.sound].play(0, 1, 1, 0.5, 0.5);
-            B.c = 60;
+        if (!this.muted) {
+            if (A.label === "peg") {
+                this.dings[A.sound].play(0, 1, 1, 0.5, 0.5);
+                A.c = 60;
+            } else {
+                this.dings[B.sound].play(0, 1, 1, 0.5, 0.5);
+                B.c = 60;
+            }
         }
     }
 
@@ -847,6 +849,16 @@ class PlinkoGame
         } else if (p.key === "B" || p.key === "b") {
             this.giveBonus(p);
         }
+    }
+
+    pause() {
+        super.pause();
+        this.muted = true;
+    }
+
+    resume() {
+        super.resume();
+        this.muted = false;
     }
 
 }
