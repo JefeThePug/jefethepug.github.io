@@ -1,4 +1,4 @@
-function Message(pos, txt) {
+function Message(pos, txt, canvas) {
    this.pos = pos;
    this.txt = txt;
    if (this.txt.substring(0, 1) === "t") {
@@ -8,6 +8,8 @@ function Message(pos, txt) {
       this.halflife = 5000;
       this.fontsize = 50;
    }
+   const URL = "https://raw.githubusercontent.com/JefeThePug/LetterConstellations/main/";
+   this.fontStars = canvas.loadFont(`${URL}assets/_ABCBULLE.TTF`);
 }
 
 Message.prototype.update = function() {
@@ -20,8 +22,8 @@ Message.prototype.draw = function(canvas) {
    canvas.fill(255);
    canvas.textSize(this.fontsize);
    canvas.noStroke();
-   if (this.txt.substr(0, 1) !== "W") {
-      canvas.textFont(fontStars);
+   if (this.txt.substring(0, 1) !== "W") {
+      canvas.textFont(this.fontStars);
    } else {
       canvas.textSize(25);
    }
@@ -40,19 +42,20 @@ function Letter(position, letter, canvas) {
       this.pos.x += this.s;
       this.w = 120;
    }
+   const URL = "https://raw.githubusercontent.com/JefeThePug/LetterConstellations/main/";
+   this.fontShown = canvas.loadFont(`${URL}assets/_ABCPRINT.TTF`);
 
    this.isClicked = function () {
-      const pressed = canvas.mouseIsPressed;
       const xRange = canvas.abs(canvas.mouseX - this.pos.x) <= this.w / 2;
       const yRange = canvas.abs(canvas.mouseY - this.pos.y) <= this.s / 2;
-      return pressed && xRange && yRange;
+      return xRange && yRange;
    };
 }
 
 Letter.prototype.draw = function (canvas) {
    canvas.push();
    canvas.strokeWeight(5);
-   canvas.textFont(fontShown);
+   canvas.textFont(this.fontShown);
    canvas.fill(255);
    canvas.textSize(25);
    if (this.isClicked()) {
@@ -85,7 +88,7 @@ Star.prototype.update = function() {
 };
 
 Star.prototype.draw = function() {
-   var alpha = this.canvas.noise(this.target.x, this.target.y, this.canvas.millis() / 1000.0);
+   const alpha = this.canvas.noise(this.target.x, this.target.y, this.canvas.millis() / 1000.0);
    this.canvas.noStroke();
    this.canvas.fill(255, 255, this.tint, alpha * 255);
    this.canvas.ellipse(this.position.x, this.position.y, this.diameter, this.diameter);

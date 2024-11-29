@@ -86,9 +86,9 @@ td, th {
     font-weight: bold;
 }
 
-canvas {
-    display: none;
-}
+/*canvas {*/
+/*    display: none;*/
+/*}*/
 
 #p5_loading {
     display: none;

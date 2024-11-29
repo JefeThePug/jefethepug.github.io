@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Jefe the Pug</title>
+    <!-- PyScript Stylesheet-->
+    <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
+    <!-- Custom Stylesheets-->
+    <link href="static/css/style.css" rel="stylesheet"/>
+    <link href="static/css/nav_style.css" rel="stylesheet"/>
+    <link href="static/css/games.css" rel="stylesheet"/>
+    <!-- GitHub Icon -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <!-- Nav Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+    <!-- P5.js Base -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.js"></script>
+    <!-- P5.js Game Scripts -->
+    <script src="scripts/sketch2.js" type="text/javascript"></script>
+    <script src="scripts/phonics-parts.js" type="text/javascript"></script>
+    <script src="scripts/letter-parts.js" type="text/javascript"></script>
+    <script src="scripts/plinko-parts.js" type="text/javascript"></script>
+
+</head>
+
+<script type="module">
+    let eventsTriggered = 0;
+    const loading = document.getElementById('loading');
+    const closeLoading = () => {
+        if (eventsTriggered == 2) loading.close()
+    };
+    addEventListener('py:ready', () => {
+        eventsTriggered++;
+        closeLoading();
+        // DELETE THIS LATER \/
+        document.dispatchEvent(new Event('p5SetupComplete'));
+    });
+    loading.showModal();
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const labels = document.querySelectorAll('label.buffer');
+        const sensors = Array.from(document.querySelectorAll('input[type="checkbox"]')).filter(sensor => sensor.id !== 'menu');
+
+        document.addEventListener('p5SetupComplete', function () {
+            eventsTriggered++;
+            closeLoading();
+
+            sensors.forEach(sensor => {
+                sensor.addEventListener('change', () => {
+                    if (sensor.checked) {
+                        sensors.forEach(s => {
+                            if (s !== sensor) {
+                                s.checked = false;
+                            }
+                        });
+                        gameManager.start(sensor.id);
+                    } else {
+                        gameManager.pause()
+                    }
+                });
+            });
+        });
+        labels.forEach(label => {
+            const h1 = label.querySelector('h1.expand');
+            const gameDiv = label.querySelector('.game');
+
+            function getAfterPosition() {
+                const rect = gameDiv.getBoundingClientRect();
+                return {x: rect.right - 150, y: rect.bottom - 50};
+            }
+
+            label.addEventListener('click', function (event) {
+                if (event.target === h1) return;
+                const afterPosition = getAfterPosition();
+                const isAfterArea = event.clientY >= afterPosition.y && event.clientX >= afterPosition.x;
+                if (!isAfterArea) event.preventDefault();
+            });
+        });
+    });
+</script>
+
+<body>
+<header>
+    <svg style="height:200px;width:200px" id="pug">
+        <use href="static/img/logo.svg#jefe"></use>
+    </svg>
+    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name.png"/>
+    <div id="nav-box">
+        <nav class="nav">
+            <input id="menu" type="checkbox">
+            <label for="menu" onclick="colors()">Menu</label>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <span>Home</span>
+                        <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="games.html">
+                        <span>Games</span>
+                        <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html">
+                        <span>Projects</span>
+                        <i class="fas fa-code fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="certs.html">
+                        <span>Certificates</span>
+                        <i class="fas fa-list-check fa-beat" style="--fa-animation-duration: 2s;"
+                           aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span>Contact</span>
+                        <i class="fas fa-envelope fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<dialog id="loading">
+    <div id="spinCircle">
+        <svg id="jefeSpin" style="height:100px;width:100px;" viewBox="0 0 300 250">
+            <use href="static/img/logo.svg#jefe"></use>
+        </svg>
+        <h1 id="load">Loading<span id="dots">...</span></h1>
+    </div>
+</dialog>
+
+<div>
+    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg"/>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="boggle"/>
+    <label class="buffer" for="boggle">
+        <h1 class="expand">
+            Boggle
+            <a href="https://github.com/JefeThePug/Boggle" title="Visit Boggle GitHub Repo" target="_blank">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+
+        <div class="game">
+            <div class="terminalHolder">
+                <div id="terminal-container">
+                    <div id="boggleOutput">
+                    </div>
+
+                    <div id="inputArea">
+                        <label for="boggleInput">&gt;</label>
+                        <input type="text" id="boggleInput" placeholder="..." autocomplete="off">
+                        <span id="timer" style="display:none;">03:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description">
+                <p>
+                    This terminal-based Boggle game challenges players to find words with connecting letters on a
+                    randomly generated 4x4 board under a timed limit. Using Python and the rich library, the game
+                    features a colorful console interface, real-time scoring, and automatic word validation via
+                    an online dictionary API. Each round encourages users to discover as many words as possible,
+                    following traditional Boggle rules that require connecting adjacent letters.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Timer & Scoring:
+                        <ul>
+                            A countdown timer adds pressure to the game. The score, calculated based
+                            on word length per the official rules of Boggle, updated dynamically with
+                            each valid word.
+                        </ul>
+                    </li>
+                    <li>Interactive Console:ß
+                        <ul>
+                            Enhanced with Rich for intuitive prompts and board displays.<br/>
+                            <span class="subtext">
+                                ※ Interactive game in this browser uses CSS instead of Rich
+                            </span>
+                        </ul>
+                    </li>
+                    <li>Custom Boggle Dice:
+                        <ul>
+                            The game board uses realistic letter distribution based on traditional
+                            English Boggle dice.
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    The project highlights interactive CLI design, game logic development using Object Oriented
+                    Programming, and integration of real-time web API calls for word validation.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="wordle"/>
+    <label class="buffer" for="wordle">
+        <h1 class="expand">
+            Wordle
+            <a href="https://github.com/JefeThePug/Wordle" title="Visit Wordle GitHub Repo" target="_blank">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+        <div class="game">
+            <div class="terminalHolder">
+                Coming Soon
+            </div>
+
+            <div class="description">
+                <p>
+                    This is a command-line Wordle-style game based on the popular game created by Josh Wardle
+                    and made popular by The New York Times. It is implemented in Python and the rules for the
+                    game are the same as the original. Players guess a hidden word within a set number of
+                    attempts. Each guess is evaluated, and feedback is provided through color-coded hints
+                    about the accuracy of each letter's position, using ANSI escape codes for colors.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Hidden Word Generation:
+                        <ul>
+                            The game randomly selects a word from the NLTK corpus, based on a specified
+                            word length.
+                        </ul>
+                    </li>
+                    <li>Color-Coded Feedback:
+                        <ul>
+                            After each guess, letters are highlighted to indicate their status:
+                            <li>
+                                <span style="color:limegreen" class="colorCode">Green</span>:
+                                Correct letter in the correct position
+                            </li>
+                            <li>
+                                <span style="color:gold" class="colorCode">Yellow</span>:
+                                Correct letter, in the wrong position
+                            </li>
+                            <li>
+                                <span style="color:silver" class="colorCode">Gray</span>:
+                                Incorrect letter
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Win/Loss Detection:</li>
+                    <ul>
+                        The game checks for victory upon guessing the word correctly, or ends with a loss
+                        if the maximum attempts are exceeded.
+                    </ul>
+                    </li>
+                </ul>
+                <p>
+                    This project demonstrates skills in console-based game design, ANSI color customization,
+                    word list filtering, and interaction with NLTK and its corpora. It combines interactive
+                    logic with concise feedback for the player.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div>
+    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/b/be/Pygame_logo.svg"/>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="adventure"/>
+    <label class="buffer" for="adventure">
+        <h1 class="expand">
+            Jefe's Adventure
+            <a href="https://github.com/JefeThePug/Jefes_Adventure" title="Visit Jefe's Adventure GitHub Repo"
+               target="_blank">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+        <div class="game">
+            <div class="terminalHolder">
+                Coming Soon
+            </div>
+
+            <div class="description">
+                <p>
+                    Jefe’s Adventure is a Pygame platformer designed with object-oriented principles, featuring
+                    custom sprites and engaging gameplay. Players control a character navigating levels filled
+                    with obstacles and interactive elements, utilizing smooth movement and responsive collision
+                    mechanics. Enhanced the efficiency and modularity of the game is executed via Game State
+                    Managers and Asset Managers, making it easy to manage and update game assets and scenes.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Character Movement and Collision Detection:
+                        <ul>
+                            The player character can move, jump, and interact with the environment, making for
+                            fluid and engaging gameplay. The game uses custom collision mechanics to handle
+                            character interactions with platforms, enemies, and other objects.
+                        </ul>
+                    </li>
+                    <li>Game State Management and Event Handling:
+                        <ul>
+                            The Game class manages scenes by setting up initial game states and dynamically changing
+                            scenes based on player progress. It uses a dictionary to assign specific assets to each
+                            game state, simplifying the flow between levels, menus, and gameplay scenes.
+                            Centralized event handling captures user inputs. The loop runs at a controlled frame
+                            rate to ensure consistent gameplay and smooth visual updates.
+                        </ul>
+                    </li>
+                    <li>Custom Sprites and Levels:
+                        <ul>
+                            Original sprite artwork was created in GIMP, based off the royalty-free sprites from
+                            <a href="https://kenney.nl/assets" class="ref">Kenney</a>, to align with the game's
+                            visual style and aesthetic. Levels designed in
+                            <a href="https://www.mapeditor.org/" class="ref">Tiled</a> Game Map making software.
+                        </ul>
+                    </li>
+                    <li>OOP Structure with Inheritance:
+                        <ul>
+                            Built with object-oriented programming, inheriting from both custom classes and built-in
+                            Pygame classes, the game’s structure supports extendable features
+                            and organized code for maintainability.
+                        </ul>
+                    </li>
+                    <li>Asset Loading for Scalability:
+                        <ul>
+                            Each manager class is designed to load assets dynamically from directories, which
+                            supports scalability by making it easy to add new levels, backgrounds, and sounds without
+                            changing the core code.
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    This design highlights skills in game development using structured asset management, modular
+                    scene handling, and responsive Pygame mechanics. The code architecture allows for flexible
+                    control over visuals, audio, and gameplay flow, creating a seamless experience.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div>
+    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/P5js_Logo.svg"/>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="phonics"/>
+    <label class="buffer" for="phonics">
+        <h1 class="expand">
+            Phonics Heart Safari
+            <a href="https://github.com/JefeThePug/PhonicsBlast" title="Visit Phonics Heart Safari GitHub Repo"
+               target="_blank">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+        <div class="game">
+            <div class="terminalHolder">
+                <div class="phonics-container"></div>
+            </div>
+
+            <div class="description">
+                <p>
+                    Phonics Heart Safari is an interactive blaster game that engages players in a fun and educational
+                    experience. Built using p5.js, players control a blaster to send hearts toward moving characters
+                    representing phonics letters. The game features dynamic gameplay, smooth animations, and an
+                    engaging scoring system, providing a lively atmosphere with sound effects and a leaderboard for
+                    high scores.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Dynamic Gameplay:
+                        <ul>
+                            Players aim and shoot hearts at characters moving around the screen, making it a fun way to
+                            practice phonics sound and letter recognition.
+                        </ul>
+                    </li>
+                    <li>Scoring System:
+                        <ul>
+                            Points are earned for correctly hitting characters, while missing or hitting incorrectly
+                            results in point loss, enhancing the competitive aspect of the game.<br/>
+                            <span class="subtext">
+                                ※ Leaaderboard functionality has been disabled for this website version.
+                            </span>
+                        </ul>
+                    </li>
+                    <li>Multiple Screens:
+                        <ul>
+                            The game includes a start menu, instructions, high score display, and the main gameplay
+                            screen for a structured user experience.
+                        </ul>
+                    </li>
+                    <li>Interactive Controls:
+                        <ul>
+                            Players can control the blaster using mouse movements or keyboard inputs, making it
+                            accessible and intuitive.<br/>
+                            <span class="subtext">
+                                ※ Key and mouse press functionality has been adjusted from the original code to better
+                                suit this demonstrative webpage.
+                            </span>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    This project showcases skills in object-oriented programming, game design, and user interaction,
+                    with a focus on creating an immersive and educational gaming experience.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="letter"/>
+    <label class="buffer" for="letter">
+        <h1 class="expand">
+            Letters in the Sky
+            <a href="https://github.com/JefeThePug/LetterConstellations" title="Visit Letters in the Sky GitHub Repo"
+               target="_blank">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+        <div class="game">
+            <div class="terminalHolder">
+                <div class="letter-container"></div>
+            </div>
+
+            <div class="description">
+                <p>
+                    This interactive constellation guessing game invites players to engage with the night sky while
+                    testing their knowledge of lowercase letters. Built using p5.js, the game features smooth star
+                    movements and dynamic feedback as players make their guesses. With a vibrant visual design and
+                    engaging sound effects, players receive immediate feedback on their performance, creating an
+                    immersive gaming experience.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Smooth Star Movement:
+                        <ul>
+                            Stars glide gracefully towards their target positions using linear interpolation (lerp),
+                            enhancing the visual appeal of the game.
+                        </ul>
+                    </li>
+                    <li>Dynamic Scoring System:
+                        <ul>
+                            Players receive a score based on correct guesses, with real-time feedback to keep the
+                            gameplay engaging.
+                        </ul>
+                    </li>
+                    <li>Interactive Gameplay:
+                        <ul>
+                            Make guesses by clicking on letters that appear after dropping stars, with easy-to-navigate
+                            screens for a seamless experience.<br/>
+                            <span class="subtext">
+                                ※ Mouse press functionality has been adjusted from the original code to better suit
+                                this demonstrative webpage.
+                            </span>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    This project showcases skills in creating interactive graphics, implementing user-friendly game
+                    mechanics, and designing an engaging audiovisual experience, all while focusing on using game play
+                    to help young learners learn to recognize the alphabet.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="plinko"/>
+    <label class="buffer" for="plinko">
+        <h1 class="expand">
+            Plinko
+            <a href="https://github.com/JefeThePug/plinko" title="Visit Plinko GitHub Repo" target="_blank">
+                <i class="devicon-github-original link"></i>
+            </a>
+        </h1>
+        <div class="game">
+            <div class="terminalHolder">
+                <div class="plinko-container"></div>
+            </div>
+
+            <div class="description">
+                <p>
+                    This browser-based Plinko game combines dynamic physics, interactive gameplay, and vibrant visuals.
+                    Built using p5.js and Matter.js, players drop balls onto a peg-filled board to score points based on
+                    where the balls land. The game features a realistic physics simulation, scoring mechanics, and
+                    interactive sound and graphic feedback to create an engaging experience.
+                </p>
+                <p>※ Use the SHIFT key to "tilt" the board when a ball becomes stuck.</p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Physics-Based Gameplay:
+                        <ul>
+                            Balls interact dynamically with pegs and obstacles on the board, simulating realistic
+                            movements and collisions powered by Matter.js.
+                        </ul>
+                    </li>
+                    <li>Scoring System:
+                        <ul>
+                            Players score points based on the bucket a ball lands in, with visuals and sound effects
+                            enhancing the experience.
+                        </ul>
+                    </li>
+                    <li>Interactive Controls:
+                        <ul>
+                            Drop balls with mouse clicks or the space bar, use the tilt mechanic with SHIFT.<br/>
+                            <span class="subtext">
+                                ※ Key and mouse press functionality has been adjusted from the original code to better
+                                suit this demonstrative webpage.
+                            </span>
+
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    The project demonstrates skills in implementing 2D physics simulations, object-oriented game logic,
+                    and intuitive user interaction, with a focus on immersive graphics and sound design.
+                </p>
+            </div>
+        </div>
+    </label>
+</div>
+
+
+<footer>
+    &copy; JefeThePug 2024
+    <svg id="pawprint" style="height:70px;width:70px;transform:rotate(36deg);">
+        <use href="static/img/logo.svg#paw"></use>
+    </svg>
+</footer>
+
+<script type="py" src="scripts/boggle_main.py" config="scripts/bogglescript.toml"></script>
+
+<script>
+    function colors() {
+        const colors = [
+            '#FFC15A', '#FFD9E7', '#FFDD02',
+            '#C8B6E8', '#F5B3FF', '#D8FDFB',
+            '#FAF9A4', '#EAC6C4', '#FFA7E4',
+            '#BDE0FE', '#C3FDB8', '#FFDFBA'
+        ];
+
+        document.querySelectorAll('.menu li a').forEach(item => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const selectedColor = colors[randomIndex];
+
+            item.style.backgroundColor = selectedColor;
+            colors.splice(randomIndex, 1);
+
+            item.addEventListener('mouseover', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = selectedColor;
+                    item.classList.add('hover');
+                }
+            });
+
+            item.addEventListener('mouseout', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = '';
+                    item.classList.remove('hover');
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

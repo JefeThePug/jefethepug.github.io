@@ -99,6 +99,8 @@ function Ball(x, y, r, sleeping, canvas) {
    World.add(world, this.body);
    this.r = r;
    this.hue = canvas.random(255);
+   URL = "https://raw.githubusercontent.com/JefeThePug/plinko/main/";
+   this.ball = canvas.loadImage(`${URL}assets/ball.png`);
 }
 
 Ball.prototype.isOffScreen = function() {
@@ -122,7 +124,7 @@ Ball.prototype.show = function(canvas) {
    }
    canvas.push();
    canvas.translate(pos.x, pos.y);
-   canvas.image(ball, 0, 0, this.r * 2, this.r * 2)
+   canvas.image(this.ball, 0, 0, this.r * 2, this.r * 2)
    canvas.pop();
 }
 

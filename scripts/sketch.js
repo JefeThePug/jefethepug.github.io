@@ -422,7 +422,7 @@ function phonicsGame(p) {
 }
 
 let yellowStars;
-let fontShown, fontStars;
+let fontStars;
 
 function letterGame(p) {
     const URL = "https://raw.githubusercontent.com/JefeThePug/LetterConstellations/main/"
@@ -450,7 +450,6 @@ function letterGame(p) {
         messageImages[1] = p.loadImage(`${URL}assets/_welldone.jpg`);
         musicnote = p.loadImage(`${URL}assets/_music.png`);
         fontStars = p.loadFont(`${URL}assets/_ABCBULLE.TTF`);
-        fontShown = p.loadFont(`${URL}assets/_ABCPRINT.TTF`);
         BGM = p.loadSound(`${URL}assets/_music/bgm.mp3`);
         guessMusic = p.loadSound(`${URL}assets/_music/guess.mp3`);
         sfChime = p.loadSound(`${URL}assets/_music/sfChime.mp3`);
@@ -771,7 +770,7 @@ function letterGame(p) {
                 sfChime.play();
                 sfChime.fade(2, 0);
             }
-            messages.push(new Message(p.createVector(100, 100), "good\njob"));
+            messages.push(new Message(p.createVector(100, 100), "good\njob", p));
             stars = [];
             let tempYellow = yellowStars;
             for (let x = 0; x < p.width; x += 8) {
@@ -796,10 +795,10 @@ function letterGame(p) {
             let missMessage = "WRONG TRIES: \n" + wrongGuess;
             visibleScoreImage = Score;
             let w2 = 3 * p.width;
-            messages.push(new Message(p.createVector(w2 / 4 + 40, p.height / 2), missMessage));
+            messages.push(new Message(p.createVector(w2 / 4 + 40, p.height / 2), missMessage, p));
             doneGame = true;
         } else {
-            messages.push(new Message(p.createVector(p.width - 100, p.height - 140), "try\nagain"));
+            messages.push(new Message(p.createVector(p.width - 100, p.height - 140), "try\nagain", p));
             wrongGuess++;
         }
     }
