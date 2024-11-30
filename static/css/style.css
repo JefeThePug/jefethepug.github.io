@@ -249,6 +249,10 @@ input:checked + .buffer .skills::after, input:checked + .buffer .game::after {
     content: "...see less";
 }
 
+input[type="checkbox"]:checked + label .game {
+    height: auto; /* Allow it to expand based on content */
+}
+
 .list {
     background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
     display: flex;
