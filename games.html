@@ -40,6 +40,8 @@
     addEventListener('py:ready', () => {
         eventsTriggered++;
         closeLoading();
+        // DELETE THIS LATER \/
+        document.dispatchEvent(new Event('p5SetupComplete'));
     });
     loading.showModal();
 
@@ -48,28 +50,20 @@
         const sensors = Array.from(document.querySelectorAll('input[type="checkbox"]')).filter(sensor => sensor.id !== 'menu');
 
         document.addEventListener('p5SetupComplete', function () {
-            const allCanvases = document.querySelectorAll('canvas');
             eventsTriggered++;
             closeLoading();
 
             sensors.forEach(sensor => {
                 sensor.addEventListener('change', () => {
-                    const label = document.querySelector(`label[for="${sensor.id}"]`);
-                    const selectCanvas = label ? label.querySelector('canvas') : null;
                     if (sensor.checked) {
                         sensors.forEach(s => {
                             if (s !== sensor) {
                                 s.checked = false;
                             }
                         });
-
-                        allCanvases.forEach(c => {
-                            c.style.display = c === selectCanvas ? 'block' : 'none';
-                        });
+                        gameManager.start(sensor.id);
                     } else {
-                        if (selectCanvas) {
-                            selectCanvas.style.display = "none";
-                        }
+                        gameManager.pause()
                     }
                 });
             });
@@ -289,8 +283,8 @@
 </div>
 
 <div class="glass">
-    <input type="checkbox" id="jefesAdventure"/>
-    <label class="buffer" for="jefesAdventure">
+    <input type="checkbox" id="adventure"/>
+    <label class="buffer" for="adventure">
         <h1 class="expand">
             Jefe's Adventure
             <a href="https://github.com/JefeThePug/Jefes_Adventure" title="Visit Jefe's Adventure GitHub Repo"
@@ -368,8 +362,8 @@
 </div>
 
 <div class="glass">
-    <input type="checkbox" id="phonics-blast"/>
-    <label class="buffer" for="phonics-blast">
+    <input type="checkbox" id="phonics"/>
+    <label class="buffer" for="phonics">
         <h1 class="expand">
             Phonics Heart Safari
             <a href="https://github.com/JefeThePug/PhonicsBlast" title="Visit Phonics Heart Safari GitHub Repo"
@@ -435,8 +429,8 @@
 </div>
 
 <div class="glass">
-    <input type="checkbox" id="letter_constellation"/>
-    <label class="buffer" for="letter_constellation">
+    <input type="checkbox" id="letter"/>
+    <label class="buffer" for="letter">
         <h1 class="expand">
             Letters in the Sky
             <a href="https://github.com/JefeThePug/LetterConstellations" title="Visit Letters in the Sky GitHub Repo"
