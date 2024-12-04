@@ -307,10 +307,9 @@
 
 .p5js {
     background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/p5js/p5js-original.svg);
-    filter: saturate(60%);
 }
 .p5js:hover {
-    filter: saturate(100%);
+    background-image: url(https://github.com/tandpfun/skill-icons/raw/main/icons/p5js.svg);
 }
 .p5js:hover ~ .field::before {
     content: 'p5.js';
