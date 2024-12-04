@@ -245,6 +245,26 @@
     content: 'Kotlin';
 }
 
+.latex {
+    background-image: url(https://www.svgrepo.com/show/377983/latex.svg);
+}
+.latex:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/latex/latex-original.svg);
+}
+.latex:hover ~ .field::before {
+    content: 'LaTeX';
+}
+
+.markdown {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/markdown/markdown-original.svg);
+}
+.markdown:hover {
+    background-image: url(https://www.svgrepo.com/show/369410/markdown.svg);
+}
+.markdown:hover ~ .field::before {
+    content: 'Markdown';
+}
+
 .mongodb {
     background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg);
 }
@@ -428,6 +448,19 @@
 .pyqt:hover ~ .field::before {
     content: 'PyQT';
 }
+
+
+.regex {
+    background-image: url(https://www.svgrepo.com/show/361284/regex.svg);
+
+}
+.regex:hover {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/63/OOjs_UI_icon_regular-expression-progressive.svg);
+}
+.regex:hover ~ .field::before {
+    content: 'RegEx';
+}
+
 
 .restapi {
     background-image: url(../img/icons/restapi.png);
