@@ -2,4 +2,5 @@ name = "Wordle Clone"
 description = "A clone of the popular browser game, Wordle, for the terminal."
 packages = []
 [files]
-"https://raw.githubusercontent.com/JefeThePug/Wordle/refs/heads/main/wordle_beta.py" = "./content.py"
+"https://raw.githubusercontent.com/JefeThePug/Boggle/refs/heads/main/helper.py" = "./helper.py"
+"https://raw.githubusercontent.com/JefeThePug/Boggle/refs/heads/main/board.py" = "./board.py"
