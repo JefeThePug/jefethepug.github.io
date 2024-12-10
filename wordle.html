@@ -13,18 +13,18 @@
     <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
 </head>
 
-<script type="module">
-    const loading = document.getElementById('loading');
-    addEventListener('py:ready', () => loading.close());
-    loading.showModal();
-</script>
+<!--<script type="module">-->
+<!--    const loading = document.getElementById('loading');-->
+<!--    addEventListener('py:ready', () => loading.close());-->
+<!--    loading.showModal();-->
+<!--</script>-->
 
 <body>
 <header>
     <svg style="height:200px;width:200px" id="pug">
         <use href="static/img/logo.svg#jefe"></use>
     </svg>
-    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name2.png"/>
+    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name.png"/>
     <div id="nav-box">
         <nav class="nav">
             <input id="menu" type="checkbox">
@@ -82,8 +82,15 @@
             <span>Play it <i class="fa-solid fa-play"></i></span>
         </label>
         <div class="tab-content">
-            <div>
-                game here
+            <div id="boggleContainer">
+                <div id="output"
+                     style="background-color:black; font-family:'Courier New',Courier,monospace; width:600px">
+                </div>
+
+                <div id="inputArea">
+                    <label for="userInput">&gt;</label>
+                    <input type="text" id="userInput" placeholder="..." autocomplete="off">
+                </div>
             </div>
         </div>
     </div>
@@ -99,7 +106,30 @@
     </div>
 </div>
 
-<script type="py" src="scripts/wordle_main.py" config="scripts/wordlescript.toml"></script>
+
+<script type="py">
+    import asyncio
+
+    async def load_packages():
+        import micropip
+        await micropip.install("nltk")
+
+    async def load_nltk():
+        import nltk
+        nltk.download("words")  # Download the words corpus
+        from nltk.corpus import words
+        return words.words()
+
+    async def main():
+        await load_packages()  # Ensure micropip is loaded and nltk is installed
+        WORDS = await load_nltk()  # Load the words from NLTK
+        first_50_words = WORDS[:50]  # Get the first 50 words
+        output_div = document.getElementById("output")
+        output_div.innerHTML = "<br>".join(first_50_words)  # Display the words
+
+    asyncio.ensure_future(main())
+</script>
+
 
 <footer>
     &copy; JefeThePug 2024
