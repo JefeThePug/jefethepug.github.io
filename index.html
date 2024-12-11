@@ -20,6 +20,29 @@
     <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
 </head>
 
+<script type="module">
+    document.addEventListener('DOMContentLoaded', function () {
+        const labels = document.querySelectorAll('label.buffer');
+
+        labels.forEach(label => {
+            const h1 = label.querySelector('h1.expand');
+            const gameDiv = label.querySelector('.skills');
+
+            function getAfterPosition() {
+                const rect = gameDiv.getBoundingClientRect();
+                return {x: rect.right - 150, y: rect.bottom - 50};
+            }
+
+            label.addEventListener('click', function (event) {
+                if (event.target === h1) return;
+                const afterPosition = getAfterPosition();
+                const isAfterArea = event.clientY >= afterPosition.y && event.clientX >= afterPosition.x;
+                if (!isAfterArea) event.preventDefault();
+            });
+        });
+    });
+</script>
+
 <body>
 <header>
     <svg style="height:200px;width:200px" id="pug">

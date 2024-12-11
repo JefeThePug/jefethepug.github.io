@@ -40,8 +40,6 @@
     addEventListener('py:ready', () => {
         eventsTriggered++;
         closeLoading();
-        // DELETE THIS LATER \/
-        document.dispatchEvent(new Event('p5SetupComplete'));
     });
     loading.showModal();
 
