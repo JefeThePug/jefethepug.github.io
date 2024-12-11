@@ -35,7 +35,7 @@
     let eventsTriggered = 0;
     const loading = document.getElementById('loading');
     const closeLoading = () => {
-        if (eventsTriggered == 2) loading.close()
+        if (eventsTriggered === 2) loading.close()
     };
     addEventListener('py:ready', () => {
         eventsTriggered++;
@@ -142,7 +142,8 @@
 </dialog>
 
 <div>
-    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg"/>
+    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg"
+         alt="Python Logo"/>
 </div>
 
 <div class="glass">
@@ -203,7 +204,7 @@
                     </li>
                 </ul>
                 <p>
-                    The project highlights interactive CLI design, game logic development using Object Oriented
+                    The project highlights interactive CLI design, game logic development using Object-Oriented
                     Programming, and integration of real-time web API calls for word validation.
                 </p>
             </div>
@@ -264,7 +265,6 @@
                         The game checks for victory upon guessing the word correctly, or ends with a loss
                         if the maximum attempts are exceeded.
                     </ul>
-                    </li>
                 </ul>
                 <p>
                     This project demonstrates skills in console-based game design, ANSI color customization,
@@ -277,7 +277,7 @@
 </div>
 
 <div>
-    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/b/be/Pygame_logo.svg"/>
+    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/b/be/Pygame_logo.svg" alt="Pygame Logo"/>
 </div>
 
 <div class="glass">
@@ -356,7 +356,7 @@
 </div>
 
 <div>
-    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/P5js_Logo.svg"/>
+    <img class="framework" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/P5js_Logo.svg" alt="P5.js Logo"/>
 </div>
 
 <div class="glass">
@@ -396,7 +396,7 @@
                             Points are earned for correctly hitting characters, while missing or hitting incorrectly
                             results in point loss, enhancing the competitive aspect of the game.<br/>
                             <span class="subtext">
-                                ※ Leaaderboard functionality has been disabled for this website version.
+                                ※ Leaderboard functionality has been disabled for this website version.
                             </span>
                         </ul>
                     </li>
