@@ -86,5 +86,16 @@ button {
 button:hover {
     background: linear-gradient(to right, var(--drpink), var(--pink));
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
+#thanks {
+    font-size: xxx-large;
+    font-weight: bolder;
+    margin: auto;
+    text-align: center;
+    grid-column: span 3;
+}
+
+#home-pad {
+    padding: 50px;
 }
