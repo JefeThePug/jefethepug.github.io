@@ -38,7 +38,7 @@ function Score() {
 Score.prototype.setScores = function() {
    this.score = [];
    this.value = [];
-   var array = [
+   let array = [
       [2, 3, 1, 5, 2],
       [1, 5, 2, 4, 1],
       [2, 3, 5, 3, 2],
@@ -47,13 +47,13 @@ Score.prototype.setScores = function() {
       [5, 4, 3, 2, 1],
       [2, 4, 3, 5, 2]
    ]
-   var n = Math.floor(Math.random(6));
+   let n = Math.floor(Math.random() * 6);
    this.score = array[n];
    this.setValues();
 }
 
 Score.prototype.setValues = function() {
-   for (var i = 0; i < this.score.length; i++) {
+   for (let i = 0; i < this.score.length; i++) {
       switch (this.score[i]) {
          case 1:
             this.value[i] = 50;
@@ -87,7 +87,7 @@ Score.prototype.return100 = function() {
 }
 
 function Ball(x, y, r, sleeping, canvas) {
-   var options = {
+   let options = {
       restitution: .8,
       friction: 0.1,
       density: 1
@@ -104,8 +104,8 @@ function Ball(x, y, r, sleeping, canvas) {
 }
 
 Ball.prototype.isOffScreen = function() {
-   x = this.body.position.x;
-   width = this.canvas.width;
+   let x = this.body.position.x;
+   let width = this.canvas.width;
    return (x < -50 || x > width + 50);
 }
 

@@ -6,8 +6,8 @@ function Blaster(canvas) {
     this.isFiring = false;
     this.cartridge = 10;
     this.hearts = [];
-    this.keyDown;
-    this.keyColor;
+    this.keyDown = null;
+    this.keyColor = null;
     this.canvas = canvas
 
     this.firing = function (b, hKey, hColor) {
@@ -35,7 +35,7 @@ function Blaster(canvas) {
     }
 
     this.turn = function (angle) {
-        pi = this.canvas.PI
+        const pi = this.canvas.PI
         if (angle) {
             this.heading = angle;
         } else {
@@ -60,7 +60,7 @@ function Blaster(canvas) {
             if (this.hearts[i].edges()) {
                 this.hearts.splice(i, 1);
             } else if (character.length) {
-                for (j = character.length - 1; j >= 0; j--) {
+                for (let j = character.length - 1; j >= 0; j--) {
                     if (character[j].isHit(this.hearts[i])) {
                         this.hearts.splice(i, 1);
                         break;
@@ -115,8 +115,8 @@ function Buttons(canvas) {
         this.canvas.push();
         this.canvas.textAlign(this.canvas.CENTER);
         this.canvas.textSize(30);
-        for (var x = 0; x < 4; x++) {
-            if (this.highlighted == x) {
+        for (let x = 0; x < 4; x++) {
+            if (this.highlighted === x) {
                 this.canvas.fill(0, 255, 255);
             } else {
                 this.canvas.fill(220);
@@ -231,7 +231,7 @@ function Character(img, hKey, canvas) {
     this.isHit = function (heart) {
         const distance = this.canvas.dist(this.pos.x, this.pos.y, heart.pos.x, heart.pos.y)
         if (distance <= this.s + heart.r) {
-            if (heart.keyDown != this.keySet) {
+            if (heart.keyDown !== this.keySet) {
                 this.s += 10;
                 SCORE -= 5;
                 Points.push(new Point(this.pos, '-5', this.s, this.canvas));
@@ -377,7 +377,7 @@ let Point = function (position, t, s, canvas) {
     this.position = position.copy();
     this.lifespan = 100.0;
     this.t = t;
-    this.neg = ((t.substring(0, 1) == '-') ? true : false);
+    this.neg = ((t.substring(0, 1) === '-'));
     this.offset = s;
     this.canvas = canvas;
 
@@ -396,7 +396,7 @@ let Point = function (position, t, s, canvas) {
     this.display = function () {
         this.canvas.push();
         this.canvas.noStroke();
-        if (this.t.length == 3) {
+        if (this.t.length === 3) {
             this.canvas.stroke(0);
             this.canvas.strokeWeight(5);
             this.canvas.fill(0, 225, 228);
