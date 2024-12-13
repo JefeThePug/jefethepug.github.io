@@ -1,0 +1,436 @@
+:root {
+    --pink: #fde2ed;
+    --drpink: #ebb6fc;
+    --purple: #C8B6E8;
+    --grey: #2c2c2c;
+    --midgrey: #a0a0a0;
+    --ltgrey: #d7d7d7;
+    --ltblue: #dffcfb;
+    --translucent: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    background-color: var(--ltgrey);
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+    margin: 0;
+    padding: 140px 10px 200px;
+    font-size: 12px;
+}
+
+header {
+    border-bottom: 4px solid black;
+    height: 122px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+}
+
+a.ref {
+    font-weight: 600;
+    text-shadow: 0 0 3px var(--purple);
+}
+
+.subtext {
+    color: var(--midgrey);
+    font-size: smaller;
+}
+
+.colorCode {
+    background-color: black;
+    display: inline-block;
+    text-align: center;
+    width: 50px;
+}
+
+#nav-box {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+}
+
+img#jefe-pug {
+    position: absolute;
+    top: 22px;
+    height: 90px;
+    right: 10px;
+}
+
+#pug {
+    position: fixed;
+    top: 23px;
+    z-index: 0;
+}
+
+ul ul {
+    margin-left: -20px;
+}
+
+path {
+    display: inline;
+    fill: #000000;
+}
+
+#loading {
+    background: transparent;
+    border: none;
+    outline: none;
+    top: max(240px, 15vh);
+}
+
+#jefeSpin {
+    animation: rotateJefe 5s linear infinite;
+    transform: translateX(20px);
+}
+
+#spinCircle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--ltblue);
+    border-radius: 100%;
+    padding: 30px;
+    aspect-ratio: 1 / 1;
+    height: 70%;
+}
+
+#load {
+    background: none;
+    margin-top: -20px;
+    text-shadow: 0 0 2px white;
+    z-index: 1;
+}
+
+#dots {
+    animation: blink 2s linear infinite;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.link {
+    color: var(--ltblue);
+    border-radius: 50%;
+    border: 2px solid var(--grey);
+    font-size: 20px;
+    margin-left: 20px;
+    justify-items: center;
+}
+
+h1 {
+    background: linear-gradient(to right, var(--purple), rgba(0, 0, 0, 0));
+    border-radius: 14px 14px 0 0;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+h2 {
+    color: var(--grey);
+    font-size: 1em;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+h3 {
+    background: linear-gradient(to right, var(--purple), rgba(0, 0, 0, 0));
+    margin: 0;
+    padding: 2px;
+}
+
+h4 {
+    background: linear-gradient(to right, var(--ltgrey), rgba(0, 0, 0, 0));
+    border-radius: 10px;
+    color: var(--grey);
+    font-size: 1em;
+    margin: 10px;
+    padding: 6px 6px 6px 20px;
+    text-align: left;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.592);
+    backdrop-filter: blur(1px);
+    border-radius: 15px;
+    border: 1px solid rgba(43, 43, 43, 0.568);
+    margin: 5px auto;
+    max-width: 90%;
+}
+
+.buffer {
+    margin: 0;
+}
+
+.expand {
+    border-bottom: 1px solid rgba(43, 43, 43, 0.568);
+}
+
+.terminal-container {
+    background-color: black;
+    display: flex;
+    padding: 5px;
+    width: fit-content;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.5);
+}
+
+.skills, .game, .cert {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.skills {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    height: 74px;
+}
+
+.cert {
+    height: 240px;
+}
+
+.game {
+    height: 10px;
+}
+
+.terminalHolder {
+    color: var(--grey);
+    background: var(--ltblue);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 5px;
+    padding: 1em;
+}
+
+.expand::after, .skills::after, .game::after, .cert::after {
+    bottom: 0;
+    content: " ";
+    font-size: x-small;
+    padding: 5px;
+    position: absolute;
+    right: 2%;
+    text-shadow: 0 0 1px var(--midgrey);
+}
+
+.expand::after {
+    height: 20px;
+    content: "...see more";
+    top: 25px;
+    z-index: 10000;
+}
+
+input:checked + .buffer .skills, input:checked + .buffer .game {
+    height: max-content;
+}
+
+input:checked + .buffer .expand::after {
+    content: "...see less";
+}
+
+input:checked + .buffer .skills::after, input:checked + .buffer .game::after {
+    content: "...see less";
+}
+
+input[type="checkbox"]:checked + label .game {
+    height: auto; /* Allow it to expand based on content */
+}
+
+.list {
+    background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 5px;
+    padding-bottom: 5px;
+}
+
+.list::before {
+    background-color: var(--translucent);
+    border-radius: 15px 15px 0 0;
+    color: var(--grey);
+    content: '';
+    margin: -35px auto 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
+
+.description {
+    background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
+    color: var(--grey);
+    padding: 10px 1rem;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+
+footer {
+    color: black;
+    font-size: x-small;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-top: 100px;
+    opacity: 0.25;
+    padding: 10px;
+    z-index: 1000;
+}
+
+i {
+    font-size: large;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 10px;
+    width: auto;
+    flex-direction: column;
+    height: fit-content;
+
+}
+
+.navigational-button {
+    align-content: center;
+    flex: 1;
+    color: var(--grey);
+    text-shadow: 0 0 3px var(--ltgrey);
+    text-align: center;
+    padding: 5px;
+    border-radius: 30px;
+    font-size: calc(1rem + 0.5vw);
+    border: 1px solid var(--grey);
+    background: radial-gradient(#ffddd1, #f0c9d7, #d4c2e1, #bdd7ea, #c0f0f4);
+    background-size: 400% 400%;
+    animation: gradientMove 30s ease-in-out infinite;
+}
+.navigational-button:hover {
+    transform: scale(1.02);
+    border: 2px solid var(--ltgrey);
+}
+.navigational-button:active {
+    border: 1px solid var(--grey);
+    box-shadow: inset 0 0 5px var(--midgrey);
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+.social {
+    margin-top: 10px;
+    position: relative;
+}
+
+.social img {
+    display: block;
+    width: 30px;
+}
+
+.social:nth-child(1):hover {
+    margin-right: 120px;
+}
+.social:nth-child(2):hover {
+    margin-right: 180px;
+}
+.social:nth-child(3):hover {
+    margin-right: 225px;
+}
+
+.social:hover::after {
+    content: "";
+    position: absolute;
+    transform: translateX(30px) translateY(-100%);
+    padding: 5px 10px;
+    width: max-content;
+}
+.social:nth-child(1):hover::after {
+    content: "Visit my GitHub";
+}
+.social:nth-child(2):hover::after {
+    content: "Message me on Discord";
+}
+
+.social:nth-child(3):hover::after {
+    content: "Python server where I hang out";
+}
+
+.social:nth-child(4):hover::after {
+    content: "Buy me a Coffee";
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: top left;
+    }
+    12.5% {
+        background-position: center;
+    }
+    25% {
+        background-position: top right;
+    }
+    37.5% {
+        background-position: center;
+    }
+    50% {
+        background-position: bottom right;
+    }
+    62.5% {
+        background-position: center;
+    }
+    75% {
+        background-position: bottom left;
+    }
+    87.5% {
+        background-position: center;
+    }
+    100% {
+        background-position: top left;
+    }
+}
+
+@keyframes rotateJefe {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Jefe the Pug</title>
+    <!--    PyScript Stylesheet-->
+    <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
+    <!--    Custom Stylesheets-->
+    <link href="static/css/stylem.css" rel="stylesheet"/>
+    <link href="static/css/nav_stylem.css" rel="stylesheet"/>
+    <link href="static/css/iconsm.css" rel="stylesheet"/>
+    <!-- GitHub Icon -->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <!-- Nav Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
+</head>
+
+<script type="module">
+    document.addEventListener('DOMContentLoaded', function () {
+        const labels = document.querySelectorAll('label.buffer');
+
+        labels.forEach(label => {
+            const h1 = label.querySelector('h1.expand');
+            const gameDiv = label.querySelector('.skills');
+
+            function getAfterPosition() {
+                const rect = gameDiv.getBoundingClientRect();
+                return {x: rect.right - 150, y: rect.bottom - 50};
+            }
+
+            label.addEventListener('click', function (event) {
+                if (event.target === h1) return;
+                const afterPosition = getAfterPosition();
+                const isAfterArea = event.clientY >= afterPosition.y && event.clientX >= afterPosition.x;
+                if (!isAfterArea) event.preventDefault();
+            });
+        });
+    });
+</script>
+
+<body>
+<header>
+    <svg style="height:120px;width:120px;" id="pug">
+        <use href="static/img/logo.svg#jefe"></use>
+    </svg>
+    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name.png"/>
+    <div id="nav-box">
+        <nav class="nav">
+            <input id="menu" type="checkbox">
+            <label for="menu" onclick="colors()">Menu</label>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <span>Home</span>
+                        <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="games.html">
+                        <span>Games</span>
+                        <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html">
+                        <span>Projects</span>
+                        <i class="fas fa-code fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="certs.html">
+                        <span>Certificates</span>
+                        <i class="fas fa-list-check fa-beat" style="--fa-animation-duration: 2s;"
+                           aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span>Contact</span>
+                        <i class="fas fa-envelope fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="glass">
+    <h1>About</h1>
+    <div class="description">
+        <p class="bold">
+            Check out my portfolio to see some of my work, and feel free to get in touch if you’d like to chat
+            about tech, new projects, or just swap pug pictures!
+        </p>
+        <h3>Dedicated</h3>
+        <p>
+            I've been into programming since I was 18, but over the past 3 years, I’ve really thrown myself into it.
+            From building web apps to exploring new frameworks and diving into backend, I’m always pushing myself
+            to solve interesting problems and learn new technologies to <span class="bold">continuously build up my
+                skill set</span>.
+        </p>
+        <h3>Well-Rounded</h3>
+        <p>
+            Outside of coding, I have a unique and varied background.<br/>
+            <span class="bold">・Educator ・Curriculum Writer・Performance Artist ・Operations Manager ・Presenter</span>
+            <br/>All these contribute to how I approach problems
+            and collaborate with others. These varied experiences make me <span class="bold">personable, creative,
+                and thorough</span> in every task I take on.
+        </p>
+        <h3>Multilingual</h3>
+        <p>
+            I speak <span class="bold">English</span> fluently, <span class="bold">Japanese</span> at a business
+            level, and <span class="bold">Spanish</span> conversationally.
+        </p>
+        <h3>Passionate</h3>
+        <p>
+            When I’m not writing code, I’m usually hanging out with <span class="bold">my pug</span>,
+            immersing myself in a <span class="bold"> good book</span> or <span class="bold">movie</span>, or
+            <span class="bold">cooking</span> for friends and family. I love finding ways to blend creativity and
+            logic in whatever I do. I believe every project and experience in life is an opportunity to learn and grow.
+        </p>
+        <h3>Social</h3>
+        <div class="socials">
+            <div class="social">
+                <a href="https://github.com/JefeThePug" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                         alt="Github Logo"/>
+                </a>
+            </div>
+            <div class="social">
+                <a href="https://discord.com/users/609283782897303554" target="_blank">
+                    <img src="https://www.svgrepo.com/show/330307/discord.svg" alt="Discord Logo"/>
+                </a>
+            </div>
+            <div class="social">
+                <a href="https://discord.gg/practical-python-900302240559018015" target="_blank">
+                    <img src="static/img/icons/practical-python.png" alt="Discord Practical Python Logo"/>
+                </a>
+            </div>
+            <div class="social">
+                <a href="https://buymeacoffee.com/jefethepug" target="_blank">
+                    <img src="https://www.svgrepo.com/show/330105/buymeacoffee.svg" alt="Buymeacoffee Logo"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="glass">
+    <input type="checkbox" id="skills">
+    <label class="buffer" for="skills">
+        <h1 class="expand">Skills</h1>
+        <div class="skills">
+
+            <div class="block">
+                <div><h2>Programming Languages</h2></div>
+                <div class="list">
+                    <div class="tool python"></div>
+                    <div class="tool sql"></div>
+                    <div class="tool visualbasic"></div>
+                    <div class="tool javascript"></div>
+                    <div class="tool html"></div>
+                    <div class="tool css"></div>
+                    <div class="tool c"></div>
+                    <div class="tool kotlin"></div>
+                    <div class="tool regex"></div>
+                    <div class="field"></div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div><h2>Frameworks & Libraries</h2></div>
+                <div class="list">
+                    <div class="tool flask"></div>
+                    <div class="tool numpy"></div>
+                    <div class="tool pandas"></div>
+                    <div class="tool discordpy"></div>
+                    <div class="tool p5js"></div>
+                    <div class="tool openpy"></div>
+                    <div class="tool nltk"></div>
+                    <div class="tool tkinter"></div>
+                    <div class="tool pyqt"></div>
+                    <div class="tool pygame"></div>
+                    <div class="tool pyscript"></div>
+                    <!--<div class="tool pygbag"></div>-->
+                    <div class="tool jinja"></div>
+                    <div class="field"></div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div><h2>Databases</h2></div>
+                <div class="list">
+                    <div class="tool sqlite"></div>
+                    <div class="tool postgresql"></div>
+                    <div class="tool nosql"></div>
+                    <div class="tool mongodb"></div>
+                    <div class="field"></div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div><h2>API, Protocol & Data Tools</h2></div>
+                <div class="list">
+                    <div class="tool postman"></div>
+                    <div class="tool graphql"></div>
+                    <div class="tool restapi"></div>
+                    <div class="tool requests"></div>
+                    <div class="tool beautifulsoup"></div>
+                    <div class="tool sqlalchemy"></div>
+                    <div class="field"></div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div><h2>Development Tools</h2></div>
+                <div class="list">
+                    <div class="tool anaconda"></div>
+                    <div class="tool git"></div>
+                    <div class="tool github"></div>
+                    <div class="tool docker"></div>
+                    <div class="tool aws"></div>
+                    <div class="tool latex"></div>
+                    <div class="tool markdown"></div>
+                    <div class="field"></div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div><h2>IDEs & Code Editors</h2></div>
+                <div class="list">
+                    <div class="tool jupyter"></div>
+                    <div class="tool vscode"></div>
+                    <div class="tool jetbrains"></div>
+                    <div class="tool pycharm"></div>
+                    <div class="tool webstorm"></div>
+                    <div class="tool intellij"></div>
+                    <div class="tool sublime"></div>
+                    <div class="field"></div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div><h2>Design & Presentation</h2></div>
+                <div class="list">
+                    <div class="tool gimp"></div>
+                    <div class="tool inkscape"></div>
+                    <div class="tool photoshop"></div>
+                    <div class="tool keynote"></div>
+                    <div class="tool powerpoint"></div>
+                    <div class="field"></div>
+                </div>
+            </div>
+        </div>
+    </label>
+</div>
+
+<div class="glass">
+    <h1>Navigate</h1>
+    <div class="nav-container">
+        <a href="gamesm.html" class="navigational-button">Games</a>
+        <a href="projectsm.html" class="navigational-button">Projects</a>
+        <a href="certsm.html" class="navigational-button">Certificates</a>
+        <a href="contactm.html" class="navigational-button">Contact</a>
+    </div>
+</div>
+
+
+<footer>
+    &copy; JefeThePug 2024
+    <svg id="pawprint" style="height:40px;width:40px;transform:rotate(36deg);">
+        <use href="static/img/logo.svg#paw"></use>
+    </svg>
+</footer>
+
+<script>
+    function colors() {
+        const colors = [
+            '#FFC15A', '#FFD9E7', '#FFDD02',
+            '#C8B6E8', '#F5B3FF', '#D8FDFB',
+            '#FAF9A4', '#EAC6C4', '#FFA7E4',
+            '#BDE0FE', '#C3FDB8', '#FFDFBA'
+        ];
+
+        document.querySelectorAll('.menu li a').forEach(item => {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            const selectedColor = colors[randomIndex];
+
+            item.style.backgroundColor = selectedColor;
+            colors.splice(randomIndex, 1);
+
+            item.addEventListener('mouseover', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = selectedColor;
+                    console.log(icon.parentElement)
+                    item.classList.add('hover');
+                }
+            });
+
+            item.addEventListener('mouseout', () => {
+                const icon = item.querySelector('i');
+                if (icon) {
+                    icon.style.color = '';
+                    item.classList.remove('hover');
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>
