@@ -342,7 +342,7 @@ i {
 
 .socials {
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 
 .social {
@@ -356,20 +356,20 @@ i {
 }
 
 .social:nth-child(1):hover {
-    margin-right: 120px;
+    margin-right: 87px;
 }
 .social:nth-child(2):hover {
-    margin-right: 180px;
+    margin-right: 132px;
 }
 .social:nth-child(3):hover {
-    margin-right: 225px;
+    margin-right: 164px;
 }
 
 .social:hover::after {
     content: "";
     position: absolute;
     transform: translateX(30px) translateY(-100%);
-    padding: 5px 10px;
+    padding: 5px 4px;
     width: max-content;
 }
 .social:nth-child(1):hover::after {
