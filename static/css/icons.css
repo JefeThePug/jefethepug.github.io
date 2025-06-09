@@ -183,6 +183,16 @@
     content: 'IntelliJ';
 }
 
+.javas {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/javascript-original.svg);
+}
+.java:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg);
+}
+.java:hover ~ .field::before {
+    content: 'Java';
+}
+
 .javascript {
     background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg);
 }
