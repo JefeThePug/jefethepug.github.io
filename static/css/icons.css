@@ -103,6 +103,16 @@
     content: 'Discord.py';
 }
 
+.eclipse {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eclipse/eclipse-original.svg);
+}
+.eclipse:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eclipse/eclipse-original-wordmark.svg);
+}
+.eclipse:hover ~ .field::before {
+    content: 'Eclipse';
+}
+
 .flask {
     background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg);
 }
