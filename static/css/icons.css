@@ -503,9 +503,18 @@
     content: 'Requests';
 }
 
+.spring {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg);
+}
+.spring:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg);
+}
+.spring:hover ~ .field::before {
+    content: 'Spring';
+}
+
 .sql {
     background-image: url(https://www.svgrepo.com/show/331760/sql-database-generic.svg);
-
 }
 .sql:hover {
     background-image: url(../img/icons/sql.svg);
