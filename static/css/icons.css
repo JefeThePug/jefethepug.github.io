@@ -553,6 +553,15 @@
     content: 'Sublime Text';
 }
 
+.thyme {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/thymeleaf/thymeleaf-original.svg);
+}
+.thyme:hover {
+    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/thymeleaf/thymeleaf-original-wordmark.svg);
+}
+.thyme:hover ~ .field::before {
+    content: 'Thymeleaf';
+}
 
 .tkinter {
     background-image: url(https://cdn.sanity.io/images/mhuj7snm/production/64fa9998b50db243e186ae259471b1bc95b356f9-1869x2048.png);
