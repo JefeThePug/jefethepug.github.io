@@ -253,11 +253,10 @@
 }
 
 .keynote {
-  background-image: url(https://upload.wikimedia.org/wikipedia/en/5/57/KeynoteIcon.png);
-  filter: saturate(0%);
+  background-image: url(https://cdn.jim-nielsen.com/ios/1024/keynote-2025-08-05.png);
 }
 .keynote:hover {
-  filter: saturate(100%);
+  background-image: url(https://icons.veryicon.com/png/Business/Yosemite%20iWork/Keynote.png);
 }
 .keynote:hover ~ .field::before {
   content: "Keynote";
