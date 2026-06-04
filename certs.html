@@ -1,574 +1,727 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Jefe the Pug</title>
     <!--    PyScript Stylesheet-->
-    <link href="https://pyscript.net/releases/2024.1.1/core.css" rel="stylesheet"/>
+    <link
+      href="https://pyscript.net/releases/2024.1.1/core.css"
+      rel="stylesheet"
+    />
     <!--    Custom Stylesheets-->
-    <link href="static/css/style.css" rel="stylesheet"/>
-    <link href="static/css/nav_style.css" rel="stylesheet"/>
-    <link href="static/css/projects.css" rel="stylesheet"/>
-    <link href="static/css/cert.css" rel="stylesheet"/>
+    <link href="static/css/style.css" rel="stylesheet" />
+    <link href="static/css/nav_style.css" rel="stylesheet" />
+    <link href="static/css/projects.css" rel="stylesheet" />
+    <link href="static/css/cert.css" rel="stylesheet" />
     <!-- GitHub Icon -->
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
     <!-- Nav Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
     <!-- PyScript -->
-    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
-</head>
+    <script
+      type="module"
+      src="https://pyscript.net/releases/2024.10.1/core.js"
+    ></script>
+  </head>
 
-<script type="module">
-    document.addEventListener('DOMContentLoaded', function () {
-        const labels = document.querySelectorAll('label.buffer');
-        const sensors = Array.from(document.querySelectorAll('input[type="checkbox"]')).filter(sensor => sensor.id !== 'menu');
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+      const labels = document.querySelectorAll("label.buffer");
+      const sensors = Array.from(
+        document.querySelectorAll('input[type="checkbox"]'),
+      ).filter((sensor) => sensor.id !== "menu");
 
-        sensors.forEach(sensor => {
-            sensor.addEventListener('change', () => {
-                if (sensor.checked) {
-                    sensors.forEach(s => {
-                        if (s !== sensor) {
-                            s.checked = false;
-                        }
-                    });
-                }
+      sensors.forEach((sensor) => {
+        sensor.addEventListener("change", () => {
+          if (sensor.checked) {
+            sensors.forEach((s) => {
+              if (s !== sensor) {
+                s.checked = false;
+              }
             });
+          }
         });
+      });
 
-        labels.forEach(label => {
-            const h1 = label.querySelector('h1.expand');
-            const gameDiv = label.querySelector('.cert');
+      labels.forEach((label) => {
+        const h1 = label.querySelector("h1.expand");
+        const gameDiv = label.querySelector(".cert");
 
-            function getAfterPosition() {
-                const rect = gameDiv.getBoundingClientRect();
-                return {x: rect.right - 150, y: rect.bottom - 50};
-            }
+        function getAfterPosition() {
+          const rect = gameDiv.getBoundingClientRect();
+          return { x: rect.right - 150, y: rect.bottom - 50 };
+        }
 
-            label.addEventListener('click', function (event) {
-                if (event.target === h1) return;
-                const afterPosition = getAfterPosition();
-                const isAfterArea = event.clientY >= afterPosition.y && event.clientX >= afterPosition.x;
-                if (!isAfterArea) event.preventDefault();
-            });
+        label.addEventListener("click", function (event) {
+          if (event.target === h1) return;
+          const afterPosition = getAfterPosition();
+          const isAfterArea =
+            event.clientY >= afterPosition.y &&
+            event.clientX >= afterPosition.x;
+          if (!isAfterArea) event.preventDefault();
         });
+      });
     });
-</script>
+  </script>
 
-<body>
-<header>
-    <svg style="height:200px;width:200px" id="pug">
+  <body>
+    <header>
+      <svg style="height: 200px; width: 200px" id="pug">
         <use href="static/img/logo.svg#jefe"></use>
-    </svg>
-    <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name.png"/>
-    <div id="nav-box">
+      </svg>
+      <img alt="Jefe the Pug" id="jefe-pug" src="static/img/jefe_name.png" />
+      <div id="nav-box">
         <nav class="nav">
-            <input id="menu" type="checkbox">
-            <label for="menu" onclick="colors()">Menu</label>
-            <ul class="menu">
-                <li>
-                    <a href="index.html">
-                        <span>Home</span>
-                        <i class="fas fa-house fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="games.html">
-                        <span>Games</span>
-                        <i class="fas fa-gamepad fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="projects.html">
-                        <span>Projects</span>
-                        <i class="fas fa-code fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="certs.html">
-                        <span>Certificates</span>
-                        <i class="fas fa-list-check fa-beat" style="--fa-animation-duration: 2s;"
-                           aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.html">
-                        <span>Contact</span>
-                        <i class="fas fa-envelope fa-beat" style="--fa-animation-duration: 2s;" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
+          <input id="menu" type="checkbox" />
+          <label for="menu" onclick="colors()">Menu</label>
+          <ul class="menu">
+            <li>
+              <a href="index.html">
+                <span>Home</span>
+                <i
+                  class="fas fa-house fa-beat"
+                  style="--fa-animation-duration: 2s"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </li>
+            <li>
+              <a href="games.html">
+                <span>Games</span>
+                <i
+                  class="fas fa-gamepad fa-beat"
+                  style="--fa-animation-duration: 2s"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </li>
+            <li>
+              <a href="projects.html">
+                <span>Projects</span>
+                <i
+                  class="fas fa-code fa-beat"
+                  style="--fa-animation-duration: 2s"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </li>
+            <li>
+              <a href="certs.html">
+                <span>Certificates</span>
+                <i
+                  class="fas fa-list-check fa-beat"
+                  style="--fa-animation-duration: 2s"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                <span>Contact</span>
+                <i
+                  class="fas fa-envelope fa-beat"
+                  style="--fa-animation-duration: 2s"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </li>
+          </ul>
         </nav>
-    </div>
-</header>
+      </div>
+    </header>
 
-<dialog id="loading">
-    <div id="spinCircle">
-        <svg id="jefeSpin" style="height:100px;width:100px;" viewBox="0 0 300 250">
-            <use href="static/img/logo.svg#jefe"></use>
+    <dialog id="loading">
+      <div id="spinCircle">
+        <svg
+          id="jefeSpin"
+          style="height: 100px; width: 100px"
+          viewBox="0 0 300 250"
+        >
+          <use href="static/img/logo.svg#jefe"></use>
         </svg>
         <h1 id="load">Loading<span id="dots">...</span></h1>
-    </div>
-</dialog>
+      </div>
+    </dialog>
 
-<div class="small-glass">
-    <p>Verifiable certificates are available, with name and certificate number, upon request.</p>
-</div>
-
-<h1 class="title">Courses</h1>
-<div class="courses container">
-
-    <input type="checkbox" id="python_ud"/>
     <div class="small-glass">
+      <p>
+        Verifiable certificates are available, with name and certificate number,
+        upon request.
+      </p>
+    </div>
+
+    <h1 class="title">Courses</h1>
+    <div class="courses container">
+      <input type="checkbox" id="python_ud" />
+      <div class="small-glass">
         <label class="buffer" for="python_ud">
-            <h1 class="expand">
-                Python Course (Udemy)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/python_ud.png" alt="Python Course Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Basic Syntax</span>: Understanding Python syntax, variables, functions,
-                        arguments, scope, and data types.
-                    </li>
-                    <li>
-                        <span class="b">Modules</span>: Importing and using modules, writing custom modules.
-                    </li>
-                    <li>
-                        <span class="b">File I/O</span>: Reading from and writing to files.
-                    </li>
-                    <li>
-                        <span class="b">Error Handling</span>: Using try-except blocks, raising exceptions.
-                    </li>
-                    <li>
-                        <span class="b">Object-Oriented Programming</span>: Creating classes, inheritance,
-                        polymorphism.
-                    </li>
-                    <li>
-                        <span class="b">Advanced Features</span>: Decorators, generators, context managers.
-                    </li>
-                    <li>
-                        <span class="b">Libraries</span>: Using popular libraries like NumPy, Pandas, Matplotlib.
-                    </li>
-                    <li>
-                        <span class="b">Web Scraping</span>: Extracting data from websites using the requests module,
-                        BeautifulSoup and Selenium.
-                    </li>
-                    <li>
-                        <span class="b">Automation</span>: Automating tasks with Python scripts.
-                    </li>
-                    <li>
-                        <span class="b">GUI Development</span>: Creating graphical user interfaces with
-                        Jupyter Notebooks widgets.
-                    </li>
-                    <li>
-                        <span class="b">PIL</span>: Working with images using the Python Imaging Library (Pillow).
-                    </li>
-                    <li>
-                        <span class="b">Content</span>: Three real-world project assignments and numerous tests and
-                        quizzes.
-                    </li>
-                </ul>
-
-            </div>
+          <h1 class="expand">Python Course (Udemy)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/python_ud.png"
+              alt="Python Course Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Basic Syntax</span>: Understanding Python
+                syntax, variables, functions, arguments, scope, and data types.
+              </li>
+              <li>
+                <span class="b">Modules</span>: Importing and using modules,
+                writing custom modules.
+              </li>
+              <li>
+                <span class="b">File I/O</span>: Reading from and writing to
+                files.
+              </li>
+              <li>
+                <span class="b">Error Handling</span>: Using try-except blocks,
+                raising exceptions.
+              </li>
+              <li>
+                <span class="b">Object-Oriented Programming</span>: Creating
+                classes, inheritance, polymorphism.
+              </li>
+              <li>
+                <span class="b">Advanced Features</span>: Decorators,
+                generators, context managers.
+              </li>
+              <li>
+                <span class="b">Libraries</span>: Using popular libraries like
+                NumPy, Pandas, Matplotlib.
+              </li>
+              <li>
+                <span class="b">Web Scraping</span>: Extracting data from
+                websites using the requests module, BeautifulSoup and Selenium.
+              </li>
+              <li>
+                <span class="b">Automation</span>: Automating tasks with Python
+                scripts.
+              </li>
+              <li>
+                <span class="b">GUI Development</span>: Creating graphical user
+                interfaces with Jupyter Notebooks widgets.
+              </li>
+              <li>
+                <span class="b">PIL</span>: Working with images using the Python
+                Imaging Library (Pillow).
+              </li>
+              <li>
+                <span class="b">Content</span>: Three real-world project
+                assignments and numerous tests and quizzes.
+              </li>
+            </ul>
+          </div>
         </label>
-    </div>
+      </div>
 
-    <input type="checkbox" id="sql_ud"/>
-    <div class="small-glass">
+      <input type="checkbox" id="sql_ud" />
+      <div class="small-glass">
         <label class="buffer" for="sql_ud">
-            <h1 class="expand">
-                SQL Course (Udemy)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/sql_ud.png" alt="SQL Course Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Introduction to SQL</span>: Understanding SQL syntax and writing basic queries.
-                    </li>
-                    <li>
-                        <span class="b">Database Management</span>: Types of databases and database management systems,
-                        focusing on PostgreSQL.
-                    </li>
-                    <li>
-                        <span class="b">CRUD Operations</span>: Create, Read, Update, Delete operations in SQL.
-                    </li>
-                    <li>
-                        <span class="b">Data Analysis</span>: Using SQL for data analysis with real-world examples.
-                    </li>
-                    <li>
-                        <span class="b">Advanced Queries</span>: Running advanced queries with string operations,
-                        comparison operations, and logical operators.
-                    </li>
-                    <li>
-                        <span class="b">Aggregate Functions and Joins</span>: Analyzing data using aggregate functions
-                        with GROUP BY commands. Performing joins to combine data from multiple tables.
-                    </li>
-                    <li>
-                        <span class="b">Subqueries</span>: Using subqueries to retrieve data from one or more tables.
-                    </li>
-                    <li>
-                        <span class="b">Database Design</span>: Designing and optimizing databases for performance.
-                    </li>
-                    <li>
-                        <span class="b">Content</span>: Mock questions and tips to ace SQL interviews and application
-                        of SQL skills to real-world projects.
-                    </li>
-                </ul>
-
-            </div>
+          <h1 class="expand">SQL Course (Udemy)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/sql_ud.png"
+              alt="SQL Course Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Introduction to SQL</span>: Understanding SQL
+                syntax and writing basic queries.
+              </li>
+              <li>
+                <span class="b">Database Management</span>: Types of databases
+                and database management systems, focusing on PostgreSQL.
+              </li>
+              <li>
+                <span class="b">CRUD Operations</span>: Create, Read, Update,
+                Delete operations in SQL.
+              </li>
+              <li>
+                <span class="b">Data Analysis</span>: Using SQL for data
+                analysis with real-world examples.
+              </li>
+              <li>
+                <span class="b">Advanced Queries</span>: Running advanced
+                queries with string operations, comparison operations, and
+                logical operators.
+              </li>
+              <li>
+                <span class="b">Aggregate Functions and Joins</span>: Analyzing
+                data using aggregate functions with GROUP BY commands.
+                Performing joins to combine data from multiple tables.
+              </li>
+              <li>
+                <span class="b">Subqueries</span>: Using subqueries to retrieve
+                data from one or more tables.
+              </li>
+              <li>
+                <span class="b">Database Design</span>: Designing and optimizing
+                databases for performance.
+              </li>
+              <li>
+                <span class="b">Content</span>: Mock questions and tips to ace
+                SQL interviews and application of SQL skills to real-world
+                projects.
+              </li>
+            </ul>
+          </div>
         </label>
-    </div>
+      </div>
 
-    <input type="checkbox" id="docker_ud"/>
-    <div class="small-glass">
+      <input type="checkbox" id="docker_ud" />
+      <div class="small-glass">
         <label class="buffer" for="docker_ud">
-            <h1 class="expand">
-                Docker Course (Udemy)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/docker_ud.png" alt="Docker Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Docker Fundamentals</span>: Introduction to Docker and containerization
-                        concepts.
-                    </li>
-                    <li>
-                        <span class="b">Container Management</span>: Managing Docker containers using the CLI.
-                    </li>
-                    <li>
-                        <span class="b">Docker Objects and Commands</span>: Understanding and using the most common
-                        Docker objects and commands.
-                    </li>
-                    <li>
-                        <span class="b">Dockerfile Writing</span>: Writing Dockerfiles to build images.
-                    </li>
-                    <li>
-                        <span class="b">Docker Image Creation and Management</span>: Creating, managing, and pushing
-                        Docker images to Docker Hub.
-                    </li>
-                    <li>
-                        <span class="b">Docker Container Creation and Management</span>: Creating, starting, stopping,
-                        and managing Docker containers.
-                    </li>
-                    <li>
-                        <span class="b">Docker Network Creation and Management</span>: Configuring Docker networks and
-                        managing container networking.
-                    </li>
-                    <li>
-                        <span class="b">Docker Volume Creation and Management</span>: Using Docker volumes to manage
-                        container data.
-                    </li>
-                    <li>
-                        <span class="b">Real-World Projects</span>: Applying Docker skills to real-world projects.
-                    </li>
-                </ul>
-
-            </div>
+          <h1 class="expand">Docker Course (Udemy)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/docker_ud.png"
+              alt="Docker Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Docker Fundamentals</span>: Introduction to
+                Docker and containerization concepts.
+              </li>
+              <li>
+                <span class="b">Container Management</span>: Managing Docker
+                containers using the CLI.
+              </li>
+              <li>
+                <span class="b">Docker Objects and Commands</span>:
+                Understanding and using the most common Docker objects and
+                commands.
+              </li>
+              <li>
+                <span class="b">Dockerfile Writing</span>: Writing Dockerfiles
+                to build images.
+              </li>
+              <li>
+                <span class="b">Docker Image Creation and Management</span>:
+                Creating, managing, and pushing Docker images to Docker Hub.
+              </li>
+              <li>
+                <span class="b">Docker Container Creation and Management</span>:
+                Creating, starting, stopping, and managing Docker containers.
+              </li>
+              <li>
+                <span class="b">Docker Network Creation and Management</span>:
+                Configuring Docker networks and managing container networking.
+              </li>
+              <li>
+                <span class="b">Docker Volume Creation and Management</span>:
+                Using Docker volumes to manage container data.
+              </li>
+              <li>
+                <span class="b">Real-World Projects</span>: Applying Docker
+                skills to real-world projects.
+              </li>
+            </ul>
+          </div>
         </label>
-    </div>
+      </div>
 
-    <input type="checkbox" id="cs50"/>
-    <div class="small-glass">
+      <input type="checkbox" id="dotnet_ud" />
+      <div class="small-glass">
+        <label class="buffer" for="dotnet_ud">
+          <h1 class="expand">C# .NET Course (Udemy)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/dotnet_ud.png"
+              alt=".NET Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">ASP.NET Core Fundamentals</span>: Introduction
+                to ASP.NET Core and Minimal API development.
+              </li>
+              <li>
+                <span class="b">Minimal APIs</span>: Building lightweight REST
+                APIs using ASP.NET Core Minimal APIs.
+              </li>
+              <li>
+                <span class="b">Endpoint Creation and Routing</span>: Creating
+                and organizing API endpoints with route handling.
+              </li>
+              <li>
+                <span class="b">Entity Framework Core</span>: Working with EF
+                Core for database access and ORM functionality.
+              </li>
+              <li>
+                <span class="b">Database Integration</span>: Configuring and
+                managing databases within .NET applications.
+              </li>
+              <li>
+                <span class="b">Dependency Injection</span>: Using dependency
+                injection to structure scalable applications.
+              </li>
+              <li>
+                <span class="b">Global Error Handling</span>: Implementing
+                centralized exception handling and consistent API error
+                responses.
+              </li>
+              <li>
+                <span class="b">Authentication and Authorization</span>:
+                Implementing user authentication and securing API endpoints.
+              </li>
+              <li>
+                <span class="b">API Testing and Documentation</span>: Testing
+                endpoints and working with Scalar/OpenAPI tools.
+              </li>
+              <li>
+                <span class="b">Real-World API Development</span>: Applying .NET
+                backend development skills to practical projects.
+              </li>
+            </ul>
+          </div>
+        </label>
+      </div>
+
+      <input type="checkbox" id="cs50" />
+      <div class="small-glass">
         <label class="buffer" for="cs50">
-            <h1 class="expand">
-                Harvard's CS50
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/cs50.png" alt="CS50 Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Abstraction</span>: Learning to break down complex problems and systems into
-                        smaller, more manageable parts. This includes understanding how abstraction applies to both
-                        algorithms and data.
-                    </li>
-                    <li>
-                        <span class="b">Algorithms</span>: Designing and analyzing algorithms for efficiency and
-                        effectiveness. You'll delve into concepts like sorting and searching, and the trade-offs between
-                        different algorithmic approaches. Time and Space complexity.
-                    </li>
-                    <li>
-                        <span class="b">Data Structures</span>: Exploring essential data structures such as arrays,
-                        linked lists, stacks, queues, hash tables, and tries, and understanding how they are used to
-                        store and organize data efficiently.
-                    </li>
-                    <li>
-                        <span class="b">Encapsulation</span>: Grasping the principles of encapsulation in programming,
-                        which involves bundling data with the methods that operate on that data, and understanding why
-                        it's crucial for writing maintainable code.
-                    </li>
-                    <li>
-                        <span class="b">Resource Management</span>: Learning how to manage computer resources like
-                        memory and processing power. This includes understanding memory allocation, pointers, and
-                        dynamic memory management.
-                    </li>
-                    <li>
-                        <span class="b">Security</span>: Introduction to computer security, covering basic principles
-                        like cryptography, network security, and the importance of writing secure code to protect
-                        against vulnerabilities.
-                    </li>
-                    <li>
-                        <span class="b">Web Development</span>: Basics of web development using HTML, CSS, and
-                        JavaScript. Web frameworks like Flask are covered with how to build dynamic web applications.
-                    </li>
-                    <li>
-                        <span class="b">Programming Languages</span>: Familiarity with multiple programming languages
-                        such as C, Python, SQL, and JavaScript, each used to demonstrate different concepts and solve
-                        various types of problems.
-                    </li>
-                    <li>
-                        <span class="b">Problem-Solving</span>: Developing strong problem-solving skills through
-                        algorithmic thinking and structured approaches to tackling complex challenges.
-                    </li>
-                    <li>
-                        <span class="b">Real-World Projects</span>: Applying learned concepts to practical projects that
-                        mimic real-world problems, reinforcing the theoretical knowledge with hands-on experience.
-                    </li>
-                    <li>
-                        <span class="b">Final Project</span>: Creating and presenting a final programming project that
-                        showcases understanding of course materials and the ability to apply them in a practical
-                        context.
-                    </li>
-                </ul>
-
-            </div>
+          <h1 class="expand">Harvard's CS50</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/cs50.png"
+              alt="CS50 Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Abstraction</span>: Learning to break down
+                complex problems and systems into smaller, more manageable
+                parts. This includes understanding how abstraction applies to
+                both algorithms and data.
+              </li>
+              <li>
+                <span class="b">Algorithms</span>: Designing and analyzing
+                algorithms for efficiency and effectiveness. You'll delve into
+                concepts like sorting and searching, and the trade-offs between
+                different algorithmic approaches. Time and Space complexity.
+              </li>
+              <li>
+                <span class="b">Data Structures</span>: Exploring essential data
+                structures such as arrays, linked lists, stacks, queues, hash
+                tables, and tries, and understanding how they are used to store
+                and organize data efficiently.
+              </li>
+              <li>
+                <span class="b">Encapsulation</span>: Grasping the principles of
+                encapsulation in programming, which involves bundling data with
+                the methods that operate on that data, and understanding why
+                it's crucial for writing maintainable code.
+              </li>
+              <li>
+                <span class="b">Resource Management</span>: Learning how to
+                manage computer resources like memory and processing power. This
+                includes understanding memory allocation, pointers, and dynamic
+                memory management.
+              </li>
+              <li>
+                <span class="b">Security</span>: Introduction to computer
+                security, covering basic principles like cryptography, network
+                security, and the importance of writing secure code to protect
+                against vulnerabilities.
+              </li>
+              <li>
+                <span class="b">Web Development</span>: Basics of web
+                development using HTML, CSS, and JavaScript. Web frameworks like
+                Flask are covered with how to build dynamic web applications.
+              </li>
+              <li>
+                <span class="b">Programming Languages</span>: Familiarity with
+                multiple programming languages such as C, Python, SQL, and
+                JavaScript, each used to demonstrate different concepts and
+                solve various types of problems.
+              </li>
+              <li>
+                <span class="b">Problem-Solving</span>: Developing strong
+                problem-solving skills through algorithmic thinking and
+                structured approaches to tackling complex challenges.
+              </li>
+              <li>
+                <span class="b">Real-World Projects</span>: Applying learned
+                concepts to practical projects that mimic real-world problems,
+                reinforcing the theoretical knowledge with hands-on experience.
+              </li>
+              <li>
+                <span class="b">Final Project</span>: Creating and presenting a
+                final programming project that showcases understanding of course
+                materials and the ability to apply them in a practical context.
+              </li>
+            </ul>
+          </div>
         </label>
+      </div>
     </div>
 
-</div>
-
-<h1 class="title">Skill Completion</h1>
-<div class="courses container">
-
-    <input type="checkbox" id="python_hr"/>
-    <div class="small-glass">
+    <h1 class="title">Skill Completion</h1>
+    <div class="courses container">
+      <input type="checkbox" id="python_hr" />
+      <div class="small-glass">
         <label class="buffer" for="python_hr">
-            <h1 class="expand">
-                Python Skill Test (HackerRank)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/python_hr.png" alt="Python Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Scalar Types and Operators</span>: Understanding basic data
-                        types and operators.
-                    </li>
-                    <li>
-                        <span class="b">Control Flow</span>: Using if-else, loops, and conditionals to
-                        control flow.
-                    </li>
-                    <li>
-                        <span class="b">Strings</span>: Manipulating and working with strings.
-                    </li>
-                    <li>
-                        <span class="b">Collections and Iteration</span>: Working with lists, dictionaries,
-                        sets, and tuples.
-                    </li>
-                    <li>
-                        <span class="b">Modularity</span>: Writing functions and organizing code into modules.
-                    </li>
-                    <li>
-                        <span class="b">Objects and Classes</span>: Understanding object-oriented programming
-                        concepts, including creating and using classes.
-                    </li>
-                </ul>
-
-            </div>
+          <h1 class="expand">Python Skill Test (HackerRank)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/python_hr.png"
+              alt="Python Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Scalar Types and Operators</span>: Understanding
+                basic data types and operators.
+              </li>
+              <li>
+                <span class="b">Control Flow</span>: Using if-else, loops, and
+                conditionals to control flow.
+              </li>
+              <li>
+                <span class="b">Strings</span>: Manipulating and working with
+                strings.
+              </li>
+              <li>
+                <span class="b">Collections and Iteration</span>: Working with
+                lists, dictionaries, sets, and tuples.
+              </li>
+              <li>
+                <span class="b">Modularity</span>: Writing functions and
+                organizing code into modules.
+              </li>
+              <li>
+                <span class="b">Objects and Classes</span>: Understanding
+                object-oriented programming concepts, including creating and
+                using classes.
+              </li>
+            </ul>
+          </div>
         </label>
-    </div>
+      </div>
 
-    <input type="checkbox" id="sql1_hr"/>
-    <div class="small-glass">
+      <input type="checkbox" id="sql1_hr" />
+      <div class="small-glass">
         <label class="buffer" for="sql1_hr">
-            <h1 class="expand">
-                SQL Skill Test Beginner (HackerRank)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/sql1_hr.png" alt="SQL Basic Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Basic SQL Queries</span>: Writing simple SELECT queries to
-                        retrieve data from single tables.
-                    </li>
-                    <li>
-                        <span class="b">Filtering and Sorting</span>: Using WHERE clauses, ORDER BY,
-                        and LIMIT to filter and sort query results.
-                    </li>
-                    <li>
-                        <span class="b">Aggregations</span>: Applying functions like COUNT, SUM, AVG,
-                        MIN, and MAX to aggregate data.
-                    </li>
-                    <li>
-                        <span class="b">Joins</span>: Performing simple joins (INNER JOIN) to combine
-                        data from multiple tables.
-                    </li>
-                    <li>
-                        <span class="b">Group By and Having</span>: Grouping data and filtering groups
-                        using the GROUP BY and HAVING clauses.
-                    </li>
-                </ul>
-
-            </div>
+          <h1 class="expand">SQL Skill Test Beginner (HackerRank)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/sql1_hr.png"
+              alt="SQL Basic Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Basic SQL Queries</span>: Writing simple SELECT
+                queries to retrieve data from single tables.
+              </li>
+              <li>
+                <span class="b">Filtering and Sorting</span>: Using WHERE
+                clauses, ORDER BY, and LIMIT to filter and sort query results.
+              </li>
+              <li>
+                <span class="b">Aggregations</span>: Applying functions like
+                COUNT, SUM, AVG, MIN, and MAX to aggregate data.
+              </li>
+              <li>
+                <span class="b">Joins</span>: Performing simple joins (INNER
+                JOIN) to combine data from multiple tables.
+              </li>
+              <li>
+                <span class="b">Group By and Having</span>: Grouping data and
+                filtering groups using the GROUP BY and HAVING clauses.
+              </li>
+            </ul>
+          </div>
         </label>
-    </div>
+      </div>
 
-    <input type="checkbox" id="sql2_hr"/>
-    <div class="small-glass">
+      <input type="checkbox" id="sql2_hr" />
+      <div class="small-glass">
         <label class="buffer" for="sql2_hr">
-            <h1 class="expand">
-                SQL Skill Test Intermediate (HackerRank)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/sql2_hr.png" alt="SQL Intermediate Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Advanced Joins</span>: Mastering more complex joins such as
-                        LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN.
-                    </li>
-                    <li>
-                        <span class="b">Subqueries</span>: Writing subqueries to perform more complex
-                        data retrievals and manipulations.
-                    </li>
-                    <li>
-                        <span class="b">Set Operations</span>: Using UNION, UNION ALL, INTERSECT, and
-                        EXCEPT to combine results from multiple queries.
-                    </li>
-                    <li>
-                        <span class="b">Aggregations and Window Functions</span>: Advanced use of
-                        aggregation functions and introduction to window functions for more complex
-                        calculations.
-                    </li>
-                    <li>
-                        <span class="b">Data Modifications</span>: Writing INSERT, UPDATE, and DELETE
-                        statements to modify data in tables.
-                    </li>
-                    <li>
-                        <span class="b">Indexing and Performance Tuning</span>: Understanding basic
-                        indexing and how to optimize query performance.
-                    </li>
-                </ul>
-
-            </div>
+          <h1 class="expand">SQL Skill Test Intermediate (HackerRank)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/sql2_hr.png"
+              alt="SQL Intermediate Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Advanced Joins</span>: Mastering more complex
+                joins such as LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN.
+              </li>
+              <li>
+                <span class="b">Subqueries</span>: Writing subqueries to perform
+                more complex data retrievals and manipulations.
+              </li>
+              <li>
+                <span class="b">Set Operations</span>: Using UNION, UNION ALL,
+                INTERSECT, and EXCEPT to combine results from multiple queries.
+              </li>
+              <li>
+                <span class="b">Aggregations and Window Functions</span>:
+                Advanced use of aggregation functions and introduction to window
+                functions for more complex calculations.
+              </li>
+              <li>
+                <span class="b">Data Modifications</span>: Writing INSERT,
+                UPDATE, and DELETE statements to modify data in tables.
+              </li>
+              <li>
+                <span class="b">Indexing and Performance Tuning</span>:
+                Understanding basic indexing and how to optimize query
+                performance.
+              </li>
+            </ul>
+          </div>
         </label>
+      </div>
     </div>
 
-</div>
-
-<h1 class="title">Examinations</h1>
-<div class="courses container">
-
-    <input type="checkbox" id="sql3_hr"/>
-    <div class="small-glass">
+    <h1 class="title">Examinations</h1>
+    <div class="courses container">
+      <input type="checkbox" id="sql3_hr" />
+      <div class="small-glass">
         <label class="buffer" for="sql3_hr">
-            <h1 class="expand">
-                SQL Skill Test Advanced (HackerRank)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/sql3_hr.png" alt="SQL Advanced Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Joins and Set Operations</span>: Mastery of complex joins
-                        (like CROSS JOIN) and set operations (UNION, INTERSECT, EXCEPT) to
-                        manipulate data across tables.
-                    </li>
-                    <li>
-                        <span class="b">Subqueries</span>: Using advanced subqueries, including
-                        correlated subqueries, to solve intricate querying needs.
-                    </li>
-                    <li>
-                        <span class="b">Query Optimization</span>: Enhancing performance through
-                        query optimization and analysis.
-                    </li>
-                    <li>
-                        <span class="b">Common Table Expressions (CTEs)</span>: Simplifying
-                        complex queries and handling recursive queries with CTEs.
-                    </li>
-                    <li>
-                        <span class="b">Window Functions</span>: Utilizing functions like
-                        ROW_NUMBER and RANK for advanced row-by-row calculations.
-                    </li>
-                </ul>
-            </div>
+          <h1 class="expand">SQL Skill Test Advanced (HackerRank)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/sql3_hr.png"
+              alt="SQL Advanced Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Joins and Set Operations</span>: Mastery of
+                complex joins (like CROSS JOIN) and set operations (UNION,
+                INTERSECT, EXCEPT) to manipulate data across tables.
+              </li>
+              <li>
+                <span class="b">Subqueries</span>: Using advanced subqueries,
+                including correlated subqueries, to solve intricate querying
+                needs.
+              </li>
+              <li>
+                <span class="b">Query Optimization</span>: Enhancing performance
+                through query optimization and analysis.
+              </li>
+              <li>
+                <span class="b">Common Table Expressions (CTEs)</span>:
+                Simplifying complex queries and handling recursive queries with
+                CTEs.
+              </li>
+              <li>
+                <span class="b">Window Functions</span>: Utilizing functions
+                like ROW_NUMBER and RANK for advanced row-by-row calculations.
+              </li>
+            </ul>
+          </div>
         </label>
-    </div>
+      </div>
 
-    <input type="checkbox" id="sei_hr"/>
-    <div class="small-glass">
+      <input type="checkbox" id="sei_hr" />
+      <div class="small-glass">
         <label class="buffer" for="sei_hr">
-            <h1 class="expand">
-                Software Engineer Intern (HackerRank)
-            </h1>
-            <div class="cert">
-                <img class="certificate" src="static/img/certs/sei_hr.png" alt="Software Engineer Intern Certificate"/>
-                <ul class="points">
-                    <li>
-                        <span class="b">Problem-Solving:</span> solve coding problems using
-                        various algorithms and data structures.
-                    </li>
-                    <li>
-                        <span class="b">SQL:</span> knowledge of SQL, including writing
-                        queries, database design, normalization, and optimization techniques.
-                    </li>
-                    <li>
-                        <span class="b">Code Quality:</span> coding style, readability, and
-                        adherence to best practices.
-                    </li>
-                    <li>
-                        <span class="b">Technical Communication:</span> ability to explain
-                        thought processes and solutions, demonstrating the ability to
-                        communicate technical concepts clearly.
-                    </li>
-                </ul>
-            </div>
+          <h1 class="expand">Software Engineer Intern (HackerRank)</h1>
+          <div class="cert">
+            <img
+              class="certificate"
+              src="static/img/certs/sei_hr.png"
+              alt="Software Engineer Intern Certificate"
+            />
+            <ul class="points">
+              <li>
+                <span class="b">Problem-Solving:</span> solve coding problems
+                using various algorithms and data structures.
+              </li>
+              <li>
+                <span class="b">SQL:</span> knowledge of SQL, including writing
+                queries, database design, normalization, and optimization
+                techniques.
+              </li>
+              <li>
+                <span class="b">Code Quality:</span> coding style, readability,
+                and adherence to best practices.
+              </li>
+              <li>
+                <span class="b">Technical Communication:</span> ability to
+                explain thought processes and solutions, demonstrating the
+                ability to communicate technical concepts clearly.
+              </li>
+            </ul>
+          </div>
         </label>
+      </div>
     </div>
 
-</div>
-
-
-<footer>
-    &copy; JefeThePug 2024
-    <svg id="pawprint" style="height:70px;width:70px;transform:rotate(36deg);">
+    <footer>
+      &copy; JefeThePug 2024
+      <svg
+        id="pawprint"
+        style="height: 70px; width: 70px; transform: rotate(36deg)"
+      >
         <use href="static/img/logo.svg#paw"></use>
-    </svg>
-</footer>
+      </svg>
+    </footer>
 
-<script>
-    function colors() {
+    <script>
+      function colors() {
         const colors = [
-            '#FFC15A', '#FFD9E7', '#FFDD02',
-            '#C8B6E8', '#F5B3FF', '#D8FDFB',
-            '#FAF9A4', '#EAC6C4', '#FFA7E4',
-            '#BDE0FE', '#C3FDB8', '#FFDFBA'
+          "#FFC15A",
+          "#FFD9E7",
+          "#FFDD02",
+          "#C8B6E8",
+          "#F5B3FF",
+          "#D8FDFB",
+          "#FAF9A4",
+          "#EAC6C4",
+          "#FFA7E4",
+          "#BDE0FE",
+          "#C3FDB8",
+          "#FFDFBA",
         ];
 
-        document.querySelectorAll('.menu li a').forEach(item => {
-            const randomIndex = Math.floor(Math.random() * colors.length);
-            const selectedColor = colors[randomIndex];
+        document.querySelectorAll(".menu li a").forEach((item) => {
+          const randomIndex = Math.floor(Math.random() * colors.length);
+          const selectedColor = colors[randomIndex];
 
-            item.style.backgroundColor = selectedColor;
-            colors.splice(randomIndex, 1);
+          item.style.backgroundColor = selectedColor;
+          colors.splice(randomIndex, 1);
 
-            item.addEventListener('mouseover', () => {
-                const icon = item.querySelector('i');
-                if (icon) {
-                    icon.style.color = selectedColor;
-                    console.log(icon.parentElement)
-                    item.classList.add('hover');
-                }
-            });
+          item.addEventListener("mouseover", () => {
+            const icon = item.querySelector("i");
+            if (icon) {
+              icon.style.color = selectedColor;
+              console.log(icon.parentElement);
+              item.classList.add("hover");
+            }
+          });
 
-            item.addEventListener('mouseout', () => {
-                const icon = item.querySelector('i');
-                if (icon) {
-                    icon.style.color = '';
-                    item.classList.remove('hover');
-                }
-            });
+          item.addEventListener("mouseout", () => {
+            const icon = item.querySelector("i");
+            if (icon) {
+              icon.style.color = "";
+              item.classList.remove("hover");
+            }
+          });
         });
-    }
-</script>
-</body>
+      }
+    </script>
+  </body>
 </html>
