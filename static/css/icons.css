@@ -212,6 +212,13 @@
   }
 }
 
+.json {
+  background-image: url(../img/icons/json.svg);
+  &:hover ~ .field::before {
+    content: "JSON";
+  }
+}
+
 .jupyter {
   background-image: url(../img/icons/jupyter.svg);
   &:hover ~ .field::before {
@@ -443,6 +450,13 @@
   }
 }
 
+.toml {
+  background-image: url(../img/icons/toml.svg);
+  &:hover ~ .field::before {
+    content: "TOML";
+  }
+}
+
 .visualbasic {
   background-image: url(../img/icons/vba.svg);
   &:hover ~ .field::before {
@@ -461,5 +475,12 @@
   background-image: url(../img/icons/webstorm.svg);
   &:hover ~ .field::before {
     content: "WebStorm";
+  }
+}
+
+.yaml {
+  background-image: url(../img/icons/yaml.svg);
+  &:hover ~ .field::before {
+    content: "YAML";
   }
 }
