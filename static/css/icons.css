@@ -74,10 +74,10 @@
 .csharp {
   background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-plain.svg);
 }
-.css:hover {
+.csharp:hover {
   background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg);
 }
-.css:hover ~ .field::before {
+.csharp:hover ~ .field::before {
   content: "C#";
 }
 
@@ -104,10 +104,10 @@
 .dotnet {
   background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg);
 }
-.docker:hover {
+.dotnet:hover {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1280px-.NET_Core_Logo.svg.png);
 }
-.docker:hover ~ .field::before {
+.dotnet:hover ~ .field::before {
   content: ".NET Core";
 }
 
@@ -529,10 +529,10 @@
 .scalar {
   background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg);
 }
-.spring:hover {
+.scalar:hover {
   background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg);
 }
-.spring:hover ~ .field::before {
+.scalar:hover ~ .field::before {
   content: "Scalar";
 }
 
