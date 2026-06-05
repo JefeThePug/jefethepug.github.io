@@ -527,10 +527,10 @@
 }
 
 .scalar {
-  background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg);
+  background-image: url(https://scalar.com/brand/scalar-logomark-light.svg);
 }
 .scalar:hover {
-  background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg);
+  background-image: url(https://cdn.scalar.com/marketing/landing/logo-light.svg);
 }
 .scalar:hover ~ .field::before {
   content: "Scalar";
