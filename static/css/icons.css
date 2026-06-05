@@ -71,6 +71,16 @@
   content: "C";
 }
 
+.csharp {
+  background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-plain.svg);
+}
+.css:hover {
+  background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg);
+}
+.css:hover ~ .field::before {
+  content: "C#";
+}
+
 .css {
   background-image: url(https://www.svgrepo.com/show/349330/css3.svg);
 }
@@ -89,6 +99,16 @@
 }
 .docker:hover ~ .field::before {
   content: "Docker, Docker Compose";
+}
+
+.dotnet {
+  background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg);
+}
+.docker:hover {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1280px-.NET_Core_Logo.svg.png);
+}
+.docker:hover ~ .field::before {
+  content: ".NET Core";
 }
 
 .discordpy {
@@ -504,6 +524,16 @@
 }
 .requests:hover ~ .field::before {
   content: "Requests";
+}
+
+.scalar {
+  background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg);
+}
+.spring:hover {
+  background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg);
+}
+.spring:hover ~ .field::before {
+  content: "Scalar";
 }
 
 .spring {
