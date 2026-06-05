@@ -100,22 +100,22 @@
   }
 }
 
-.dotnet {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/dotnet.svg);
-  &:hover {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1280px-.NET_Core_Logo.svg.png);
-    & ~ .field::before {
-      content: ".NET Core";
-    }
-  }
-}
-
 .discordpy {
   background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/discordpy.svg);
   &:hover {
     background-image: url(https://fallendeity.github.io/discord.py-masterclass/assets/logo.png);
     & ~ .field::before {
       content: "Discord.py";
+    }
+  }
+}
+
+.dotnet {
+  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/dotnetcore.svg);
+  &:hover {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1280px-.NET_Core_Logo.svg.png);
+    & ~ .field::before {
+      content: ".NET Core";
     }
   }
 }
