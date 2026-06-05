@@ -457,6 +457,13 @@
   }
 }
 
+.uv {
+  background-image: url(../img/icons/uv.svg);
+  &:hover ~ .field::before {
+    content: "UV";
+  }
+}
+
 .visualbasic {
   background-image: url(../img/icons/vba.svg);
   &:hover ~ .field::before {
