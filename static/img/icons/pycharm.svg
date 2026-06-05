@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle
+      cx="50" cy="50" r="50"
+      fill="#454548" />
+    <linearGradient id="a" x1="38.78" x2="95.91" y1="41.59" y2="41.59" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#21d789" />
+        <stop offset="1" stop-color="#07c3f2" />
+    </linearGradient>
+    <linearGradient id="b" x1="-29.18" x2="88.46" y1="85.52" y2="-1.32" gradientUnits="userSpaceOnUse">
+        <stop offset=".01" stop-color="#fcf84a" />
+        <stop offset=".11" stop-color="#a7eb62" />
+        <stop offset=".21" stop-color="#5fe077" />
+        <stop offset=".27" stop-color="#32da84" />
+        <stop offset=".31" stop-color="#21d789" />
+        <stop offset=".58" stop-color="#21d789" />
+        <stop offset=".6" stop-color="#21d789" />
+        <stop offset=".69" stop-color="#20d68c" />
+        <stop offset=".76" stop-color="#1ed497" />
+        <stop offset=".83" stop-color="#19d1a9" />
+        <stop offset=".9" stop-color="#13ccc2" />
+        <stop offset=".97" stop-color="#0bc6e1" />
+        <stop offset="1" stop-color="#07c3f2" />
+    </linearGradient>
+    <linearGradient id="c" x1="17.3" x2="36.92" y1="110.99" y2="49.42" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#21d789" />
+        <stop offset=".16" stop-color="#24d888" />
+        <stop offset=".3" stop-color="#2fd985" />
+        <stop offset=".43" stop-color="#41dc80" />
+        <stop offset=".55" stop-color="#5ae079" />
+        <stop offset=".67" stop-color="#7ae46f" />
+        <stop offset=".79" stop-color="#a1ea64" />
+        <stop offset=".9" stop-color="#cff157" />
+        <stop offset="1" stop-color="#fcf84a" />
+    </linearGradient>
+    <linearGradient id="d" x1="43.28" x2="85.97" y1="57.46" y2=".06" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#21d789" />
+        <stop offset=".09" stop-color="#23d986" />
+        <stop offset=".17" stop-color="#2ade7b" />
+        <stop offset=".25" stop-color="#36e669" />
+        <stop offset=".27" stop-color="#3bea62" />
+        <stop offset=".35" stop-color="#47eb61" />
+        <stop offset=".49" stop-color="#67ed5d" />
+        <stop offset=".69" stop-color="#9af156" />
+        <stop offset=".92" stop-color="#e0f64d" />
+        <stop offset="1" stop-color="#fcf84a" />
+    </linearGradient>
+    <linearGradient id="e" x1="108.58" x2="22.55" y1="64.77" y2="63.97" gradientUnits="userSpaceOnUse">
+        <stop offset=".39" stop-color="#fcf84a" />
+        <stop offset=".46" stop-color="#ecf74c" />
+        <stop offset=".61" stop-color="#c1f451" />
+        <stop offset=".82" stop-color="#7eef5a" />
+        <stop offset="1" stop-color="#3bea62" />
+    </linearGradient>
+    <path fill="url(#a)"
+      d="M 63.79 26.54 L 83.83 43.2 L 76.61 57.88 L 64.54 54.53 L 54.09 54.53
+      L 63.79 26.54" />
+    <path fill="url(#b)"
+      d="M 43.61 37.36 L 39.73 57.88 L 39.36 64.85 L 29.58 69.09 L 15.71 70.58
+      L 19.92 26.24 L 45.04 15.71 L 60.52 25.86 L 43.61 37.36" />
+    <path fill="url(#c)"
+      d="M 43.61 37.36 L 45.49 76.9 L 39.23 84.29 L 15.71 70.58 L 35.02 41.81
+      L 43.61 37.36" />
+    <path fill="url(#d)"
+      d="M 69.48 34.47 L 45.72 34.47 L 66.71 15.71 L 69.48 34.47" />
+    <path fill="url(#e)"
+      d="M 84.29 77.06 L 63.37 84.16 L 35.52 76.31 L 43.61 37.36 L 46.84 34.47
+      L 63.79 32.88 L 62.26 49.91 L 75.74 44.68 L 84.29 77.06" />
+    <path d="M 28.57 28.57 L 71.43 28.57 L 71.43 71.43 L 28.57 71.43 L 28.57 28.57" />
+    <path fill="#fff"
+      d="M 33.91 63.33 L 49.99 63.33 L 49.99 66.01 L 33.91 66.01 L 33.91 63.33
+      M 33.93 33.93 L 40.5 33.93 C 44.33 33.93 46.65 36.2 46.65 39.48 L 46.65 39.52
+      C 46.65 43.24 43.76 45.16 40.16 45.16 L 37.5 45.16 L 37.5 49.98 L 33.93 49.98
+      L 33.93 33.93 M 40.26 42.02 C 42.02 42.02 43.06 40.97 43.06 39.59 L 43.06 39.55
+      C 43.06 37.96 41.96 37.11 40.2 37.11 L 37.5 37.11 L 37.5 42.02 L 40.26 42.02
+      M 48.56 42.01 L 48.56 41.96 A 8.15 8.15 0 0 1 56.93 33.66 A 8.28 8.28 0 0 1
+      63.26 36.14 L 61.01 38.73 A 5.95 5.95 0 0 0 56.91 36.91 C 54.2 36.91 52.25
+      39.16 52.25 41.91 L 52.25 41.96 C 52.25 44.71 54.16 47.01 56.91 47.01 
+      C 58.74 47.01 59.86 46.29 61.13 45.13 L 63.37 47.39 A 8.19 8.19 0 0 1 56.79
+      50.25 A 8.11 8.11 0 0 1 48.57 42.01" />
+</svg>

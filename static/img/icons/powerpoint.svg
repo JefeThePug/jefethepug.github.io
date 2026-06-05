@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <radialGradient id="b" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset=".15" stop-color="#aa1d2d" />
+    <stop offset=".38" stop-color="#d12b18" stop-opacity=".44" />
+    <stop offset=".6" stop-color="#ff3c00" stop-opacity="0" />
+  </radialGradient>
+  <radialGradient id="c" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset=".41" stop-color="#ff66fb" stop-opacity=".5" />
+    <stop offset="1" stop-color="#ea3d01" stop-opacity="0" />
+  </radialGradient>
+  <radialGradient id="e" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset=".79" stop-color="#ffa05c" stop-opacity="0" />
+    <stop offset=".9" stop-color="#ffce84" />
+  </radialGradient>
+  <radialGradient id="f" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset=".3" stop-color="#ff99e9" stop-opacity=".8" />
+    <stop offset=".73" stop-color="#ff99e9" stop-opacity="0" />
+  </radialGradient>
+  <radialGradient id="g" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset="0" stop-color="#fd6ef9" />
+    <stop offset=".64" stop-color="#f94" />
+    <stop offset=".85" stop-color="#fcc479" />
+  </radialGradient>
+  <radialGradient id="h" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset=".14" stop-color="#ff8d13" />
+    <stop offset=".54" stop-color="#ff7f29" stop-opacity="0" />
+  </radialGradient>
+  <radialGradient id="i" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset="0" stop-color="#f8193e" />
+    <stop offset=".94" stop-color="#920616" />
+  </radialGradient>
+  <radialGradient id="j" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="objectBoundingBox">
+    <stop offset=".58" stop-color="#ffb055" stop-opacity="0" />
+    <stop offset=".97" stop-color="#fff2be" stop-opacity=".3" />
+  </radialGradient>
+  <linearGradient id="a" x1="22.1" x2="-.88" y1="4.06" y2="26.03"
+    gradientUnits="objectBoundingBox">
+    <stop offset=".06" stop-color="#ff7f48" />
+    <stop offset="1" stop-color="#e5495b" />
+  </linearGradient>
+  <linearGradient id="d" x1="27.55" x2="47.73" y1="28.17" y2="13.22"
+    gradientUnits="objectBoundingBox">
+    <stop offset=".31" stop-color="#ff6e30" />
+    <stop offset=".63" stop-color="#ffa05c" />
+  </linearGradient>
+  <path fill="url(#a)" d="M 87.51 50 C 87.51 29.95 71.26 13.69 51.21 13.69 C 31.16 13.69 14.91
+    29.95 14.91 50 C 14.91 70.05 31.16 86.31 51.21 86.31 C 71.26 86.31 87.51 70.05 87.51 50" />
+  <path fill="url(#b)" d="M 87.51 50 C 87.51 29.95 71.26 13.69 51.21 13.69 C 31.16 13.69 14.91
+    29.95 14.91 50 C 14.91 70.05 31.16 86.31 51.21 86.31 C 71.26 86.31 87.51 70.05 87.51 50" />
+  <path fill="url(#c)" d="M 87.51 50 C 87.51 29.95 71.26 13.69 51.21 13.69 C 31.16 13.69 14.91
+    29.95 14.91 50 C 14.91 70.05 31.16 86.31 51.21 86.31 C 71.26 86.31 87.51 70.05 87.51 50" />
+  <path fill="url(#d)" d="M 51.21 13.69 C 71.26 13.69 87.51 29.95 87.51 50 A 36.14 36.14 0 0 1
+    82.57 68.29 L 83.16 66.98 C 86.76 59.01 80.92 49.98 72.17 49.98 L 57.72 50 A 6.5 6.5 0 0 1
+    51.21 43.5 L 51.21 29.02 C 51.21 20.27 42.18 14.43 34.2 18.04 L 33.04 18.56 A 36.14 36.14
+    0 0 1 51.21 13.69" />
+  <path fill="url(#e)" d="M 51.21 13.69 C 71.26 13.69 87.51 29.95 87.51 50 A 36.14 36.14 0 0 1
+    82.57 68.29 L 83.16 66.98 C 86.76 59.01 80.92 49.98 72.17 49.98 L 57.72 50 A 6.5 6.5 0 0 1
+    51.21 43.5 L 51.21 29.02 C 51.21 20.27 42.18 14.43 34.2 18.04 L 33.04 18.56 A 36.14 36.14 0
+    0 1 51.21 13.69" />
+  <path fill="url(#f)" d="M 51.21 13.69 C 71.26 13.69 87.51 29.95 87.51 50 A 36.14 36.14 0 0 1
+    82.57 68.29 L 83.16 66.98 C 86.76 59.01 80.92 49.98 72.17 49.98 L 57.72 50 A 6.5 6.5 0 0 1
+    51.21 43.5 L 51.21 29.02 C 51.21 20.27 42.18 14.43 34.2 18.04 L 33.04 18.56 A 36.14 36.14 0
+    0 1 51.21 13.69" />
+  <path fill="url(#g)" d="M 51.21 13.69 C 71.26 13.69 87.51 29.95 87.51 50 A 36.14 36.14 0 0 1
+    82.57 68.29 L 83.16 66.98 C 86.76 59.01 80.92 49.98 72.17 49.98 L 57.72 50 A 6.5 6.5 0 0 1
+      51.21 43.5 L 51.21 29.02 C 51.21 20.27 42.18 14.43 34.2 18.04 L 33.04 18.56 A 36.14 36.14
+      0 0 1 51.21 13.69" />
+  <path fill="url(#h)" d="M 51.21 13.69 C 71.26 13.69 87.51 29.95 87.51 50 A 36.14 36.14 0 0 1
+    82.57 68.29 L 83.16 66.98 C 86.76 59.01 80.92 49.98 72.17 49.98 L 57.72 50 A 6.5 6.5 0 0 1
+    51.21 43.5 L 51.21 29.02 C 51.21 20.27 42.18 14.43 34.2 18.04 L 33.04 18.56 A 36.14 36.140
+    0 1 51.21 13.69" />
+  <path fill="url(#i)" d="M 18.78 48.06 L 37.17 48.06 A 6.29 6.29 0 0 1 43.47 54.36 L 43.47
+    72.75 A 6.29 6.29 0 0 1 37.17 79.04 L 18.78 79.04 A 6.29 6.29 0 0 1 12.49 72.75 L 12.49
+    54.36 A 6.29 6.29 0 0 1 18.78 48.06" />
+  <path fill="url(#j)" d="M 18.78 48.06 L 37.17 48.06 A 6.29 6.29 0 0 1 43.47 54.36 L 43.47
+    72.75 A 6.29 6.29 0 0 1 37.17 79.04 L 18.78 79.04 A 6.29 6.29 0 0 1 12.49 72.75 L 12.49
+    54.36 A 6.29 6.29 0 0 1 18.78 48.06" />
+  <path fill="#fff" d="M 26.47 66.64 L 26.47 72.41 L 22.48 72.41 L 22.48 54.7 L 28.64 54.7 Q
+    31.94 54.7 33.67 56.15 Q 35.41 57.59 35.41 60.43 Q 35.41 63.36 33.46 65 Q 31.52 66.64 28.25 66.64 L 26.47 66.64 M 26.47 57.76 L 26.47 63.58 L 28.13 63.58 Q 29.61 63.58 30.41 62.8 Q
+    31.22 62.02 31.22 60.57 Q 31.22 59.22 30.43 58.49 Q 29.65 57.76 28.19 57.76 L 26.47 57.76" />
+</svg>

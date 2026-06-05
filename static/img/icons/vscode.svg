@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  
+  <filter id="0" x="-8.39411" y="15.8291" width="116.727" height="92.2456"  
+    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+    <feColorMatrix in="SourceAlpha" type="matrix"
+      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+    <feOffset />
+    <feGaussianBlur stdDeviation="4.16667" />
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+    <feBlend mode="overlay" in2="BackgroundImageFix" result="effect1_dropShadow" />
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+  </filter>
+  <filter id="1" x="60.4167" y="-8.07558" width="47.9167" height="116.151" 
+    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+    <feColorMatrix in="SourceAlpha" type="matrix"
+    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+    <feOffset />
+    <feGaussianBlur stdDeviation="4.16667" />
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+    <feBlend mode="overlay" in2="BackgroundImageFix" result="effect1_dropShadow" />
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+  </filter>
+  <linearGradient id="L" x1="49.9392" y1="0.257812" x2="49.9392"
+    y2="99.7423" gradientUnits="userSpaceOnUse">
+    <stop stop-color="white" />
+    <stop offset="1" stop-color="white" stop-opacity="0" />
+  </linearGradient>
+  <mask id="m" mask-type="alpha" x="0" y="0" width="100" height="100">
+    <path d="M 62.27 78.9 C 63.19 79.26 64.25 79.23 65.18 78.78 L 77.24 72.98 C 78.51
+      72.37 79.31 71.09 79.31 69.68 L 79.31 30.32 C 79.31 28.91 78.51 27.63 77.24 27.02 
+      L 65.18 21.22 C 63.96 20.63 62.52 20.77 61.45 21.55 C 61.3 21.66 61.15 21.79
+      61.02 21.92 L 37.92 42.99 L 27.86 35.36 C 26.93 34.65 25.62 34.7 24.75 35.5 L
+      21.52 38.43 C 20.46 39.4 20.45 41.07 21.52 42.04 L 30.24 50 L 21.52 57.96 C 20.45 
+      58.93 20.46 60.6 21.52 61.57 L 24.75 64.5 C 25.62 65.3 26.93 65.35 27.86 64.64 L 
+      37.92 57.01 L 61.02 78.08 C 61.38 78.44 61.81 78.72 62.27 78.9 M 64.68 36.7 L
+      47.15 50 L 64.68 63.3 L 64.68 36.7" fill="#fff" />
+  </mask>
+  <g mask="url(#m)">
+    <path d="M 77.24 27.03 L 65.17 21.22 C 63.77 20.54 62.1 20.83 61 21.92 L 21.48
+      57.96 C 20.42 58.93 20.42 60.6 21.48 61.57 L 24.71 64.5 C 25.58 65.3 26.89 65.35 
+      27.83 64.64 L 75.42 28.54 C 77.02 27.33 79.31 28.46 79.31 30.47 L 79.31 30.33 C 
+      79.31 28.92 78.51 27.64 77.24 27.03" fill="#0065A9" />
+    <path d="M 77.24 72.97 L 65.17 78.78 C 63.77 79.46 62.1 79.17 61 78.08 L 21.48
+      42.04 C 20.42 41.07 20.42 39.4 21.48 38.43 L 24.71 35.5 C 25.58 34.7 26.89
+      34.65 27.83 35.36 L 75.42 71.46 C 77.02 72.67 79.31 71.54 79.31 69.53 L 79.31 
+      69.67 C 79.31 71.08 78.51 72.36 77.24 72.97" fill="#007ACC" filter="url(#0)"/>
+    <path d="M 65.17 78.78 C 63.77 79.46 62.1 79.17 61 78.08 C 62.36 79.43 64.67 78.47 
+      64.67 76.56 L 64.67 23.44 C 64.67 21.53 62.36 20.57 61 21.92 C 62.1 20.83 63.77 
+      20.54 65.17 21.21 L 77.24 27.02 C 78.51 27.63 79.31 28.91 79.31 30.32 L 79.31
+      69.68 C 79.31 71.09 78.51 72.37 77.24 72.98 L 65.17 78.78" fill="#1F9CF0" 
+      filter="url(#1)"/>
+    <path fill-rule="evenodd" d="M 62.24 78.9 C 63.16 79.26 64.21 79.23 65.14 78.78 L 
+      77.21 72.98 C 78.47 72.37 79.28 71.09 79.28 69.68 L 79.28 30.32 C 79.28 28.91
+      78.47 27.63 77.21 27.02 L 65.14 21.22 C 63.92 20.63 62.49 20.77 61.42 21.55 C
+      61.26 21.66 61.12 21.79 60.98 21.92 L 37.89 42.99 L 27.83 35.36 C 26.89 34.65
+      25.58 34.7 24.71 35.5 L 21.48 38.43 C 20.42 39.4 20.42 41.07 21.48 42.04 L 30.21 
+      50 L 21.48 57.96 C 20.42 58.93 20.42 60.6 21.48 61.57 L 24.71 64.5 C 25.58 65.3 
+      26.89 65.35 27.83 64.64 L 37.89 57.01 L 60.98 78.08 C 61.34 78.44 61.77 78.72
+      62.24 78.9 M 64.64 36.7 L 47.12 50 L 64.64 63.3 L 64.64 36.7" fill="url(#L)" 
+      style="mix-blend-mode:overlay" opacity="0.25"/>
+  </g>
+</svg>

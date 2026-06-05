@@ -8,7 +8,27 @@
   display: flex;
   height: 55px;
   margin: 5px;
+  position: relative;
   width: 55px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #999999;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.25s ease,
+      height 0.25s ease;
+    z-index: -1;
+  }
+  &:hover::before {
+    width: 0;
+    height: 0;
+  }
 }
 .field {
   color: var(--grey);
@@ -31,599 +51,414 @@
 }
 
 .anaconda {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/anaconda.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Anaconda";
-    }
+  background-image: url(../img/icons/anaconda.svg);
+  &:hover ~ .field::before {
+    content: "Anaconda";
   }
 }
 
 .aws {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/aws.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg);
-    & ~ .field::before {
-      content: "AWS : EC2, EFS, ELB";
-    }
+  background-image: url(../img/icons/aws.svg);
+  &:hover ~ .field::before {
+    content: "AWS : EC2, EFS, ELB";
   }
 }
 
 .beautifulsoup {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/bs4.svg);
-  &:hover {
-    background-image: url(https://www.crummy.com/software/BeautifulSoup/10.1.jpg);
-    & ~ .field::before {
-      content: "Beautiful Soup";
-    }
+  background-image: url(../img/icons/bs4.svg);
+  &:hover ~ .field::before {
+    content: "Beautiful Soup";
   }
 }
 
 .c {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/c.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg);
-    & ~ .field::before {
-      content: "C";
-    }
+  background-image: url(../img/icons/c.svg);
+  &:hover ~ .field::before {
+    content: "C";
   }
 }
 
 .csharp {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/csharp.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg);
-    & ~ .field::before {
-      content: "C#";
-    }
+  background-image: url(../img/icons/csharp.svg);
+  &:hover ~ .field::before {
+    content: "C#";
   }
 }
 
 .css {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/css.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg);
-    & ~ .field::before {
-      content: "CSS3";
-    }
+  background-image: url(../img/icons/css.svg);
+  &:hover ~ .field::before {
+    content: "CSS3";
   }
 }
 
 .docker {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/docker.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg);
-    & ~ .field::before {
-      content: "Docker, Docker Compose";
-    }
+  background-image: url(../img/icons/docker.svg);
+  &:hover ~ .field::before {
+    content: "Docker, Docker Compose";
   }
 }
 
 .discordpy {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/discordpy.svg);
-  &:hover {
-    background-image: url(https://fallendeity.github.io/discord.py-masterclass/assets/logo.png);
-    & ~ .field::before {
-      content: "Discord.py";
-    }
+  background-image: url(../img/icons/discordpy.svg);
+  &:hover ~ .field::before {
+    content: "Discord.py";
   }
 }
 
 .dotnet {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/dotnetcore.svg);
-  &:hover {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1280px-.NET_Core_Logo.svg.png);
-    & ~ .field::before {
-      content: ".NET Core";
-    }
+  background-image: url(../img/icons/dotnetcore.svg);
+  &:hover ~ .field::before {
+    content: ".NET Core";
   }
 }
 
 .eclipse {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/eclipse.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eclipse/eclipse-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Eclipse";
-    }
+  background-image: url(../img/icons/eclipse.svg);
+  &:hover ~ .field::before {
+    content: "Eclipse";
   }
 }
 
 .flask {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/flask.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Flask";
-    }
+  background-image: url(../img/icons/flask.svg);
+  &:hover ~ .field::before {
+    content: "Flask";
   }
 }
 
 .gimp {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/gimp.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gimp/gimp-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Gimp";
-    }
+  background-image: url(../img/icons/gimp.svg);
+  &:hover ~ .field::before {
+    content: "Gimp";
   }
 }
 
 .git {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/git.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Git";
-    }
+  background-image: url(../img/icons/git.svg);
+  &:hover ~ .field::before {
+    content: "Git";
   }
 }
 
 .github {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/github.svg);
-  &:hover {
-    background-image: url(https://www.svgrepo.com/show/475654/github-color.svg);
-    & ~ .field::before {
-      content: "GitHub";
-    }
+  background-image: url(../img/icons/github.svg);
+  &:hover ~ .field::before {
+    content: "GitHub";
   }
 }
 
 .gradle {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/gradle.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gradle/gradle-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Gradle";
-    }
+  background-image: url(../img/icons/gradle.svg);
+  &:hover ~ .field::before {
+    content: "Gradle";
   }
 }
 
 .graphql {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/graphql.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain-wordmark.svg);
-    & ~ .field::before {
-      content: "GraphQL API";
-    }
+  background-image: url(../img/icons/graphql.svg);
+  &:hover ~ .field::before {
+    content: "GraphQL API";
   }
 }
 
 .html {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/html.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg);
-    & ~ .field::before {
-      content: "HTML5";
-    }
+  background-image: url(../img/icons/html.svg);
+  &:hover ~ .field::before {
+    content: "HTML5";
   }
 }
 
 .inkscape {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/inkscape.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/inkscape/inkscape-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Inkscape";
-    }
+  background-image: url(../img/icons/inkscape.svg);
+  &:hover ~ .field::before {
+    content: "Inkscape";
   }
 }
 
 .intellij {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/intelij.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-plain-wordmark.svg);
-    & ~ .field::before {
-      content: "IntelliJ";
-    }
+  background-image: url(../img/icons/intelij.svg);
+  &:hover ~ .field::before {
+    content: "IntelliJ";
   }
 }
 
 .java {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/java.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Java";
-    }
+  background-image: url(../img/icons/java.svg);
+  &:hover ~ .field::before {
+    content: "Java";
   }
 }
 
 .javascript {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/javascript.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg);
-    & ~ .field::before {
-      content: "JavaScript";
-    }
+  background-image: url(../img/icons/javascript.svg);
+  &:hover ~ .field::before {
+    content: "JavaScript";
   }
 }
 
 .jetbrains {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/jetbrains.svg);
-  &:hover {
-    background-image: url(https://www.svgrepo.com/show/353932/jetbrains.svg);
-    & ~ .field::before {
-      content: "JetBrains";
-    }
+  background-image: url(../img/icons/jetbrains.svg);
+  &:hover ~ .field::before {
+    content: "JetBrains";
   }
 }
 
 .jinja {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/jinja.svg);
-  &:hover {
-    background-image: url(https://www.svgrepo.com/show/373702/jinja.svg);
-    & ~ .field::before {
-      content: "Jinja";
-    }
+  background-image: url(../img/icons/jinja.svg);
+  &:hover ~ .field::before {
+    content: "Jinja";
   }
 }
 
 .jupyter {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/jupyter.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Jupyter Notebook, Jupyter Lab";
-    }
+  background-image: url(../img/icons/jupyter.svg);
+  &:hover ~ .field::before {
+    content: "Jupyter Notebook, Jupyter Lab";
   }
 }
 
 .keynote {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/keynote.svg);
-  &:hover {
-    background-image: url(https://icons.veryicon.com/png/Business/Yosemite%20iWork/Keynote.png);
-    & ~ .field::before {
-      content: "Keynote";
-    }
+  background-image: url(../img/icons/keynote.svg);
+  &:hover ~ .field::before {
+    content: "Keynote";
   }
 }
 
 .kotlin {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/kotlin.svg);
-  &:hover {
-    background-image: url(https://www.svgrepo.com/show/452238/jb-kotlin.svg);
-    & ~ .field::before {
-      content: "Kotlin";
-    }
+  background-image: url(../img/icons/kotlin.svg);
+  &:hover ~ .field::before {
+    content: "Kotlin";
   }
 }
 
 .latex {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/latex.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/latex/latex-original.svg);
-    & ~ .field::before {
-      content: "LaTeX";
-    }
+  background-image: url(../img/icons/latex.svg);
+  &:hover ~ .field::before {
+    content: "LaTeX";
   }
 }
 
 .markdown {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/markdown.svg);
-  &:hover {
-    background-image: url(https://www.svgrepo.com/show/369410/markdown.svg);
-    & ~ .field::before {
-      content: "Markdown";
-    }
+  background-image: url(../img/icons/markdown.svg);
+  &:hover ~ .field::before {
+    content: "Markdown";
   }
 }
 
 .mongodb {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/mongodb.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg);
-    & ~ .field::before {
-      content: "MongoDB";
-    }
+  background-image: url(../img/icons/mongodb.svg);
+  &:hover ~ .field::before {
+    content: "MongoDB";
   }
 }
 
 .nltk {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/nltk.svg);
-  &:hover {
-    background-image: url(../img/icons/nltk.png);
-    & ~ .field::before {
-      content: "NLTK";
-    }
+  background-image: url(../img/icons/nltk.svg);
+  &:hover ~ .field::before {
+    content: "NLTK";
   }
 }
 
 .nosql {
   background-image: url(../img/icons/nosql.png);
-  &:hover {
-    filter: saturate(400%);
-    background-size: 80% 80%;
-    &::after {
-      color: #194994;
-      content: "NoSQL";
-      font-weight: 600;
-      margin-top: 38px;
-    }
-    & ~ .field::before {
-      content: "NoSQL";
-    }
+  &:hover ~ .field::before {
+    content: "NoSQL";
   }
 }
 
 .numpy {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/numpy.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original-wordmark.svg);
-    & ~ .field::before {
-      content: "NumPy";
-    }
+  background-image: url(../img/icons/numpy.svg);
+  &:hover ~ .field::before {
+    content: "NumPy";
   }
 }
 
 .openpy {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/openpyxl.svg);
-  &:hover {
-    background-image: url(../img/icons/opyxl.png);
-    & ~ .field::before {
-      content: "OpenPyXL";
-    }
+  background-image: url(../img/icons/openpyxl.svg);
+  &:hover ~ .field::before {
+    content: "OpenPyXL";
   }
 }
 
 .p5js {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/p5js.svg);
-  &:hover {
-    background-image: url(https://github.com/tandpfun/skill-icons/raw/main/icons/p5js.svg);
-    & ~ .field::before {
-      content: "p5.js";
-    }
+  background-image: url(../img/icons/p5js.svg);
+  &:hover ~ .field::before {
+    content: "p5.js";
   }
 }
 
 .pandas {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/pandas.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg);
-    & ~ .field::before {
-      content: "pandas";
-    }
+  background-image: url(../img/icons/pandas.svg);
+  &:hover ~ .field::before {
+    content: "pandas";
   }
 }
 
 .photoshop {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/photoshop.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg);
-    & ~ .field::before {
-      content: "Adobe Photoshop";
-    }
+  background-image: url(../img/icons/photoshop.svg);
+  &:hover ~ .field::before {
+    content: "Adobe Photoshop";
   }
 }
 
 .postgresql {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/postgresql.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg);
-    & ~ .field::before {
-      content: "PostgreSQL";
-    }
+  background-image: url(../img/icons/postgresql.svg);
+  &:hover ~ .field::before {
+    content: "PostgreSQL";
   }
 }
 
 .postman {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/postman.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Postman";
-    }
+  background-image: url(../img/icons/postman.svg);
+  &:hover ~ .field::before {
+    content: "Postman";
   }
 }
 
 .powerpoint {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/powerpoint.svg);
-  &:hover {
-    background-image: url(https://www.svgrepo.com/show/373989/powerpoint.svg);
-    & ~ .field::before {
-      content: "Microsoft Office PowerPoint";
-    }
+  background-image: url(../img/icons/powerpoint.svg);
+  &:hover ~ .field::before {
+    content: "Microsoft Office PowerPoint";
   }
 }
 
 .pycharm {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/pycharm.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original-wordmark.svg);
-    & ~ .field::before {
-      content: "PyCharm";
-    }
+  background-image: url(../img/icons/pycharm.svg);
+  &:hover ~ .field::before {
+    content: "PyCharm";
   }
 }
 
 .pygame {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/pygame.svg);
-  &:hover {
-    background-image: url(https://styles.redditmedia.com/t5_2rkfn/styles/communityIcon_cmjo55tgjjp81.png);
-    & ~ .field::before {
-      content: "Pygame";
-    }
+  background-image: url(../img/icons/pygame.svg);
+  &:hover ~ .field::before {
+    content: "Pygame";
   }
 }
 
 .pygbag {
   background-image: url(../img/icons/pygbag.png);
-  filter: saturate(50%);
-  &:hover {
-    filter: saturate(200%);
-    & ~ .field::before {
-      content: "Pygbag";
-    }
+  &:hover ~ .field::before {
+    content: "Pygbag";
   }
 }
 
 .pyscript {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/pyscript.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pyscript/pyscript-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Pyscript";
-    }
+  background-image: url(../img/icons/pyscript.svg);
+  &:hover ~ .field::before {
+    content: "Pyscript";
   }
 }
 
 .python {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/python.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Python";
-    }
+  background-image: url(../img/icons/python.svg);
+  &:hover ~ .field::before {
+    content: "Python";
   }
 }
 
 .pyqt {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/pyqt.svg);
-  &:hover {
-    background-image: url(../img/icons/pyqt.svg);
-    & ~ .field::before {
-      content: "PyQT";
-    }
+  background-image: url(../img/icons/pyqt.svg);
+  &:hover ~ .field::before {
+    content: "PyQT";
   }
 }
 
 .regex {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/regex.svg);
-  &:hover {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/63/OOjs_UI_icon_regular-expression-progressive.svg);
-    & ~ .field::before {
-      content: "RegEx";
-    }
+  background-image: url(../img/icons/regex.svg);
+  &:hover ~ .field::before {
+    content: "RegEx";
   }
 }
 
 .restapi {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/restapi.svg);
-  &:hover {
-    background-image: url(../img/icons/restapi.png);
-    & ~ .field::before {
-      content: "REST API";
-    }
+  background-image: url(../img/icons/restapi.svg);
+  &:hover ~ .field::before {
+    content: "REST API";
   }
 }
 
 .requests {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/requests.svg);
-  &:hover {
-    background-image: url(https://requests.readthedocs.io/en/latest/_static/requests-sidebar.png);
-    & ~ .field::before {
-      content: "Requests";
-    }
+  background-image: url(../img/icons/requests.svg);
+  &:hover ~ .field::before {
+    content: "Requests";
   }
 }
 
 .scalar {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/scalar.svg);
-  &:hover {
-    background-image: url(https://cdn.scalar.com/marketing/landing/logo-light.svg);
-    & ~ .field::before {
-      content: "Scalar";
-    }
+  background-image: url(../img/icons/scalar.svg);
+  &:hover ~ .field::before {
+    content: "Scalar";
   }
 }
 
 .spring {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/spring.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Spring";
-    }
+  background-image: url(../img/icons/spring.svg);
+  &:hover ~ .field::before {
+    content: "Spring";
   }
 }
 
 .sql {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/sql.svg);
-  &:hover {
-    background-image: url(../img/icons/sql.svg);
-    & ~ .field::before {
-      content: "SQL";
-    }
+  background-image: url(../img/icons/sql.svg);
+  &:hover ~ .field::before {
+    content: "SQL";
   }
 }
 
 .sqlalchemy {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/sqla.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original-wordmark.svg);
-    & ~ .field::before {
-      content: "SQLAlchemy";
-    }
+  background-image: url(../img/icons/sqla.svg);
+  &:hover ~ .field::before {
+    content: "SQLAlchemy";
   }
 }
 
 .sqlite {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/sqlite.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original-wordmark.svg);
-    & ~ .field::before {
-      content: "SQLite";
-    }
+  background-image: url(../img/icons/sqlite.svg);
+  &:hover ~ .field::before {
+    content: "SQLite";
   }
 }
 
 .sublime {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/sublime.svg);
-  &:hover {
-    background-image: url(https://www.svgrepo.com/show/354408/sublimetext-icon.svg);
-    & ~ .field::before {
-      content: "Sublime Text";
-    }
+  background-image: url(../img/icons/sublime.svg);
+  &:hover ~ .field::before {
+    content: "Sublime Text";
   }
 }
 
 .thyme {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/thyme.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/thymeleaf/thymeleaf-original-wordmark.svg);
-    & ~ .field::before {
-      content: "Thymeleaf";
-    }
+  background-image: url(../img/icons/thyme.svg);
+  &:hover ~ .field::before {
+    content: "Thymeleaf";
   }
 }
 
 .tkinter {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/tkinter.svg);
-  &:hover {
-    background-image: url(https://cdn.sanity.io/images/mhuj7snm/production/64fa9998b50db243e186ae259471b1bc95b356f9-1869x2048.png);
-    & ~ .field::before {
-      content: "Tkinter";
-    }
+  background-image: url(../img/icons/tkinter.svg);
+  &:hover ~ .field::before {
+    content: "Tkinter";
   }
 }
 
 .visualbasic {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/vba.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualbasic/visualbasic-original.svg);
-    & ~ .field::before {
-      content: "VBA";
-    }
+  background-image: url(../img/icons/vba.svg);
+  &:hover ~ .field::before {
+    content: "VBA";
   }
 }
 
 .vscode {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/vscode.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg);
-    & ~ .field::before {
-      content: "Visual Studio Code";
-    }
+  background-image: url(../img/icons/vscode.svg);
+  &:hover ~ .field::before {
+    content: "Visual Studio Code";
   }
 }
 
 .webstorm {
-  background-image: url(https://raw.githubusercontent.com/JefeThePug/JefeThePug/main/ico/webstorm.svg);
-  &:hover {
-    background-image: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webstorm/webstorm-original-wordmark.svg);
-    & ~ .field::before {
-      content: "WebStorm";
-    }
+  background-image: url(../img/icons/webstorm.svg);
+  &:hover ~ .field::before {
+    content: "WebStorm";
   }
 }
