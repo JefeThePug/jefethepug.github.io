@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <circle
-      cx="50" cy="50" r="50"
-      fill="#454548" />
+
   <linearGradient id="a" gradientUnits="userSpaceOnUse" x1=".5" y1="10.894" x2=".5"
     y2="-1.595" gradientTransform="matrix(76.53125 0 0 6.78125 32.176 54.11)">
     <stop offset=".303" stop-color="#473788" />
