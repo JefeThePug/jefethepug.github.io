@@ -254,25 +254,40 @@ input[type="checkbox"]:checked + label .game {
 }
 
 .list {
-    background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 5px;
     padding-bottom: 5px;
+    position: relative;
+    &::before {
+        background-color: var(--translucent);
+        border-radius: 15px 15px 0 0;
+        color: var(--grey);
+        content: '';
+        isolation: isolate;
+        margin: -35px auto 0;
+        padding: 0;
+        position: relative;
+        width: 100%;
+        z-index: -1;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            var(--translucent),
+            rgba(0, 0, 0, 0)
+        );
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -2
+    }
 }
 
-.list::before {
-    background-color: var(--translucent);
-    border-radius: 15px 15px 0 0;
-    color: var(--grey);
-    content: '';
-    margin: -35px auto 0;
-    padding: 0;
-    position: relative;
-    width: 100%;
-    z-index: -1;
-}
 
 .description {
     background: linear-gradient(to bottom, var(--translucent), rgba(0, 0, 0, 0));

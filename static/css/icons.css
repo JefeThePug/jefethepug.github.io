@@ -18,7 +18,7 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background: #999999;
+    background: #d3d3d3;
     transform: translate(-50%, -50%);
     transition:
       width 0.25s ease,
@@ -34,7 +34,7 @@
   color: var(--grey);
   display: flex;
   justify-content: center;
-  margin: 1.5em auto -0.5em;
+  margin: 1.8em auto -0.5em;
   position: relative;
   width: 100%;
   &::before {
