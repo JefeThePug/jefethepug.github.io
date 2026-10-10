@@ -43,7 +43,7 @@
   --subheader: #c55eff;
   --subheader-text: var(--text);
   --tool-selected: var(--header);
-  --icon-filter-apply: none;
+  /*--icon-filter-apply: none;*/
   --github: #29ff60;
 
   --blur: 0.48;

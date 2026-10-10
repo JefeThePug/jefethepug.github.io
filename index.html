@@ -286,7 +286,7 @@
                 <use href="static/img/icons/pygame.svg#pygame"></use>
               </svg>
             </div>
-            <div class="tool pyscript">
+            <div class="tool pyscript p">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/pyscript.svg#pyscript"></use>
               </svg>
@@ -555,8 +555,6 @@
     if (!uses.length) return;
 
     const files = [...new Set(uses.map((u) => u.getAttribute('href').split('#')[0]))];
-
-    // Hidden holder. Not display:none, because browsers skip gradients/filters inside it.
     const holder = document.createElement('div');
     holder.setAttribute('aria-hidden', 'true');
     holder.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;';
@@ -572,7 +570,6 @@
       }
     }));
 
-    // Move var(...) from presentation attributes into inline style (Safari ignores them as attributes)
     holder.querySelectorAll('*').forEach((el) => {
       [...el.attributes].forEach((attr) => {
         if (attr.name !== 'style' && attr.value.includes('var(')) {
@@ -582,7 +579,6 @@
       });
     });
 
-    // Point each <use> at the copy in this page instead of the external file
     uses.forEach((u) => {
       u.setAttribute('href', '#' + u.getAttribute('href').split('#')[1]);
     });

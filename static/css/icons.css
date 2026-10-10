@@ -1,4 +1,8 @@
-.tool.d svg {
+html.dark .tool.d svg {
+  filter: var(--icon-filter);
+}
+
+html.pink .tool.p svg {
   filter: var(--icon-filter);
 }
 
