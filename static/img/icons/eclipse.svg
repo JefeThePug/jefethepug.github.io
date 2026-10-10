@@ -1,16 +1,16 @@
 <svg id="eclipse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
 
-  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1=".5" y1="10.894" x2=".5"
+  <linearGradient id="ec-a" gradientUnits="userSpaceOnUse" x1=".5" y1="10.894" x2=".5"
     y2="-1.595" gradientTransform="matrix(76.53125 0 0 6.78125 32.176 54.11)">
     <stop offset=".303" stop-color="#473788" />
     <stop offset=".872" stop-color="#2c2255" />
   </linearGradient>
-  <linearGradient id="b" gradientUnits="userSpaceOnUse" x1=".5" y1="8.965" x2=".5"
+  <linearGradient id="ec-b" gradientUnits="userSpaceOnUse" x1=".5" y1="8.965" x2=".5"
     y2="-3.524" gradientTransform="matrix(76.53125 0 0 6.78125 32.176 67.191)">
     <stop offset=".303" stop-color="#473788" />
     <stop offset=".872" stop-color="#2c2255" />
   </linearGradient>
-  <linearGradient id="c" gradientUnits="userSpaceOnUse" x1=".5" y1="2.152" x2=".5"
+  <linearGradient id="ec-c" gradientUnits="userSpaceOnUse" x1=".5" y1="2.152" x2=".5"
     y2="-1.667" gradientTransform="matrix(69.61719 0 0 22.17969 35.633 80.27)">
     <stop offset=".303" stop-color="#473788" />
     <stop offset=".863" stop-color="#2c2255" />
@@ -26,11 +26,11 @@
   <path fill="#f7941e" d="M 18.95 50 C 18.95 32.6 32.02 18.13 49.03 15.59 C 48.61 15.58
     48.18 15.56 47.75 15.56 C 28.67 15.56 13.2 30.98 13.2 50 C 13.2 69.02 28.67 84.44 47.76
     84.44 C 48.18 84.44 48.61 84.43 49.03 84.41 C 32.02 81.87 18.95 67.41 18.95 50" />
-  <path fill="url(#a)" d="M 76.27 48.15 A 22.51 22.51 0 0 0 75.59 44.18 L 32.11 44.18 A
+  <path fill="url(#ec-a)" d="M 76.27 48.15 A 22.51 22.51 0 0 0 75.59 44.18 L 32.11 44.18 A
     22.51 22.51 0 0 0 31.43 48.15 L 76.27 48.15" />
-  <path fill="url(#b)" d="M 76.27 51.84 L 31.43 51.84 C 31.54 53.19 31.77 54.52 32.11 55.82
+  <path fill="url(#ec-b)" d="M 76.27 51.84 L 31.43 51.84 C 31.54 53.19 31.77 54.52 32.11 55.82
     L 75.59 55.82 A 22.53 22.53 0 0 0 76.27 51.84 L 76.27 51.84" />
-  <path fill="url(#c)" d="M 53.85 72.5 C 62.88 72.5 70.67 67.18 74.25 59.51 L 33.46 59.51 C
+  <path fill="url(#ec-c)" d="M 53.85 72.5 C 62.88 72.5 70.67 67.18 74.25 59.51 L 33.46 59.51 C
     37.04 67.18 44.82 72.5 53.85 72.5 L 53.85 72.5" />
   <path fill="#fff" d="M 28.11 51.84 L 86.75 51.84 A 32.58 32.58 0 0 0 86.8 50.07 C 86.8
     49.43 86.77 48.79 86.74 48.15 L 20.91 48.15 A 35.55 35.55 0 0 0 20.85 50.07 C 20.85 50.67

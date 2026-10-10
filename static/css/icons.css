@@ -1,3 +1,7 @@
+.tool.d svg {
+  filter: var(--icon-filter);
+}
+
 .tool {
   --icon-filter: var(--icon-filter-apply);
   background-repeat: no-repeat;

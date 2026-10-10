@@ -1,22 +1,22 @@
 <svg id="webstorm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
 
-  <linearGradient id="a" x1="38.88" x2="63.72" y1="6.5" y2="95.94" 
+  <linearGradient id="ws-a" x1="38.88" x2="63.72" y1="6.5" y2="95.94"
     gradientTransform="rotate(.104) scale(1.21905)" gradientUnits="userSpaceOnUse">
     <stop offset=".28" stop-color="#07c3f2" /> <stop offset=".94" stop-color="#087cfa" />
   </linearGradient>
-  <linearGradient id="b" x1="46.63" x2="88.66" y1="17.85" y2="79.48"
+  <linearGradient id="ws-b" x1="46.63" x2="88.66" y1="17.85" y2="79.48"
     gradientTransform="rotate(.104) scale(1.21905)" gradientUnits="userSpaceOnUse">
     <stop offset=".14" stop-color="#fcf84a" /> <stop offset=".37" stop-color="#07c3f2" />
   </linearGradient>
-  <linearGradient id="c" x1="88.27" x2="93.79" y1="25.47" y2="45.02"
+  <linearGradient id="ws-c" x1="88.27" x2="93.79" y1="25.47" y2="45.02"
     gradientTransform="rotate(.104) scale(1.21905)" gradientUnits="userSpaceOnUse">
     <stop offset=".28" stop-color="#07c3f2" /> <stop offset=".94" stop-color="#087cfa" />
   </linearGradient>
-  <path fill="url(#a)" d="M 24.96 77.69 L 15.71 22.9 L 32.81 15.81 L 43.72 22.29 L 53.72 16.9 
+  <path fill="url(#ws-a)" d="M 24.96 77.69 L 15.71 22.9 L 32.81 15.81 L 43.72 22.29 L 53.72 16.9
     L 74.56 24.9 L 62.87 84.29 L 24.96 77.69" />
-  <path fill="url(#b)" d="M 84.29 38.94 L 75.44 17.08 L 59.38 15.71 L 34.59 39.53 L 41.26 
+  <path fill="url(#ws-b)" d="M 84.29 38.94 L 75.44 17.08 L 59.38 15.71 L 34.59 39.53 L 41.26
     70.22 L 53.72 78.96 L 84.29 60.82 L 76.79 46.76 L 84.29 38.94" />
-  <path fill="url(#c)" d="M 70.55 35.68 L 76.79 46.76 L 84.29 38.94 L 78.78 25.32 L 70.55 
+  <path fill="url(#ws-c)" d="M 70.55 35.68 L 76.79 46.76 L 84.29 38.94 L 78.78 25.32 L 70.55
     35.68" />
   <path d="M 28.57 28.57 L 71.43 28.57 L 71.43 71.43 L 28.57 71.43 L 28.57 28.57" />
   <path fill="#fff" d="M 33.91 63.33 L 49.99 63.33 L 49.99 66.01 L 33.91 66.01 L 33.91 63.33 

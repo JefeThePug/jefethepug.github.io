@@ -1,12 +1,12 @@
 <svg id="intelij" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
 
-  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="11.16" y1="59.21" x2="58.94" 
+  <linearGradient id="ij-a" gradientUnits="userSpaceOnUse" x1="11.16" y1="59.21" x2="58.94"
     y2="56.78" gradientTransform="rotate(.104) scale(1.21905)">
     <stop offset=".09" stop-color="#fc801d" /> <stop offset=".23" stop-color="#b07f61" />
     <stop offset=".41" stop-color="#577db3" /> <stop offset=".53" stop-color="#1e7ce6" />
     <stop offset=".59" stop-color="#087cfa" />
   </linearGradient>
-  <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="89.05" y1="54.12" x2="73.12"
+  <linearGradient id="ij-b" gradientUnits="userSpaceOnUse" x1="89.05" y1="54.12" x2="73.12"
     y2="6.52" gradientTransform="rotate(.104) scale(1.21905)">
     <stop offset="0" stop-color="#fe2857" /> <stop offset=".08" stop-color="#cb3979" />
     <stop offset=".16" stop-color="#9e4997" /> <stop offset=".25" stop-color="#7557b2" />
@@ -14,20 +14,20 @@
     <stop offset=".54" stop-color="#2373e8" /> <stop offset=".66" stop-color="#1478f2" />
     <stop offset=".79" stop-color="#0b7bf8" /> <stop offset="1" stop-color="#087cfa" />
   </linearGradient>
-  <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="18.72" y1="26.61" x2="78.8" 
+  <linearGradient id="ij-c" gradientUnits="userSpaceOnUse" x1="18.72" y1="26.61" x2="78.8"
     y2="125.99" gradientTransform="rotate(.104) scale(1.21905)">
     <stop offset="0" stop-color="#fe2857" /> <stop offset=".08" stop-color="#fe295f" />
     <stop offset=".21" stop-color="#ff2d76" /> <stop offset=".3" stop-color="#ff318c" />
     <stop offset=".38" stop-color="#ea3896" /> <stop offset=".55" stop-color="#b248ae" />
     <stop offset=".79" stop-color="#5a63d6" /> <stop offset="1" stop-color="#087cfa" />
   </linearGradient>
-  <path fill="url(#a)" d="M 26.57 64.08 L 16.49 56.11 L 22.42 45.12 L 31.34 48.11
+  <path fill="url(#ij-a)" d="M 26.57 64.08 L 16.49 56.11 L 22.42 45.12 L 31.34 48.11
     L 26.57 64.08" />
   <path fill="#087cfa" d="M 84.29 33.99 L 83.05 73.71 L 56.64 84.29 L 42.25 75
     L 84.29 33.99" />
-  <path fill="url(#b)" d="M 84.29 33.99 L 71.21 46.74 L 54.43 26.15 L 62.72 16.83
+  <path fill="url(#ij-b)" d="M 84.29 33.99 L 71.21 46.74 L 54.43 26.15 L 62.72 16.83
     L 84.29 33.99" />
-  <path fill="url(#c)" d="M 42.25 75 L 21.24 82.59 L 25.64 67.19 L 31.34 48.11 L 15.71
+  <path fill="url(#ij-c)" d="M 42.25 75 L 21.24 82.59 L 25.64 67.19 L 31.34 48.11 L 15.71
     42.88 L 25.64 15.71 L 48.09 18.36 L 71.21 46.74 L 42.25 75" />
   <path fill="#000" d="M 28.88 28.57 L 71.74 28.57 L 71.74 71.43 L 28.88 71.43
     L 28.88 28.57" />

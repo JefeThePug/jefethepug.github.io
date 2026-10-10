@@ -1,6 +1,6 @@
 <svg id="requests" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
   <g transform="translate(-175 -23) scale(0.34)">
-    <pattern id="a" width="1.5" height="1.5" patternUnits="userSpaceOnUse"
+    <pattern id="req-a" width="1.5" height="1.5" patternUnits="userSpaceOnUse"
       patternTransform="rotate(45)">
       <line x1="0" y1="0" x2="0" y2="1.5" stroke="#000" stroke-width="1"/>
     </pattern>
@@ -72,7 +72,7 @@
       3-4.1 4.7-5.9q3-3.1 6.8-5c3.7-1.6 7.8-1.8 11.8-2.6 4.8-1 9.8-1.5 14.6-2.7 2.9
       -.7 5.9-1.1 8.4-2.6a9 9 0 0 0 3.6-3.2c.5-1 1.2-2.5.6-3.4-.7-1-.7-1.3-3.7-1z"/>
     <ellipse cx="648.2" cy="178.2" stroke="#000" stroke-width=".8" rx=".8" ry=".2"/>
-    <path fill="url(#a)" d="M676.5 167.5q-3-.3-6.4.6c-1.9.4-3.9.7-5.1 1.8q-.6.4-1 1c
+    <path fill="url(#req-a)" d="M676.5 167.5q-3-.3-6.4.6c-1.9.4-3.9.7-5.1 1.8q-.6.4-1 1c
       -.4.5-.3.3-.2.4q.6 1.5 2.5 2.3 1.9.9 4.4 1.2c3.2.4 6.6.2 7.8 0 1.6-.1 2.3-.2 3 0q
       .6.2 1 .6l.5.7q.6 1.2.2 2.4-.2 1-.8 2a10 10 0 0 1-3.8 3.5c-2.8 1.5-5.9 2-8.7
       2.6-4.9 1.2-9.9 1.8-14.7 2.7-4 .9-8 1-11.6 2.6q-3.6 1.8-6.5 4.8a20 20 0 0 0-4.5

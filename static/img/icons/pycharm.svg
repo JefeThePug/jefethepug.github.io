@@ -1,10 +1,10 @@
 <svg id="pycharm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
 
-    <linearGradient id="a" x1="38.78" x2="95.91" y1="41.59" y2="41.59" gradientUnits="userSpaceOnUse">
+    <linearGradient id="pc-a" x1="38.78" x2="95.91" y1="41.59" y2="41.59" gradientUnits="userSpaceOnUse">
         <stop offset="0" stop-color="#21d789" />
         <stop offset="1" stop-color="#07c3f2" />
     </linearGradient>
-    <linearGradient id="b" x1="-29.18" x2="88.46" y1="85.52" y2="-1.32" gradientUnits="userSpaceOnUse">
+    <linearGradient id="pc-b" x1="-29.18" x2="88.46" y1="85.52" y2="-1.32" gradientUnits="userSpaceOnUse">
         <stop offset=".01" stop-color="#fcf84a" />
         <stop offset=".11" stop-color="#a7eb62" />
         <stop offset=".21" stop-color="#5fe077" />
@@ -19,7 +19,7 @@
         <stop offset=".97" stop-color="#0bc6e1" />
         <stop offset="1" stop-color="#07c3f2" />
     </linearGradient>
-    <linearGradient id="c" x1="17.3" x2="36.92" y1="110.99" y2="49.42" gradientUnits="userSpaceOnUse">
+    <linearGradient id="pc-c" x1="17.3" x2="36.92" y1="110.99" y2="49.42" gradientUnits="userSpaceOnUse">
         <stop offset="0" stop-color="#21d789" />
         <stop offset=".16" stop-color="#24d888" />
         <stop offset=".3" stop-color="#2fd985" />
@@ -30,7 +30,7 @@
         <stop offset=".9" stop-color="#cff157" />
         <stop offset="1" stop-color="#fcf84a" />
     </linearGradient>
-    <linearGradient id="d" x1="43.28" x2="85.97" y1="57.46" y2=".06" gradientUnits="userSpaceOnUse">
+    <linearGradient id="pc-d" x1="43.28" x2="85.97" y1="57.46" y2=".06" gradientUnits="userSpaceOnUse">
         <stop offset="0" stop-color="#21d789" />
         <stop offset=".09" stop-color="#23d986" />
         <stop offset=".17" stop-color="#2ade7b" />
@@ -42,25 +42,25 @@
         <stop offset=".92" stop-color="#e0f64d" />
         <stop offset="1" stop-color="#fcf84a" />
     </linearGradient>
-    <linearGradient id="e" x1="108.58" x2="22.55" y1="64.77" y2="63.97" gradientUnits="userSpaceOnUse">
+    <linearGradient id="pc-e" x1="108.58" x2="22.55" y1="64.77" y2="63.97" gradientUnits="userSpaceOnUse">
         <stop offset=".39" stop-color="#fcf84a" />
         <stop offset=".46" stop-color="#ecf74c" />
         <stop offset=".61" stop-color="#c1f451" />
         <stop offset=".82" stop-color="#7eef5a" />
         <stop offset="1" stop-color="#3bea62" />
     </linearGradient>
-    <path fill="url(#a)"
+    <path fill="url(#pc-a)"
       d="M 63.79 26.54 L 83.83 43.2 L 76.61 57.88 L 64.54 54.53 L 54.09 54.53
       L 63.79 26.54" />
-    <path fill="url(#b)"
+    <path fill="url(#pc-b)"
       d="M 43.61 37.36 L 39.73 57.88 L 39.36 64.85 L 29.58 69.09 L 15.71 70.58
       L 19.92 26.24 L 45.04 15.71 L 60.52 25.86 L 43.61 37.36" />
-    <path fill="url(#c)"
+    <path fill="url(#pc-c)"
       d="M 43.61 37.36 L 45.49 76.9 L 39.23 84.29 L 15.71 70.58 L 35.02 41.81
       L 43.61 37.36" />
-    <path fill="url(#d)"
+    <path fill="url(#pc-d)"
       d="M 69.48 34.47 L 45.72 34.47 L 66.71 15.71 L 69.48 34.47" />
-    <path fill="url(#e)"
+    <path fill="url(#pc-e)"
       d="M 84.29 77.06 L 63.37 84.16 L 35.52 76.31 L 43.61 37.36 L 46.84 34.47
       L 63.79 32.88 L 62.26 49.91 L 75.74 44.68 L 84.29 77.06" />
     <path d="M 28.57 28.57 L 71.43 28.57 L 71.43 71.43 L 28.57 71.43 L 28.57 28.57" />

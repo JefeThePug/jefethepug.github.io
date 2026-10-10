@@ -236,7 +236,7 @@
         <div class="block">
           <div><h2>Frameworks & Libraries</h2></div>
           <div class="list">
-            <div class="tool flask">
+            <div class="tool flask d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/flask.svg#flask"></use>
               </svg>
@@ -292,7 +292,7 @@
               </svg>
             </div>
             <!--<div class="tool pygbag"></div>-->
-            <div class="tool jinja">
+            <div class="tool jinja d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/jinja.svg#jinja"></use>
               </svg>
@@ -307,7 +307,7 @@
                 <use href="static/img/icons/thyme.svg#thyme"></use>
               </svg>
             </div>
-            <div class="tool gradle">
+            <div class="tool gradle d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/gradle.svg#gradle"></use>
               </svg>
@@ -366,24 +366,24 @@
                 <use href="static/img/icons/restapi.svg#restapi"></use>
               </svg>
             </div>
-            <div class="tool requests">
+            <div class="tool requests d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/requests.svg#requests"></use>
               </svg>
             </div>
-            <div class="tool beautifulsoup">
+            <div class="tool beautifulsoup d">
               <svg viewBox="0 0 100 100">
                 <svg viewBox="0 0 100 100">
                   <use href="static/img/icons/bs4.svg#bs4"></use>
                 </svg>
               </svg>
             </div>
-            <div class="tool sqlalchemy">
+            <div class="tool sqlalchemy d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/sqla.svg#sqla"></use>
               </svg>
             </div>
-            <div class="tool scalar">
+            <div class="tool scalar d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/scalar.svg#scalar"></use>
               </svg>
@@ -410,7 +410,7 @@
                 <use href="static/img/icons/git.svg#git"></use>
               </svg>
             </div>
-            <div class="tool github">
+            <div class="tool github d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/github.svg#github"></use>
               </svg>
@@ -420,17 +420,17 @@
                 <use href="static/img/icons/docker.svg#docker"></use>
               </svg>
             </div>
-            <div class="tool aws">
+            <div class="tool aws d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/aws.svg#aws"></use>
               </svg>
             </div>
-            <div class="tool latex">
+            <div class="tool latex d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/latex.svg#latex"></use>
               </svg>
             </div>
-            <div class="tool markdown">
+            <div class="tool markdown d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/markdown.svg#markdown"></use>
               </svg>
@@ -440,12 +440,12 @@
                 <use href="static/img/icons/json.svg#json"></use>
               </svg>
             </div>
-            <div class="tool yaml">
+            <div class="tool yaml d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/yaml.svg#yaml"></use>
               </svg>
             </div>
-            <div class="tool toml">
+            <div class="tool toml d">
               <svg viewBox="0 0 100 100">
                 <use href="static/img/icons/toml.svg#toml"></use>
               </svg>
@@ -549,5 +549,46 @@
 </footer>
 
 <script src="scripts/index.js"></script>
+<script>
+  async function inlineIcons() {
+    const uses = [...document.querySelectorAll('use[href^="static/img/icons/"]')];
+    if (!uses.length) return;
+
+    const files = [...new Set(uses.map((u) => u.getAttribute('href').split('#')[0]))];
+
+    // Hidden holder. Not display:none, because browsers skip gradients/filters inside it.
+    const holder = document.createElement('div');
+    holder.setAttribute('aria-hidden', 'true');
+    holder.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;';
+    document.body.prepend(holder);
+
+    await Promise.all(files.map(async (file) => {
+      try {
+        const res = await fetch(file);
+        const text = (await res.text()).replace(/<\?xml[^>]*\?>/, '');
+        holder.insertAdjacentHTML('beforeend', text);
+      } catch (e) {
+        console.warn('Icon failed to load:', file, e);
+      }
+    }));
+
+    // Move var(...) from presentation attributes into inline style (Safari ignores them as attributes)
+    holder.querySelectorAll('*').forEach((el) => {
+      [...el.attributes].forEach((attr) => {
+        if (attr.name !== 'style' && attr.value.includes('var(')) {
+          el.style.setProperty(attr.name, attr.value);
+          el.removeAttribute(attr.name);
+        }
+      });
+    });
+
+    // Point each <use> at the copy in this page instead of the external file
+    uses.forEach((u) => {
+      u.setAttribute('href', '#' + u.getAttribute('href').split('#')[1]);
+    });
+  }
+
+  inlineIcons();
+</script>
 </body>
 </html>
