@@ -1,101 +1,165 @@
 :root {
-    --grey: #2c2c2c;
+  --grey: #2c2c2c;
 }
 
+
+canvas {
+  display: block;
+  height: auto !important;
+  max-height: 500px;
+  width: clamp(0px, 100%, 800px) !important;
+}
+
+
+/* Layout */
 ul ul {
-    margin-left: -20px;
-}
-
-#boggleOutput {
-    background-color:black;
-    font-family:'Courier New',Courier,monospace;
-    width:592px
-}
-
-#inputArea {
-    color: var(--grey);
-}
-
-#boggleInput {
-    color: navajoWhite;
-    background-color: black;
-    border: 2px solid navajoWhite;
-    font-size: 1.3em;
-    width: 485px;
-}
-
-#boggleInput:focus {
-    outline: none;
-}
-
-#timer {
-    color: red;
-    font-weight: bold;
-    padding-left: 30px;
-    text-shadow: 1px 1px 4px darkGray;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-td, th {
-    border: 2px solid orange;
-    color: darkRed;
-    text-align: center;
-}
-
-.boggleLetters {
-    background-color: navajoWhite;
-    border: 2px solid orange;
-}
-
-.boggleCell {
-    border: 10px solid black;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-}
-
-.words-found {
-    background-color: navajoWhite;
-    min-height: 250px;
-    padding: 1rem;
-    width: 300px;
-}
-
-.word-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, max-content));
-    gap: 0.1rem;
-}
-
-.word-item {
-    text-align: center;
-    color: black;
-}
-
-.score {
-    margin-top: 1rem;
-    text-align: center;
-    background-color: darkRed;
-    color: white;
-    padding: 0.5rem;
-    font-weight: bold;
-}
-
-/*canvas {*/
-/*    display: none;*/
-/*}*/
-
-#p5_loading {
-    display: none;
+  margin-left: -20px;
 }
 
 .framework {
-    height: 80px;
-    margin-top: 30px;
-    margin-left: 50px;
+  display: block;
+  height: auto;
+  margin: 10px auto;
+}
+
+#p5js-logo .framework {
+  width: min(100%, 160px);
+}
+
+#pygame-logo .framework {
+  width: min(100%, 240px);
+}
+
+#python-logo .framework {
+  width: min(100%, 300px);
+}
+
+.n {
+  margin-top: 10px;
+}
+
+
+/* Boggle */
+#terminal-container {
+  container-type: inline-size;
+  width: 592px;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+#boggleOutput,
+#inputArea {
+  font-size: 2.7027cqw;
+}
+
+#boggleOutput {
+  background-color: black;
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+}
+
+#boggleOutput h3 {
+  font-size: 1.17em;
+  margin: 0;
+}
+
+#inputArea {
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+#boggleInput {
+  color: navajoWhite;
+  background-color: black;
+  border: max(1px, 0.1em) solid navajoWhite;
+  font-size: 1.3em;
+  width: 81.9cqw;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+#boggleInput:focus {
+  outline: none;
+}
+
+#timer {
+  background-color: #0e0f11;
+  border-radius: 50%;
+  color: red;
+  font-weight: bold;
+  padding: 0.3125em;
+}
+
+#timer-box {
+  padding-left: 1.875em;
+  flex: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 2px solid orange;
+  color: darkRed;
+  text-align: left;
+}
+
+#boggleOutput td,
+#boggleOutput th {
+  border-width: max(1px, 0.125em);
+}
+
+.boggleLetters {
+  background-color: navajoWhite;
+  border: max(1px, 0.125em) solid orange;
+}
+
+.boggleCell {
+  border: 0.625em solid black;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.words-found {
+  background-color: navajoWhite;
+  min-height: 15.625em;
+  padding: 1em;
+  width: 18.75em;
+}
+
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4.375em, max-content));
+  gap: 0.1em;
+}
+
+.word-item {
+  text-align: center;
+  color: black;
+}
+
+.score {
+  margin-top: 1em;
+  text-align: center;
+  background-color: darkRed;
+  color: white;
+  padding: 0.5em;
+  font-weight: bold;
+}
+
+
+/* Housekeeping */
+#p5_loading {
+  display: none;
+}
+
+#blankCanvas {
+  display: none;
 }

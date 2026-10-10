@@ -1,8 +1,5 @@
-:root {
-  --grey: #2c2c2c;
-}
-
 .tool {
+  --icon-filter: var(--icon-filter-apply);
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
@@ -10,34 +7,41 @@
   margin: 5px;
   position: relative;
   width: 55px;
+
   &::before {
+    background: var(--tool-selected);
+    border: var(--background) solid 2px;
+    border-radius: 50%;
     content: "";
+    height: 60px;
+    left: 50%;
+    opacity: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 60px;
-    height: 60px;
-    border: var(--ltgrey) solid 2px;
-    border-radius: 50%;
-    background: var(--ltblue);
     transform: translate(-50%, -50%);
-    transition:
-      width 0.25s ease,
-      height 0.25s ease;
-    z-index: -1;
+    transition: width 0.25s ease,
+    height 0.25s ease;
+    width: 60px;
+    z-index: -10;
   }
-  &:hover::before {
-    width: 0;
-    height: 0;
+
+  &:hover {
+    --icon-filter: none;
+
+    &::before {
+      opacity: 1;
+    }
   }
 }
+
 .field {
-  color: var(--grey);
+  color: var(--text);
   display: flex;
   justify-content: center;
   margin: 1.8em auto -0.5em;
   position: relative;
   width: 100%;
+
   &::before {
     color: inherit;
     content: "";
@@ -51,443 +55,254 @@
   }
 }
 
-.anaconda {
-  background-image: url(../img/icons/anaconda.svg);
-  &:hover ~ .field::before {
-    content: "Anaconda";
-  }
+.anaconda:hover ~ .field::before {
+  content: "Anaconda";
 }
 
-.aws {
-  background-image: url(../img/icons/aws.svg);
-  &:hover ~ .field::before {
-    content: "AWS : EC2, EFS, ELB";
-  }
+.aws:hover ~ .field::before {
+  content: "AWS : EC2, EFS, ELB";
 }
 
-.beautifulsoup {
-  background-image: url(../img/icons/bs4.svg);
-  &:hover ~ .field::before {
-    content: "Beautiful Soup";
-  }
+.beautifulsoup:hover ~ .field::before {
+  content: "Beautiful Soup";
 }
 
-.c {
-  background-image: url(../img/icons/c.svg);
-  &:hover ~ .field::before {
-    content: "C";
-  }
+.c:hover ~ .field::before {
+  content: "C";
 }
 
-.csharp {
-  background-image: url(../img/icons/csharp.svg);
-  &:hover ~ .field::before {
-    content: "C#";
-  }
+.csharp:hover ~ .field::before {
+  content: "C#";
 }
 
-.css {
-  background-image: url(../img/icons/css.svg);
-  &:hover ~ .field::before {
-    content: "CSS3";
-  }
+.css:hover ~ .field::before {
+  content: "CSS3";
 }
 
-.docker {
-  background-image: url(../img/icons/docker.svg);
-  &:hover ~ .field::before {
-    content: "Docker, Docker Compose";
-  }
+.docker:hover ~ .field::before {
+  content: "Docker, Docker Compose";
 }
 
-.discordpy {
-  background-image: url(../img/icons/discordpy.svg);
-  &:hover ~ .field::before {
-    content: "Discord.py";
-  }
+.discordpy:hover ~ .field::before {
+  content: "Discord.py";
 }
 
-.dotnet {
-  background-image: url(../img/icons/dotnetcore.svg);
-  &:hover ~ .field::before {
-    content: ".NET Core";
-  }
+.dotnet:hover ~ .field::before {
+  content: ".NET Core";
 }
 
-.eclipse {
-  background-image: url(../img/icons/eclipse.svg);
-  &:hover ~ .field::before {
-    content: "Eclipse";
-  }
+.eclipse:hover ~ .field::before {
+  content: "Eclipse";
 }
 
-.flask {
-  background-image: url(../img/icons/flask.svg);
-  &:hover ~ .field::before {
-    content: "Flask";
-  }
+.flask:hover ~ .field::before {
+  content: "Flask";
 }
 
-.gimp {
-  background-image: url(../img/icons/gimp.svg);
-  &:hover ~ .field::before {
-    content: "Gimp";
-  }
+.gimp:hover ~ .field::before {
+  content: "Gimp";
 }
 
-.git {
-  background-image: url(../img/icons/git.svg);
-  &:hover ~ .field::before {
-    content: "Git";
-  }
+.git:hover ~ .field::before {
+  content: "Git";
 }
 
-.github {
-  background-image: url(../img/icons/github.svg);
-  &:hover ~ .field::before {
-    content: "GitHub";
-  }
+.github:hover ~ .field::before {
+  content: "GitHub";
 }
 
-.gradle {
-  background-image: url(../img/icons/gradle.svg);
-  &:hover ~ .field::before {
-    content: "Gradle";
-  }
+.gradle:hover ~ .field::before {
+  content: "Gradle";
 }
 
-.graphql {
-  background-image: url(../img/icons/graphql.svg);
-  &:hover ~ .field::before {
-    content: "GraphQL API";
-  }
+.graphql:hover ~ .field::before {
+  content: "GraphQL API";
 }
 
-.html {
-  background-image: url(../img/icons/html.svg);
-  &:hover ~ .field::before {
-    content: "HTML5";
-  }
+.html:hover ~ .field::before {
+  content: "HTML5";
 }
 
-.inkscape {
-  background-image: url(../img/icons/inkscape.svg);
-  &:hover ~ .field::before {
-    content: "Inkscape";
-  }
+.inkscape:hover ~ .field::before {
+  content: "Inkscape";
 }
 
-.intellij {
-  background-image: url(../img/icons/intelij.svg);
-  &:hover ~ .field::before {
-    content: "IntelliJ";
-  }
+.intellij:hover ~ .field::before {
+  content: "IntelliJ";
 }
 
-.java {
-  background-image: url(../img/icons/java.svg);
-  &:hover ~ .field::before {
-    content: "Java";
-  }
+.java:hover ~ .field::before {
+  content: "Java";
 }
 
-.javascript {
-  background-image: url(../img/icons/javascript.svg);
-  &:hover ~ .field::before {
-    content: "JavaScript";
-  }
+.javascript:hover ~ .field::before {
+  content: "JavaScript";
 }
 
-.jetbrains {
-  background-image: url(../img/icons/jetbrains.svg);
-  &:hover ~ .field::before {
-    content: "JetBrains";
-  }
+.jetbrains:hover ~ .field::before {
+  content: "JetBrains";
 }
 
-.jinja {
-  background-image: url(../img/icons/jinja.svg);
-  &:hover ~ .field::before {
-    content: "Jinja";
-  }
+.jinja:hover ~ .field::before {
+  content: "Jinja";
 }
 
-.json {
-  background-image: url(../img/icons/json.svg);
-  &:hover ~ .field::before {
-    content: "JSON";
-  }
+.json:hover ~ .field::before {
+  content: "JSON";
 }
 
-.jupyter {
-  background-image: url(../img/icons/jupyter.svg);
-  &:hover ~ .field::before {
-    content: "Jupyter Notebook, Jupyter Lab";
-  }
+.jupyter:hover ~ .field::before {
+  content: "Jupyter Notebook, Jupyter Lab";
 }
 
-.keynote {
-  background-image: url(../img/icons/keynote.svg);
-  &:hover ~ .field::before {
-    content: "Keynote";
-  }
+.keynote:hover ~ .field::before {
+  content: "Keynote";
 }
 
-.kotlin {
-  background-image: url(../img/icons/kotlin.svg);
-  &:hover ~ .field::before {
-    content: "Kotlin";
-  }
+.kotlin:hover ~ .field::before {
+  content: "Kotlin";
 }
 
-.latex {
-  background-image: url(../img/icons/latex.svg);
-  &:hover ~ .field::before {
-    content: "LaTeX";
-  }
+.latex:hover ~ .field::before {
+  content: "LaTeX";
 }
 
-.markdown {
-  background-image: url(../img/icons/markdown.svg);
-  &:hover ~ .field::before {
-    content: "Markdown";
-  }
+.markdown:hover ~ .field::before {
+  content: "Markdown";
 }
 
-.mongodb {
-  background-image: url(../img/icons/mongodb.svg);
-  &:hover ~ .field::before {
-    content: "MongoDB";
-  }
+.mongodb:hover ~ .field::before {
+  content: "MongoDB";
 }
 
-.nltk {
-  background-image: url(../img/icons/nltk.svg);
-  &:hover ~ .field::before {
-    content: "NLTK";
-  }
+.nltk:hover ~ .field::before {
+  content: "NLTK";
 }
 
-.nosql {
-  background-image: url(../img/icons/nosql.png);
-  &:hover ~ .field::before {
-    content: "NoSQL";
-  }
+.nosql:hover ~ .field::before {
+  content: "NoSQL";
 }
 
-.numpy {
-  background-image: url(../img/icons/numpy.svg);
-  &:hover ~ .field::before {
-    content: "NumPy";
-  }
+.numpy:hover ~ .field::before {
+  content: "NumPy";
 }
 
-.openpy {
-  background-image: url(../img/icons/openpyxl.svg);
-  &:hover ~ .field::before {
-    content: "OpenPyXL";
-  }
+.openpy:hover ~ .field::before {
+  content: "OpenPyXL";
 }
 
-.p5js {
-  background-image: url(../img/icons/p5js.svg);
-  &:hover ~ .field::before {
-    content: "p5.js";
-  }
+.p5js:hover ~ .field::before {
+  content: "p5.js";
 }
 
-.pandas {
-  background-image: url(../img/icons/pandas.svg);
-  &:hover ~ .field::before {
-    content: "pandas";
-  }
+.pandas:hover ~ .field::before {
+  content: "pandas";
 }
 
-.photoshop {
-  background-image: url(../img/icons/photoshop.svg);
-  &:hover ~ .field::before {
-    content: "Adobe Photoshop";
-  }
+.photoshop:hover ~ .field::before {
+  content: "Adobe Photoshop";
 }
 
-.postgresql {
-  background-image: url(../img/icons/postgresql.svg);
-  &:hover ~ .field::before {
-    content: "PostgreSQL";
-  }
+.postgresql:hover ~ .field::before {
+  content: "PostgreSQL";
 }
 
-.postman {
-  background-image: url(../img/icons/postman.svg);
-  &:hover ~ .field::before {
-    content: "Postman";
-  }
+.postman:hover ~ .field::before {
+  content: "Postman";
 }
 
-.powerpoint {
-  background-image: url(../img/icons/powerpoint.svg);
-  &:hover ~ .field::before {
-    content: "Microsoft Office PowerPoint";
-  }
+.powerpoint:hover ~ .field::before {
+  content: "Microsoft Office PowerPoint";
 }
 
-.pycharm {
-  background-image: url(../img/icons/pycharm.svg);
-  &:hover ~ .field::before {
-    content: "PyCharm";
-  }
+.pycharm:hover ~ .field::before {
+  content: "PyCharm";
 }
 
-.pygame {
-  background-image: url(../img/icons/pygame.svg);
-  &:hover ~ .field::before {
-    content: "Pygame";
-  }
+.pygame:hover ~ .field::before {
+  content: "Pygame";
 }
 
-.pygbag {
-  background-image: url(../img/icons/pygbag.png);
-  &:hover ~ .field::before {
-    content: "Pygbag";
-  }
+.pygbag:hover ~ .field::before {
+  content: "Pygbag";
 }
 
-.pyscript {
-  background-image: url(../img/icons/pyscript.svg);
-  &:hover ~ .field::before {
-    content: "Pyscript";
-  }
+.pyscript:hover ~ .field::before {
+  content: "Pyscript";
 }
 
-.python {
-  background-image: url(../img/icons/python.svg);
-  &:hover ~ .field::before {
-    content: "Python";
-  }
+.python:hover ~ .field::before {
+  content: "Python";
 }
 
-.pyqt {
-  background-image: url(../img/icons/pyqt.svg);
-  &:hover ~ .field::before {
-    content: "PyQT";
-  }
+.pyqt:hover ~ .field::before {
+  content: "PyQT";
 }
 
-.regex {
-  background-image: url(../img/icons/regex.svg);
-  &:hover ~ .field::before {
-    content: "RegEx";
-  }
+.regex:hover ~ .field::before {
+  content: "RegEx";
 }
 
-.restapi {
-  background-image: url(../img/icons/restapi.svg);
-  &:hover ~ .field::before {
-    content: "REST API";
-  }
+.restapi:hover ~ .field::before {
+  content: "REST API";
 }
 
-.requests {
-  background-image: url(../img/icons/requests.svg);
-  &:hover ~ .field::before {
-    content: "Requests";
-  }
+.requests:hover ~ .field::before {
+  content: "Requests";
 }
 
-.scalar {
-  background-image: url(../img/icons/scalar.svg);
-  &:hover ~ .field::before {
-    content: "Scalar";
-  }
+.scalar:hover ~ .field::before {
+  content: "Scalar";
 }
 
-.spring {
-  background-image: url(../img/icons/spring.svg);
-  &:hover ~ .field::before {
-    content: "Spring";
-  }
+.spring:hover ~ .field::before {
+  content: "Spring";
 }
 
-.sql {
-  background-image: url(../img/icons/sql.svg);
-  &:hover ~ .field::before {
-    content: "SQL";
-  }
+.sql:hover ~ .field::before {
+  content: "SQL";
 }
 
-.sqlalchemy {
-  background-image: url(../img/icons/sqla.svg);
-  &:hover ~ .field::before {
-    content: "SQLAlchemy";
-  }
+.sqlalchemy:hover ~ .field::before {
+  content: "SQLAlchemy";
 }
 
-.sqlite {
-  background-image: url(../img/icons/sqlite.svg);
-  &:hover ~ .field::before {
-    content: "SQLite";
-  }
+.sqlite:hover ~ .field::before {
+  content: "SQLite";
 }
 
-.sublime {
-  background-image: url(../img/icons/sublime.svg);
-  &:hover ~ .field::before {
-    content: "Sublime Text";
-  }
+.sublime:hover ~ .field::before {
+  content: "Sublime Text";
 }
 
-.thyme {
-  background-image: url(../img/icons/thyme.svg);
-  &:hover ~ .field::before {
-    content: "Thymeleaf";
-  }
+.thyme:hover ~ .field::before {
+  content: "Thymeleaf";
 }
 
-.tkinter {
-  background-image: url(../img/icons/tkinter.svg);
-  &:hover ~ .field::before {
-    content: "Tkinter";
-  }
+.tkinter:hover ~ .field::before {
+  content: "Tkinter";
 }
 
-.toml {
-  background-image: url(../img/icons/toml.svg);
-  &:hover ~ .field::before {
-    content: "TOML";
-  }
+.toml:hover ~ .field::before {
+  content: "TOML";
 }
 
-.uv {
-  background-image: url(../img/icons/uv.svg);
-  &:hover ~ .field::before {
-    content: "UV";
-  }
+.uv:hover ~ .field::before {
+  content: "UV";
 }
 
-.visualbasic {
-  background-image: url(../img/icons/vba.svg);
-  &:hover ~ .field::before {
-    content: "VBA";
-  }
+.vba:hover ~ .field::before {
+  content: "VBA";
 }
 
-.vscode {
-  background-image: url(../img/icons/vscode.svg);
-  &:hover ~ .field::before {
-    content: "Visual Studio Code";
-  }
+.vscode:hover ~ .field::before {
+  content: "Visual Studio Code";
 }
 
-.webstorm {
-  background-image: url(../img/icons/webstorm.svg);
-  &:hover ~ .field::before {
-    content: "WebStorm";
-  }
+.webstorm:hover ~ .field::before {
+  content: "WebStorm";
 }
 
-.yaml {
-  background-image: url(../img/icons/yaml.svg);
-  &:hover ~ .field::before {
-    content: "YAML";
-  }
+.yaml:hover ~ .field::before {
+  content: "YAML";
 }

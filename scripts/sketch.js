@@ -86,7 +86,7 @@ class Game {
     }
 
     preload(p) {
-        p.createCanvas(1, 1);
+        p.createCanvas(1, 1).id('blankCanvas');
         p.clear()
     }
 
@@ -103,6 +103,12 @@ class Game {
 
     resume() {
         this.isPaused = false;
+    }
+
+    syncMouse(event, p) {
+        const r = p.canvas.getBoundingClientRect();
+        p.mouseX = (event.clientX - r.left) * (p.width / r.width);
+        p.mouseY = (event.clientY - r.top) * (p.height / r.height);
     }
 
     mousePressed(event, p) {
@@ -146,7 +152,7 @@ class PhonicsGame extends Game {
 
     preload(p) {
         const phonicsContainer = document.querySelector('.phonics-container');
-        p.createCanvas(800, 569).parent(phonicsContainer);
+        p.createCanvas(800, 569).parent(phonicsContainer).id('phonicsCanvas');
         textBlocks = new Buttons(p);
         blaster = new Blaster(p);
         this.bg = p.loadImage(`${this.URL}assets/bg.jpg`);
@@ -438,6 +444,8 @@ class PhonicsGame extends Game {
     mousePressed(event, p) {
         if (this.isPaused) return;
 
+        this.syncMouse(event, p);
+
         if (this.StartScreenDisplay) {
             if (p.mouseX >= p.width / 2 - 80 && p.mouseX <= p.width / 2 + 120 && p.mouseY >= p.height - 100 && p.mouseY <= p.height - 20) {
                 this.StartScreenDisplay = false;
@@ -486,6 +494,8 @@ class PhonicsGame extends Game {
 
     mouseMoved(event, p) {
         if (this.isPaused) return;
+
+        this.syncMouse(event, p);
 
         if (p.mouseY < p.height - textBlocks.height - 2 && p.mouseY > 0) {
             blaster.turn(p.atan2(p.mouseY - (p.height - 50), p.mouseX - (p.width / 2)));
@@ -600,7 +610,7 @@ class LetterGame extends Game {
 
     setup(p) {
         const letterContainer = document.querySelector('.letter-container');
-        p.createCanvas(800, 500, {willReadFrequently: true}).parent(letterContainer);
+        p.createCanvas(800, 500, {willReadFrequently: true}).parent(letterContainer).id('letterCanvas');
         p.noCursor();
         this.resetGame()
         this.soundSave = [0, 0, 0];
@@ -630,6 +640,7 @@ class LetterGame extends Game {
 
     draw(p) {
         if (this.isPaused) return;
+        if (this.lastMouse) this.syncMouse(this.lastMouse, p);
 
         if (this.homeScreen) {
             this.homeDisplay(p);
@@ -926,8 +937,14 @@ class LetterGame extends Game {
         return a > 0 && b > 0 && c > 0;
     }
 
+    mouseMoved(event, p) {
+        this.lastMouse = {clientX: event.clientX, clientY: event.clientY};
+    }
+
     mousePressed(event, p) {
         if (this.isPaused) return;
+
+        this.syncMouse(event, p);
 
         let w2, h2;
         let xdis, ydis;
@@ -1055,7 +1072,7 @@ class PlinkoGame extends Game {
 
     setup(p) {
         const plinkoContainer = document.querySelector('.plinko-container');
-        p.createCanvas(400, 600).parent(plinkoContainer);
+        p.createCanvas(400, 600).parent(plinkoContainer).id('plinkoCanvas');
         p.colorMode(p.HSB);
         p.imageMode(p.CENTER);
         p.textAlign(p.CENTER, p.CENTER);
@@ -1246,6 +1263,8 @@ class PlinkoGame extends Game {
     mousePressed(event, p) {
         if (this.isPaused) return;
 
+        this.syncMouse(event, p);
+
         if (p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height) {
             if (this.particles.length < 5) {
                 this.newBall(p.mouseX, p.mouseY, true, true, p);
@@ -1256,12 +1275,17 @@ class PlinkoGame extends Game {
         }
     }
 
+    mouseMoved(event, p) {
+        this.lastMouse = {clientX: event.clientX, clientY: event.clientY};
+    }
+
     keyDown(event, p) {
         if (this.isPaused) return;
 
         event.preventDefault();
 
         if (p.key === " " && this.particles.length < 5) {
+            if (this.lastMouse) this.syncMouse(this.lastMouse, p);
             this.newBall(p.mouseX, p.mouseY, true, true, p);
         } else if (p.key === "B" || p.key === "b") {
             this.giveBonus(p);

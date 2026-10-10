@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke-linecap="round">
+<svg id="pygame" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke-linecap="round">
 
   <path fill="#aa910d" stroke="#000" d="M 29.32 82.52 C 29.81 73.01
     29.46 63.41 27.32 54.09 C 26.6 50.37 25.81 46.65 25.03 42.94 L 77.4 49.45 C 71.21 55.82
