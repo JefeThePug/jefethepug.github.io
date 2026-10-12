@@ -1,5 +1,5 @@
 <svg id="nosql" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <g transform="translate(12,12) scale(0.15)" filter="var(--icon-filter)">
+  <g transform="translate(12,12) scale(0.15)">
     <path fill="#2163c6"
       d="M442.43 350.41c-50.82 34.85-111.76 46.83-178.53 47.6c-84.79 1.85-157.54-13.9-197.93-50.36l
       0.3 40.9c5.66 46.46 86.54 74.75 198.23 74.39c71.25-5.99 147.69-15.56 177.3-65.81c0.82-22.63 
