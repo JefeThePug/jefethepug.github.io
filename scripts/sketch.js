@@ -486,9 +486,11 @@ class PhonicsGame extends Game {
                 } else {
                     if (p.mouseY < p.height - textBlocks.height - 2 && p.mouseY > 0) {
                         blaster.turn(p.atan2(p.mouseY - (p.height - 50), p.mouseX - (p.width / 2)));
-                        blaster.firing(true, spaceLetter, spaceCode);
-                        this.emptyCartridge = false;
                     }
+                    blaster.firing(true, spaceLetter, spaceCode);
+                    blaster.fire();
+                    blaster.cartridge = 1;
+                    this.emptyCartridge = false;
                 }
             }
         }
