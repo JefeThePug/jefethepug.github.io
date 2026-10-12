@@ -167,3 +167,8 @@ td, th {
 #blankCanvas {
   display: none;
 }
+
+label.buffer,
+label.buffer * {
+  -webkit-tap-highlight-color: transparent;
+}

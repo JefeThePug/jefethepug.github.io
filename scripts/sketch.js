@@ -30,19 +30,25 @@ class GameManager {
     }
 
     setupGlobalMouseListeners() {
-        document.addEventListener('mousedown', (event) => {
+        document.addEventListener('pointerdown', (event) => {
             if (this.currentGame) {
                 this.currentGame.mousePressed(event, this.currentGame.canvas);
             }
         });
 
-        document.addEventListener('mousemove', (event) => {
+        document.addEventListener('pointermove', (event) => {
             if (this.currentGame) {
                 this.currentGame.mouseMoved(event, this.currentGame.canvas);
             }
         });
 
-        document.addEventListener('mouseup', (event) => {
+        document.addEventListener('pointerup', (event) => {
+            if (this.currentGame) {
+                this.currentGame.mouseReleased(event, this.currentGame.canvas);
+            }
+        });
+
+        document.addEventListener('pointercancel', (event) => {
             if (this.currentGame) {
                 this.currentGame.mouseReleased(event, this.currentGame.canvas);
             }
@@ -106,6 +112,7 @@ class Game {
     }
 
     syncMouse(event, p) {
+        this.lastMouse = {clientX: event.clientX, clientY: event.clientY};
         const r = p.canvas.getBoundingClientRect();
         p.mouseX = (event.clientX - r.left) * (p.width / r.width);
         p.mouseY = (event.clientY - r.top) * (p.height / r.height);
@@ -594,6 +601,9 @@ class LetterGame extends Game {
         this.guessMusic = null;
         this.sfChime = null;
         this.soundSave = [];
+        this.pressed = false;
+        this.pressLatch = false;
+        this.down = false;
     }
 
     preload(p) {
@@ -646,6 +656,9 @@ class LetterGame extends Game {
     draw(p) {
         if (this.isPaused) return;
         if (this.lastMouse) this.syncMouse(this.lastMouse, p);
+
+        this.down = this.pressed || this.pressLatch;
+        this.pressLatch = false;
 
         if (this.homeScreen) {
             this.homeDisplay(p);
@@ -767,7 +780,7 @@ class LetterGame extends Game {
             this.constellationAnswer = p.floor(p.random(1, 26));
         }
 
-        if (!this.guessing && p.mouseIsPressed && p.mouseX <= p.width && p.mouseY <= p.height - 100) {
+        if (!this.guessing && this.down && p.mouseX <= p.width && p.mouseY <= p.height - 100) {
             this.inImage = false;
             let target = this.findPixel(p);
             let position = p.createVector(p.mouseX, p.mouseY);
@@ -798,8 +811,8 @@ class LetterGame extends Game {
         const h2 = p.height - 25;
         const ydis = p.abs(p.mouseY - h2);
         p.fill(85, 0, 190);
-        if (p.mouseIsPressed && xdis <= 70 && ydis <= 15) {
-            p.mouseIsPressed = false;
+        if (this.down && xdis <= 70 && ydis <= 15) {
+            this.pressed = false;
             if (this.doneGame) {
                 this.resetGame();
             } else {
@@ -943,13 +956,14 @@ class LetterGame extends Game {
     }
 
     mouseMoved(event, p) {
-        this.lastMouse = {clientX: event.clientX, clientY: event.clientY};
+        this.syncMouse(event, p);
     }
 
     mousePressed(event, p) {
         if (this.isPaused) return;
 
         this.syncMouse(event, p);
+        this.pressed = true;
 
         let w2, h2;
         let xdis, ydis;
@@ -966,7 +980,7 @@ class LetterGame extends Game {
             xdis = p.abs(p.mouseX - windowW);
             ydis = p.abs(p.mouseY - (windowH + 50));
             if (p.dist(p.mouseX, p.mouseY, windowW, windowH - iconSize / 2) <= iconSize * 0.8) {
-                p.mouseIsPressed = false;
+                this.pressed = false;
                 this.BGMon = !this.BGMon;
                 if (!this.BGMon) {
                     this.BGM.fade(0, 0);
@@ -988,7 +1002,7 @@ class LetterGame extends Game {
                         this.sfChime.play();
                         this.sfChime.fade(2, 0);
                     }
-                    p.mouseIsPressed = false;
+                    this.pressed = false;
                     this.homeScreen = false;
                     if (p.abs(p.mouseY - 350) <= 30) {
                         this.instrucScreen = true;
@@ -1007,7 +1021,7 @@ class LetterGame extends Game {
                 this.guessing = false;
                 this.guessMusic.fade(0, 2);
             } else if (letterGuess) {
-                p.mouseIsPressed = false;
+                this.pressed = false;
                 this.result(letterGuess, p);
             }
         }
@@ -1023,8 +1037,12 @@ class LetterGame extends Game {
             this.guessMusic.fade(0, 1);
             this.settingsScreen = false;
             this.homeScreen = true;
-
         }
+        this.pressLatch = this.pressed;
+    }
+
+    mouseReleased(event, p) {
+        this.pressed = false;
     }
 
     pause() {
