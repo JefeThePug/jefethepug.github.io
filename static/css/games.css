@@ -7,6 +7,10 @@ canvas {
   display: block;
   height: auto !important;
   max-height: 500px;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
   width: clamp(0px, 100%, 800px) !important;
 }
 
