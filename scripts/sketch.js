@@ -1096,6 +1096,7 @@ class PlinkoGame extends Game {
     setup(p) {
         const plinkoContainer = document.querySelector('.plinko-container');
         p.createCanvas(400, 600).parent(plinkoContainer).id('plinkoCanvas');
+        this.ac = p.getAudioContext();
         p.colorMode(p.HSB);
         p.imageMode(p.CENTER);
         p.textAlign(p.CENTER, p.CENTER);
@@ -1133,67 +1134,68 @@ class PlinkoGame extends Game {
         }
         for (let b = 0; b < this.bounds.length; b++) {
             this.bounds[b].show(p);
-            for (let i = 0; i < 5; i++) {
-                if (this.finished) {
-                    let x = this.score.getImage(i);
-                    p.image(this.scoreballs[x], i * this.spacing * 2 + this.spacing, p.height - this.spacing * 3);
-                } else {
-                    p.image(this.scoreballs[0], i * this.spacing * 2 + this.spacing, p.height - this.spacing * 3);
+        }
+        for (let i = 0; i < 5; i++) {
+            if (this.finished) {
+                let x = this.score.getImage(i);
+                p.image(this.scoreballs[x], i * this.spacing * 2 + this.spacing, p.height - this.spacing * 3);
+            } else {
+                p.image(this.scoreballs[0], i * this.spacing * 2 + this.spacing, p.height - this.spacing * 3);
+            }
+        }
+        p.push();
+        p.fill(0, 0, 0);
+        p.stroke(60, 100, 100);
+        p.strokeWeight(3);
+        p.textSize(50);
+        if (this.finished) {
+            let SCORE = 0;
+            for (let s = 0; s < this.goals.length; s++) {
+                SCORE += this.score.getValue(this.goals[s] - 1);
+            }
+            p.text("YOUR SCORE", p.width / 2, p.height / 2 - 100);
+            p.strokeWeight(6);
+            p.textSize(150);
+            p.text(SCORE, p.width / 2, p.height / 2);
+        } else {
+            if (this.particles.length < 5) {
+                p.text("Place 5 balls", p.width / 2, p.height / 2 - 100);
+                p.text("at the top", p.width / 2, p.height / 2 - 50);
+            } else {
+                for (let i = 0; i < this.particles.length; i++) {
+                    this.particles[i].wake();
                 }
             }
+        }
+        p.pop();
+        let activeCount = 0;
+        for (let i = this.particles.length - 1; i >= 0; i--) {
+            this.particles[i].show(p);
+            if (this.particles[i].isOffScreen()) {
+                World.remove(world, this.particles[i].body);
+                this.particles.splice(i, 1);
+                continue;
+            }
+            if (this.particles[i].body.label === "particle") {
+                activeCount++;
+            }
+        }
+        if (activeCount === 0 && this.particles.length !== 0) {
+            this.finished = true;
+        }
+        if (this.tilted) {
             p.push();
-            p.fill(0, 0, 0);
-            p.stroke(60, 100, 100);
-            p.strokeWeight(3);
-            p.textSize(50);
-            if (this.finished) {
-                let SCORE = 0;
-                for (let s = 0; s < this.goals.length; s++) {
-                    SCORE += this.score.getValue(this.goals[s] - 1);
-                }
-                p.text("YOUR SCORE", p.width / 2, p.height / 2 - 100);
-                p.strokeWeight(6);
-                p.textSize(150);
-                p.text(SCORE, p.width / 2, p.height / 2);
-            } else {
-                if (this.particles.length < 5) {
-                    p.text("Place 5 balls", p.width / 2, p.height / 2 - 100);
-                    p.text("at the top", p.width / 2, p.height / 2 - 50);
-                } else {
-                    for (let i = 0; i < this.particles.length; i++) {
-                        this.particles[i].wake();
-                    }
-                }
+            p.textSize(150);
+            p.fill(0, 100, 100);
+            p.textStyle(p.ITALIC);
+            if (this.tiltreset % 2 === 1) {
+                p.text("TILT", p.width / 2 - 10, p.height / 2);
             }
             p.pop();
-            let activeCount = 0;
-            for (let i = this.particles.length - 1; i >= 0; i--) {
-                this.particles[i].show(p);
-                if (this.particles[i].isOffScreen()) {
-                    World.remove(world, this.particles[i].body);
-                    this.particles.splice(i, 1);
-                }
-                if (this.particles[i].body.label === "particle") {
-                    activeCount++;
-                }
-            }
-            if (activeCount === 0 && this.particles.length !== 0) {
-                this.finished = true;
-            }
-            if (this.tilted) {
-                p.push();
-                p.textSize(150);
-                p.fill(0, 100, 100);
-                p.textStyle(p.ITALIC);
-                if (this.tiltreset % 2 === 1) {
-                    p.text("TILT", p.width / 2 - 10, p.height / 2);
-                }
-                p.pop();
-                this.tiltreset++;
-                if (this.tiltreset === 10) {
-                    this.tiltreset = 0;
-                    this.tilted = false;
-                }
+            this.tiltreset++;
+            if (this.tiltreset === 10) {
+                this.tiltreset = 0;
+                this.tilted = false;
             }
         }
     }
@@ -1212,13 +1214,22 @@ class PlinkoGame extends Game {
         }
     }
 
+    playDing(i) {
+        const sf = this.dings[i];
+        if (!sf || !sf.buffer || !this.ac) return;
+        const src = this.ac.createBufferSource();
+        src.buffer = sf.buffer;
+        src.connect(this.ac.destination);
+        src.start(0, 0.5, 0.5);   // same as play(0, 1, 1, 0.5, 0.5): from 0.5s, for 0.5s
+    }
+
     pegHit(A, B) {
         if (!this.muted) {
             if (A.label === "peg") {
-                this.dings[A.sound].play(0, 1, 1, 0.5, 0.5);
+                this.playDing(A.sound);
                 A.c = 60;
             } else {
-                this.dings[B.sound].play(0, 1, 1, 0.5, 0.5);
+                this.playDing(B.sound);
                 B.c = 60;
             }
         }
