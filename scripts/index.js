@@ -141,6 +141,43 @@ if (savedTheme) {
 updateNavIcons();
 
 
+async function inlineIcons() {
+    const uses = [...document.querySelectorAll('use[href^="static/img/icons/"]')];
+    if (!uses.length) return;
+
+    const files = [...new Set(uses.map((u) => u.getAttribute('href').split('#')[0]))];
+    const holder = document.createElement('div');
+    holder.setAttribute('aria-hidden', 'true');
+    holder.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;';
+    document.body.prepend(holder);
+
+    await Promise.all(files.map(async (file) => {
+        try {
+            const res = await fetch(file);
+            const text = (await res.text()).replace(/<\?xml[^>]*\?>/, '');
+            holder.insertAdjacentHTML('beforeend', text);
+        } catch (e) {
+            console.warn('Icon failed to load:', file, e);
+        }
+    }));
+
+    holder.querySelectorAll('*').forEach((el) => {
+        [...el.attributes].forEach((attr) => {
+            if (attr.name !== 'style' && attr.value.includes('var(')) {
+                el.style.setProperty(attr.name, attr.value);
+                el.removeAttribute(attr.name);
+            }
+        });
+    });
+
+    uses.forEach((u) => {
+        u.setAttribute('href', '#' + u.getAttribute('href').split('#')[1]);
+    });
+}
+
+inlineIcons();
+
+
 const isGamesPage = /\/games(?:\.html)?\/?$/.test(window.location.pathname);
 const loading = document.getElementById("loading");
 const goal = !loading ? 0 : (isGamesPage ? 2 : 1);
